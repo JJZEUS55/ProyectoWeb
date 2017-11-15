@@ -1,41 +1,25 @@
-create database proyecto1;
-use proyecto1;
+create database proyecto;
+use proyecto;
 
-create table alumno(
-	idAlumno int not null auto_increment primary key,
-    nombre varchar(30),
-    apPaterno varchar(30),
-    apMaterno varchar(30),
-    idGrupo int,
-    foreign key (idGrupo) references grupo(idGrupo)
-    on update cascade on delete cascade
-);
 
-create table usuarioAlumno(
-	idAlumno int not null,
-    usuario varchar(20),
+create table usuarios(
+	idUsuario int not null primary key,
+	usuario varchar(20),
     contrasena varchar(20),
-    foreign key (idAlumno) references alumno(idAlumno)
-    on delete cascade on update cascade
+    tipoUsuario int(2)
 );
 
 create table profesor(
-	idProfesor int not null auto_increment primary key,
-    nombre varchar(30),
-    apPaterno varchar(30),
-    apMaterno varchar(30),
-	idGrupo int not null
-);
-
-
-create table usuarioProfesor(
 	idProfesor int not null,
     usuario varchar(20),
     contrasena varchar(20),
-    foreign key (idProfesor) references profesor(idProfesor)
-    on delete cascade on update cascade    
+    nombre varchar(30),
+    apPaterno varchar(30),
+    apMaterno varchar(30),
+	idGrupo int not null,
+	foreign key (idProfesor) references usuarios(idUsuario)
+    on update cascade on delete cascade
 );
-
 
 create table grupo(
 	idGrupo int not null primary key,
@@ -45,27 +29,30 @@ create table grupo(
     on update cascade on delete cascade    
 );
 
-create table usuarios(
-	usuario varchar(20),
+create table alumno(
+	idAlumno int not null,
+    usuario varchar(20),
     contrasena varchar(20),
-    tipoUsuario int(2)
+    nombre varchar(30),
+    apPaterno varchar(30),
+    apMaterno varchar(30),
+    idGrupo int,
+    foreign key (idGrupo) references grupo(idGrupo)
+    on update cascade on delete cascade,
+    foreign key (idAlumno) references usuarios(idUsuario)
+    on update cascade on delete cascade
 );
 
 create table administrador(
-	idAdministrador int not null primary key auto_increment,
+	idAdministrador int not null,
     nombre varchar(60),
     usuario varchar(20),
-    contrasena varchar(20)
+    contrasena varchar(20),
+    foreign key (idAdministrador) references usuarios(idUsuario)
+    on delete cascade on update cascade
 );
 
 
-
-
-alter table profesor add foreign key (idGrupo) references grupo(idGrupo)
-on delete cascade on update cascade;
-
-
-alter table 
 
 
 
