@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 16, 2017 1:24:47 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Usuarios" table="usuarios" catalog="proyecto" optimistic-lock="version">
+        <id name="idUsuario" type="int">
+            <column name="idUsuario" />
+            <generator class="assigned" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="20" />
+        </property>
+        <property name="contrasena" type="string">
+            <column name="contrasena" length="20" />
+        </property>
+        <property name="tipoUsuario" type="java.lang.Integer">
+            <column name="tipoUsuario" />
+        </property>
+    </class>
+</hibernate-mapping>

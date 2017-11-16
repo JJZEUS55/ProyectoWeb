@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 16, 2017 1:24:47 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Grupo" table="grupo" catalog="proyecto" optimistic-lock="version">
+        <id name="idGrupo" type="int">
+            <column name="idGrupo" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="20" />
+        </property>
+        <property name="idProfesor" type="int">
+            <column name="idProfesor" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
