@@ -3,6 +3,11 @@ create database proyecto;
 use proyecto;
 
 
+create table grupo(
+	idGrupo int not null primary key auto_increment,
+    nombre varchar(20)
+);
+
 create table usuarios(
 	idUsuario int not null primary key,
 	usuario varchar(20),
@@ -16,13 +21,8 @@ create table usuarios(
    on delete cascade on update cascade 
 );
 
-
-create table grupo(
-	idGrupo int not null primary key auto_increment,
-    nombre varchar(20)
-);
-
 create table calificaciones(
+	idCalificacion int not null auto_increment primary key,
 	idUsuario int not null,
     calificacion int(2),
     foreign key(idUsuario) references usuarios(idUsuario)
@@ -30,6 +30,7 @@ create table calificaciones(
 );
 
 create table tareas(
+	idTareas int not null primary key auto_increment,
 	idUsuario int not null,
     archivo varchar(10000),
     foreign key(idUsuario) references usuarios(idUsuario)
