@@ -30,8 +30,7 @@ public class Usuarios  implements java.io.Serializable {
         this.idUsuario = idUsuario;
         this.grupo = grupo;
     }
-    public Usuarios(int idUsuario, Grupo grupo, String usuario, String contrasena, Integer tipoUsuario, String nombre, String apPaterno, String apMaterno, Set tareases, Set calificacioneses) {
-       this.idUsuario = idUsuario;
+    public Usuarios(Grupo grupo, String usuario, String contrasena, Integer tipoUsuario, String nombre, String apPaterno, String apMaterno, Set tareases, Set calificacioneses) {
        this.grupo = grupo;
        this.usuario = usuario;
        this.contrasena = contrasena;

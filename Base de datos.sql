@@ -9,7 +9,7 @@ create table grupo(
 );
 
 create table usuarios(
-	idUsuario int not null primary key,
+	idUsuario int not null primary key auto_increment,
 	usuario varchar(20),
     contrasena varchar(20),
     tipoUsuario int(2),
