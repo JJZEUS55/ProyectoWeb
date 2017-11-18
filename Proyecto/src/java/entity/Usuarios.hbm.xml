@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 18, 2017 3:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Usuarios" table="usuarios" catalog="proyecto" optimistic-lock="version">
+        <id name="idUsuario" type="int">
+            <column name="idUsuario" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="grupo" class="entity.Grupo" fetch="select">
+            <column name="idGrupo" not-null="true" />
+        </many-to-one>
+        <property name="usuario" type="string">
+            <column name="usuario" length="20" />
+        </property>
+        <property name="contrasena" type="string">
+            <column name="contrasena" length="20" />
+        </property>
+        <property name="tipoUsuario" type="java.lang.Integer">
+            <column name="tipoUsuario" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="30" />
+        </property>
+        <property name="apPaterno" type="string">
+            <column name="apPaterno" length="30" />
+        </property>
+        <property name="apMaterno" type="string">
+            <column name="apMaterno" length="30" />
+        </property>
+        <set name="tareases" table="tareas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="entity.Tareas" />
+        </set>
+        <set name="calificacioneses" table="calificaciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="entity.Calificaciones" />
+        </set>
+    </class>
+</hibernate-mapping>

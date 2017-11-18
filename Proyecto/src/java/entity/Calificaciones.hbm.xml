@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 18, 2017 3:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Calificaciones" table="calificaciones" catalog="proyecto" optimistic-lock="version">
+        <id name="idCalificacion" type="java.lang.Integer">
+            <column name="idCalificacion" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuarios" class="entity.Usuarios" fetch="select">
+            <column name="idUsuario" not-null="true" />
+        </many-to-one>
+        <property name="calificacion" type="java.lang.Integer">
+            <column name="calificacion" />
+        </property>
+    </class>
+</hibernate-mapping>
