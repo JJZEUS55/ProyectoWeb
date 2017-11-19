@@ -5,7 +5,8 @@
 <struts>
     <include file="example.xml"/>
     <!-- Configuration for the default package. -->
-    <package name="login" namespace="/InicioSesion" extends="struts-default">
+    
+    <package name="Actions" namespace="/All" extends="struts-default">
 	<action name="Iniciar" class="login.Login" method="Login">
             <result name="1">/Alumno.jsp</result>
             <result name="2">/Teacher.jsp</result>
@@ -15,5 +16,20 @@
         <action name="Cerrar" class="login.Login" method="Logout">
             <result name="1">/Login.jsp</result>
     	</action>
+        <action name="cargarGrupos" class="Administrador.AdminAction" method="cargarGrupos">
+            <result name="1">/AdministradorGrupos.jsp</result>
+    	</action>
+        <action name="modificarGrupo" class="Administrador.AdminAction" method="modificarGrupo">
+            <result name="1">/AdministradorGrupos.jsp</result>
+    	</action>
+        <action name="eliminarGrupo" class="Administrador.AdminAction" method="eliminarGrupo">
+            <result name="1">/AdministradorGrupos.jsp</result>
+    	</action>
+        <action name="cargarUsuarios" class="Administrador.AdminAction" method="cargarUsuarios">
+            <result name="1">/AdministradorUsuarios.jsp</result>
+    	</action>
+        
     </package>
+    
+
 </struts>

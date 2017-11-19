@@ -25,7 +25,7 @@ public class BaseDatos {
     Usuarios u; 
     
     public BaseDatos(){}
-    public boolean iniciarSesion(String userName, String password)
+    public boolean iniciarSesion(String userName, String password)//Returna true si el usuario es valido en la base de datos
     {
         
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
@@ -39,7 +39,7 @@ public class BaseDatos {
         }
         return false;
     }
-    public int getTipoUsuario(String userName)
+    public int getTipoUsuario(String userName)  //Retorna el tipo de usuario(1:Estudiante, 2:alumno, 3:Administrador)
     {
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
         Transaction t1 = hibernateSession.beginTransaction();
@@ -47,5 +47,17 @@ public class BaseDatos {
         return u.getTipoUsuario();
     }
     
+    public List TodosGrupos () // Regresa una lista con todos los grupos de la base
+    {
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Query consulta=hibernateSession.createQuery("from Grupo");
+        return consulta.list();
+    }
+    public List TodosTablaX(String Tabla)
+    {
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Query consulta=hibernateSession.createQuery("from "+Tabla);
+        return consulta.list();
+    }
     
 }

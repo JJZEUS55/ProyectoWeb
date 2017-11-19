@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <s:form action="/InicioSesion/Iniciar">
+        <s:form action="/All/Iniciar">
             <s:textfield name="username" />
             <s:password name="password" />
             <s:submit />

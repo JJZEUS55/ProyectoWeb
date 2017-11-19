@@ -39,6 +39,15 @@ create table tareas(
 
 
 
+insert into grupo values (1,"grupo");
+insert into grupo values (2,"grupoA");
+insert into grupo values (3,"grupoB");
+insert into grupo values (4,"grupoC");
+insert into grupo values (5,"grupoD");
+insert into grupo values (6,"grupoE");
+insert into usuarios values(1,"Usuario1","1",1,"Name","ApellidoP","ApellidoM",1);
+insert into usuarios values(2,"Usuario2","2",2,"Name","ApellidoP","ApellidoM",1);
+insert into usuarios values(3,"Usuario3","3",3,"Name","ApellidoP","ApellidoM",1);
 
 
 
