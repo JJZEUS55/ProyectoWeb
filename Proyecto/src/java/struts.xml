@@ -5,6 +5,12 @@
 <struts>
     <include file="example.xml"/>
     <!-- Configuration for the default package. -->
-    <package name="default" extends="struts-default">
+    <package name="login" namespace="/InicioSesion" extends="struts-default">
+	<action name="Iniciar" class="login.Login">
+            <result name="1">/Alumno.jsp</result>
+            <result name="2">/Teacher.jsp</result>
+            <result name="3">/Administrador.jsp</result>
+            <result name="4">/Error.jsp</result>
+    	</action>
     </package>
 </struts>
