@@ -17,5 +17,6 @@
             <s:password name="password" />
             <s:submit />
         </s:form>
+        <h1><s:property value="mensaje"/></h1>
     </body>
 </html>

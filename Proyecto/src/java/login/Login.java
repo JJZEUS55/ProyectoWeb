@@ -5,16 +5,48 @@
  */
 package login;
 
+import java.util.Map;  
 import BD.BaseDatos;
 import com.opensymphony.xwork2.ActionSupport;
+import com.sun.corba.se.spi.presentation.rmi.StubAdapter;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import org.apache.struts2.interceptor.SessionAware;
+import org.apache.struts2.dispatcher.SessionMap;  
+
 
 /**
  *
  * @author ZOLUN
  */
-public class Login extends ActionSupport {
+public class Login extends ActionSupport implements SessionAware{
     private String username;
     private String password;
+    private String mensaje;
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+    private String lista;
+    private SessionMap<String,Object> sessionMap;  
+
+    @Override  
+    public void setSession(Map<String, Object> map) {  
+    sessionMap=(SessionMap)map;  
+} 
+    
+    public String getLista() {
+        return lista;
+    }
+
+    public void setLista(String lista) {
+        this.lista = lista;
+    }
 
     public String getUsername() {
         return username;
@@ -33,16 +65,26 @@ public class Login extends ActionSupport {
     }
     
     
-    
     public Login() {
     }
     
-    public String execute() 
+    public String Logout()
+    {
+        System.out.println("Cerrarrr");
+        if (sessionMap.containsKey("username")) {
+            sessionMap.remove("username");
+        }
+        mensaje="Sesion Finalizada";
+        return "1";
+    }
+    
+    public String Login() 
     {
         
         BaseDatos var = new BaseDatos();
         if(var.iniciarSesion(username, password))
         {
+            sessionMap.put("username", username);
             switch(var.getTipoUsuario(username))
             {
                 case 1: return "1"; // alumno
@@ -51,7 +93,9 @@ public class Login extends ActionSupport {
                 default: return "4";
             }
         }
+        mensaje="Error usario o password incorrectos";
         return "4"; //error
     }
     
+
 }

@@ -12,6 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello Admin</h1>
+        <h1>Hello Admin ${sessionScope.username}</h1>
+        <h1><a href="Cerrar.action">Logout</a></h1>
     </body>
 </html>
