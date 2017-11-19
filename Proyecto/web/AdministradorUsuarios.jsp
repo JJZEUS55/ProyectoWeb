@@ -15,9 +15,43 @@
     </head>
     <body>
         <h1>Usuarios</h1>
-        <s:iterator value="lista">
-            <s:property value="%{usuario}" />
-            <br />
-        </s:iterator>
+        <h1>Modificar Usuarios</h1>
+        <table>
+            <tr>
+                <td>IdUsuario</td>
+                <td>Usuario</td>
+                <td>Tipo</td>
+                <td>Nombre</td>
+                <td>Apellido Paterno</td>
+                <td>Apellido Materno</td>
+                <td>Grupo</td>
+            </tr>
+        
+            <s:iterator value="lista">
+                <tr>
+                    <td>
+                        <s:property value="%{idUsuario}" />
+                    </td>
+                    <td>
+                        <s:property value="%{usuario}" />
+                    </td>
+                    <td>
+                        <s:property value="%{tipoUsuario}" />
+                    </td>
+                    <td>
+                        <s:property value="%{nombre}" />
+                    </td>
+                    <td>
+                        <s:property value="%{apPaterno}" />
+                    </td>
+                    <td>
+                        <s:property value="%{apMaterno}" />
+                    </td>
+                    <td>
+                        <s:property value="%{idGrupo}" />
+                    </td>
+                </tr>
+            </s:iterator>
+        </table>
     </body>
 </html>

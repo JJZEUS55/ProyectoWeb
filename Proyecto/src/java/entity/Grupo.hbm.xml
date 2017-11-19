@@ -15,7 +15,7 @@
             <key>
                 <column name="idGrupo" not-null="true" />
             </key>
-            <one-to-many class="entity.Usuarios" />
+            <one-to-many class="entity.Usuarios"/>
         </set>
     </class>
 </hibernate-mapping>

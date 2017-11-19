@@ -15,12 +15,21 @@
     </head>
     <body>
         <h1>Grupos</h1>
+        
+        <h1>Nuevo Grupo</h1>
+        <s:form action="/All/agregarGrupo">
+            <s:textfield name="NombreGrupo" label="Nombre del grupo" />
+            <s:submit value="Agregar" />
+        </s:form>
+        <h3><s:property value="mensaje"/></h3>
+        <hr/>
         <table>
             <tr>
                 <td>Identificador Grupo</td>
                 <td>Nombre del grupo</td>
                 <td>Accion</td>
             </tr>
+            
             <s:iterator value="lista">
                 <s:url action="modificarGrupo" var="temporalA" >
                     <s:param name="id" value="%{idGrupo}" />

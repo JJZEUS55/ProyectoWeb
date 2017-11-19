@@ -25,6 +25,9 @@
         <action name="eliminarGrupo" class="Administrador.AdminAction" method="eliminarGrupo">
             <result name="1">/AdministradorGrupos.jsp</result>
     	</action>
+        <action name="agregarGrupo" class="Administrador.AdminAction" method="agregarGrupo">
+            <result name="1">/AdministradorGrupos.jsp</result>
+    	</action>
         <action name="cargarUsuarios" class="Administrador.AdminAction" method="cargarUsuarios">
             <result name="1">/AdministradorUsuarios.jsp</result>
     	</action>
