@@ -15,7 +15,15 @@
     </head>
     <body>
         <h1>Usuarios</h1>
-        <h1>Modificar Usuarios</h1>
+        <h1>Hello Admin ${sessionScope.username}</h1>
+        <h1><a href="Cerrar.action">Logout</a></h1>
+        
+        <hr>
+        <s:url action="cargarGrupos" var="prueba" />
+        <s:url action="cargarUsuarios" var="prueba2" />
+        <h1><s:a href="%{prueba}">Modificar grupos</s:a></h1>
+        <h1><s:a href="%{prueba2}">Modificar usuarios</s:a></h1>
+        <hr>
         
         <s:form action="/All/agregarUsuarios">
             <s:textfield name="usernameN" label="Usuario"/>

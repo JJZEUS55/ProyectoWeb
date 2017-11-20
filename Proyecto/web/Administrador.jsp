@@ -22,6 +22,6 @@
         <s:url action="cargarUsuarios" var="prueba2" />
         <h1><s:a href="%{prueba}">Modificar grupos</s:a></h1>
         <h1><s:a href="%{prueba2}">Modificar usuarios</s:a></h1>
-
+        <hr>
     </body>
 </html>
