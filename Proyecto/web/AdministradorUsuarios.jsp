@@ -41,6 +41,9 @@
             </tr>
         
             <s:iterator value="lista">
+                <s:url action="eliminarUsuario" var="temporalA" >
+                    <s:param name="id" value="%{idUsuario}" />
+                </s:url>
                 <tr>
                     <td>
                         <s:property value="%{idUsuario}" />
@@ -63,7 +66,7 @@
                     <td>
                         <s:property value="%{idGrupo}" />
                     </td>
-                    <td>Modificar || Eliminar</td>
+                    <td>Modificar || <s:a href="%{temporalA}">Eliminar</s:a></td>
                 </tr>
             </s:iterator>
         </table>
