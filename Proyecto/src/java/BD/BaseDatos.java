@@ -126,6 +126,28 @@ public class BaseDatos {
         return consulta.list();        
     }
     
+    public List getAlumno(String idUsuario) {
+
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Query consulta = hibernateSession.createQuery("from Usuario where idUsuario=" + idUsuario);
+        return consulta.list();
+    }
+
+    public boolean modificarAlumno(Usuarios alumno, String usuario, String password) {
+        boolean modificacion = false;
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = null;
+        try {
+            t = hibernateSession.beginTransaction();
+//            alumno.setUsuario();
+//            alumno.setContrasena();
+
+        } catch (Exception e) {
+        }
+
+        return modificacion;
+    }
+    
     
 
 }

@@ -34,13 +34,9 @@
     	</action>     
         <action name="eliminarUsuario" class="Administrador.AdminDeleteUser" method="eliminarUsuario">
             <result name="1">/AdministradorUsuarios.jsp</result>
-    	</action>      
+    	</action>  
+        <action name="cargarCalificaciones" class="Alumno.action.AlumnoAction" method="cargarCalificaciones">
+            <result name="success">/AlumnoCalificaciones.jsp</result>            
+        </action>    
     </package>
-    <package name="ActionsAlumno" namespace="/Alumno" extends="struts-default">
-        <action name="cargarCalificacion" class="Alumno.action.AlumnoAction" method="cargarCalificaciones">
-            <result name="calificacion">AlumnoCalificaciones.j</result>            
-        </action>        
-    </package>
-    
-
 </struts>

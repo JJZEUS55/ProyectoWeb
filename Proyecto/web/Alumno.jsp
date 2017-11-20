@@ -16,6 +16,6 @@
         <h1><a href="Cerrar.action">Logout</a></h1>
         <br/><h1><a href="Cerrar.action">Inicio</a></h1>
         <h1><a href="Cerrar.action">Ver Ejercicios</a></h1>
-        <h1><a href="cargarCalificacion.action">Ver Calificaciones</a></h1>
+        <h1><a href="cargarCalificaciones.action">Ver Calificaciones</a></h1>
     </body>
 </html>

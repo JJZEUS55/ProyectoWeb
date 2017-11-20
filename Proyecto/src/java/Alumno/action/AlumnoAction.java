@@ -12,7 +12,6 @@ import java.util.List;
 public class AlumnoAction extends ActionSupport {
 
     Usuarios alumno;
-
     List listaCalificaciones;
 
     public AlumnoAction() {
@@ -37,7 +36,12 @@ public class AlumnoAction extends ActionSupport {
     public String cargarCalificaciones(){
         BaseDatos bd = new BaseDatos();
         listaCalificaciones = bd.getCalificacion(alumno);
-        return "calificacion";
+        return SUCCESS;
+    }
+    
+    public String modificarAlumno(){
+        
+        return SUCCESS;
     }
 
 }

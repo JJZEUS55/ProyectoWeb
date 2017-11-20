@@ -49,6 +49,8 @@ insert into usuarios values(1,"Usuario1","1",1,"Name","ApellidoP","ApellidoM",1)
 insert into usuarios values(2,"Usuario2","2",2,"Name","ApellidoP","ApellidoM",1);
 insert into usuarios values(3,"Usuario3","3",3,"Name","ApellidoP","ApellidoM",1);
 
+-- Insert Calificaciones
+insert into calificaciones values(1, 1, 9);
 
 
 

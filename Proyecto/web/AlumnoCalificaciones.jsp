@@ -23,7 +23,7 @@
             <s:iterator value="listaCalificaciones">
                 <tr>
                     <td>
-                        <s:property value="%{idUsuario}"/>
+                        <s:property value="%{Usuarios.nombre}"/>
                     </td>
                     <td>
                         <s:property value="%{idCalificacion}"/>
