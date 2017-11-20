@@ -30,8 +30,12 @@
     	</action>
         <action name="cargarUsuarios" class="Administrador.AdminAction" method="cargarUsuarios">
             <result name="1">/AdministradorUsuarios.jsp</result>
-    	</action>
-        
+    	</action>        
+    </package>
+    <package name="ActionsAlumno" extends="struts-default">
+        <action name="cargarCalificacion" class="Alumno.action.AlumnoAction" method="cargarCalificaciones">
+            <result name="calificacion">AlumnoCalificaciones.jsp</result>            
+        </action>        
     </package>
     
 

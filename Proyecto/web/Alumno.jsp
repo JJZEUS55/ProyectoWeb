@@ -12,7 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello Student ${sessionScope.username}</h1>
+        <h1>Bienvenido Estudiante ${sessionScope.username}</h1>
         <h1><a href="Cerrar.action">Logout</a></h1>
+        <br/><h1><a href="Cerrar.action">Inicio</a></h1>
+        <h1><a href="Cerrar.action">Ver Ejercicios</a></h1>
+        <h1><a href="cargarCalificacion.action">Ver Calificaciones</a></h1>
     </body>
 </html>
