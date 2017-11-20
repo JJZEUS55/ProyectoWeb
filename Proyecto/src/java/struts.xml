@@ -2,9 +2,7 @@
 "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
-<struts>
-    <include file="example.xml"/>
-    <!-- Configuration for the default package. -->
+<struts>    <!-- Configuration for the default package. -->
     
     <package name="Actions" namespace="/All" extends="struts-default">
 	<action name="Iniciar" class="login.Login" method="Login">
@@ -32,9 +30,9 @@
             <result name="1">/AdministradorUsuarios.jsp</result>
     	</action>        
     </package>
-    <package name="ActionsAlumno" extends="struts-default">
+    <package name="ActionsAlumno" namespace="/Alumno" extends="struts-default">
         <action name="cargarCalificacion" class="Alumno.action.AlumnoAction" method="cargarCalificaciones">
-            <result name="calificacion">AlumnoCalificaciones.jsp</result>            
+            <result name="calificacion">AlumnoCalificaciones.j</result>            
         </action>        
     </package>
     
