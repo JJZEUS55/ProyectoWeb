@@ -23,8 +23,12 @@ public class BaseDatos {
 
     Session hibernateSession;
     Usuarios u;
+    Grupo g;
 
     public BaseDatos() {
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t1 = hibernateSession.beginTransaction();
+        g = (Grupo) hibernateSession.createQuery("from Grupo where idGrupo = 1").uniqueResult();
     }
 
     public boolean iniciarSesion(String userName, String password)//Returna true si el usuario es valido en la base de datos
@@ -49,7 +53,32 @@ public class BaseDatos {
         u = (Usuarios) hibernateSession.createQuery("from Usuarios where usuario='" + userName + "'").uniqueResult();
         return u.getTipoUsuario();
     }
-
+    public boolean agregarUsuario(String usernameN, String passwordN, int tipoN, String nombreN, String app, String apm)
+    {
+        Usuarios nuevo = new Usuarios();
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t1 = hibernateSession.beginTransaction();
+        nuevo = (Usuarios) hibernateSession.createQuery("from Usuarios where usuario ='" + usernameN + "'").uniqueResult();
+        if(nuevo == null) // si nuevo es null se puede agregar
+        {
+            Usuarios N = new Usuarios();
+            N.setUsuario(usernameN);
+            N.setContrasena(passwordN);
+            N.setTipoUsuario(tipoN);
+            N.setNombre(nombreN);
+            N.setApPaterno(app);
+            N.setApMaterno(apm);
+            N.setGrupo(g);
+            hibernateSession.save(N);
+            t1.commit();
+            return true;
+        }
+        else
+        {
+ 
+            return false;
+        }
+    }
     public List TodosGrupos() // Regresa una lista con todos los grupos de la base
     {
         hibernateSession = HibernateUtil.getSessionFactory().openSession();

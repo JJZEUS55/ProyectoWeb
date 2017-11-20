@@ -28,7 +28,10 @@
     	</action>
         <action name="cargarUsuarios" class="Administrador.AdminAction" method="cargarUsuarios">
             <result name="1">/AdministradorUsuarios.jsp</result>
-    	</action>        
+    	</action> 
+        <action name="agregarUsuarios" class="Administrador.AdminAddUser" method="agregarUsuarios">
+            <result name="1">/AdministradorUsuarios.jsp</result>
+    	</action>         
     </package>
     <package name="ActionsAlumno" namespace="/Alumno" extends="struts-default">
         <action name="cargarCalificacion" class="Alumno.action.AlumnoAction" method="cargarCalificaciones">

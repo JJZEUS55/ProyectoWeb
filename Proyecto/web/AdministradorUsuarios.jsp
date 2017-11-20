@@ -16,7 +16,19 @@
     <body>
         <h1>Usuarios</h1>
         <h1>Modificar Usuarios</h1>
-        <table>
+        
+        <s:form action="/All/agregarUsuarios">
+            <s:textfield name="usernameN" label="Usuario"/>
+            <s:textfield name="passwordN" label="Password" />
+            <s:select name="tipoN" label="Tipo de usuario" list="{'Alumno','Profesor','Administrador'}" />
+            <s:textfield name="nombreN" label="Nombre" />
+            <s:textfield name="apellidoPN" label="Apellido Paterno" />
+            <s:textfield name="apellidoMN" label="Apellido Materno" />
+            <s:submit value="Agregar"/>
+        </s:form>
+        <h3><s:property value="mensaje" /></h3>
+        <br />
+        <table border="1">
             <tr>
                 <td>IdUsuario</td>
                 <td>Usuario</td>
@@ -25,6 +37,7 @@
                 <td>Apellido Paterno</td>
                 <td>Apellido Materno</td>
                 <td>Grupo</td>
+                <td>Accion</td>
             </tr>
         
             <s:iterator value="lista">
@@ -50,6 +63,7 @@
                     <td>
                         <s:property value="%{idGrupo}" />
                     </td>
+                    <td>Modificar || Eliminar</td>
                 </tr>
             </s:iterator>
         </table>
