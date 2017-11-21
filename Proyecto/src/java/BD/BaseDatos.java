@@ -118,19 +118,21 @@ public class BaseDatos {
      *  Obtener calificaciones 
      * 
     */
-    public List getCalificacion(Usuarios alumno){
-        
+    public List getCalificacion(int idUsuario){
+        Usuarios alumno;
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
-        Query consulta = hibernateSession.createQuery("from Calificaciones where usuarios=" + alumno);
+        alumno = (Usuarios)hibernateSession.get(Usuarios.class, idUsuario);
+        Query consulta = hibernateSession.createQuery("from Calificaciones where idUsuario="+alumno.getIdUsuario());
         
         return consulta.list();        
     }
     
-    public List getAlumno(String idUsuario) {
+    public Usuarios getAlumno(int idUsuario) {
 
+        Usuarios alumno;
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
-        Query consulta = hibernateSession.createQuery("from Usuario where idUsuario=" + idUsuario);
-        return consulta.list();
+        alumno = (Usuarios) hibernateSession.load(Usuarios.class, idUsuario);
+        return alumno;
     }
 
     public boolean modificarAlumno(Usuarios alumno, String usuario, String password) {

@@ -34,9 +34,15 @@
     	</action>     
         <action name="eliminarUsuario" class="Administrador.AdminDeleteUser" method="eliminarUsuario">
             <result name="1">/AdministradorUsuarios.jsp</result>
-    	</action>  
+    	</action>
+        
+        <!--ACCIONES ALUMNO-->  
         <action name="cargarCalificaciones" class="Alumno.action.AlumnoAction" method="cargarCalificaciones">
             <result name="success">/AlumnoCalificaciones.jsp</result>            
-        </action>    
+        </action>   
+        <action name="obtenerAlumno" class="Alumno.action.Modificar" method="obtenerAlumno">
+            <result name="success">/AlumnoModificar.jsp</result>            
+        </action>   
+         
     </package>
 </struts>
