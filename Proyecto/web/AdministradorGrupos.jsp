@@ -40,10 +40,10 @@
             
             <s:iterator value="lista">
                 <s:url action="modificarGrupo" var="temporalA" >
-                    <s:param name="id" value="%{idGrupo}" />
+                    <s:param name="idGrupo" value="%{idGrupo}" />
                 </s:url>
                 <s:url action="eliminarGrupo" var="temporalB" >
-                    <s:param name="id" value="%{idGrupo}" />
+                    <s:param name="idGrupo" value="%{idGrupo}" />
                 </s:url>
                 <tr>
                     <td><s:property value="idGrupo"/></td>

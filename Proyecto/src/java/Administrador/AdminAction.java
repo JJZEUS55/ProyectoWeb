@@ -7,6 +7,9 @@ package Administrador;
 
 import BD.BaseDatos;
 import com.opensymphony.xwork2.ActionSupport;
+import entity.Grupo;
+import entity.Usuarios;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,8 +18,26 @@ import java.util.List;
  */
 public class AdminAction extends ActionSupport {
     private List lista;
+    private ArrayList Grupos = new ArrayList();
     private String mensaje;
     private String NombreGrupo;
+    private int idGrupo;
+
+    public int getIdGrupo() {
+        return idGrupo;
+    }
+
+    public void setIdGrupo(int idGrupo) {
+        this.idGrupo = idGrupo;
+    }
+
+    public ArrayList getGrupos() {
+        return Grupos;
+    }
+
+    public void setGrupos(ArrayList Grupos) {
+        this.Grupos = Grupos;
+    }
 
     public String getNombreGrupo() {
         return NombreGrupo;
@@ -58,16 +79,26 @@ public class AdminAction extends ActionSupport {
         return "0";
     }
     
-    public String eliminarGrupo()
-    {
-        return "0";
-    }
+    
     
     public String cargarUsuarios() 
-    {
+    {   
+        List Tem;
+        Usuarios Usuarioprueba;
         System.out.println("Cargando Usuarios");
         BaseDatos BD = new BaseDatos();
         lista = BD.TodosTablaX("Usuarios");
+        Tem = BD.TodosGrupos();
+        
+        for (int i = 0; i < Tem.size(); i++) {
+            Grupos.add( ((Grupo) Tem.get(i)).getNombre() );
+        }
+        
+        for (int i = 0; i < lista.size(); i++) {
+            Usuarioprueba = (Usuarios) lista.get(i);
+            System.out.println("Grupo"+Usuarioprueba.getGrupo().getNombre());
+        }
+        
         return "1";
     }
     
@@ -88,5 +119,18 @@ public class AdminAction extends ActionSupport {
         lista = BD.TodosTablaX("Grupo");
         System.out.println(mensaje);
         return "1";
+        
     }
+    
+    public String eliminarGrupo()
+    {
+        
+        System.out.println("Eliminar Grupo");
+        BaseDatos BD = new BaseDatos();
+        BD.eliminarGrupo(idGrupo);
+        lista = BD.TodosTablaX("Grupo");
+        return "1";
+    }
+
+    
 }

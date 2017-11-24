@@ -85,8 +85,11 @@ public class BaseDatos {
         Query consulta = hibernateSession.createQuery("from Grupo");
         return consulta.list();
     }
-
-    public boolean agregarGrupo(String Nombre) {
+    
+//    Funciones grupos
+    
+    public boolean agregarGrupo(String Nombre) 
+    {
         Grupo x;
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
         Transaction t1 = hibernateSession.beginTransaction();
@@ -103,6 +106,17 @@ public class BaseDatos {
             return false;
         }
     }
+    public void eliminarGrupo(int id)
+    {
+        System.out.println("o¿id...."+id);
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = hibernateSession.beginTransaction();
+        Grupo GrupoEliminado = (Grupo) hibernateSession.load(Grupo.class, id);
+        hibernateSession.delete(GrupoEliminado);
+        t.commit();
+        
+    }
+    
 
     public List TodosTablaX(String Tabla) {
 
