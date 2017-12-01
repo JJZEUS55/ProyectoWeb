@@ -9,8 +9,10 @@ import BD.BaseDatos;
 import com.opensymphony.xwork2.ActionSupport;
 import entity.Grupo;
 import entity.Usuarios;
+import static java.lang.reflect.Array.set;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -22,6 +24,16 @@ public class AdminAction extends ActionSupport {
     private String mensaje;
     private String NombreGrupo;
     private int idGrupo;
+    private Set Usuarios;
+
+    public Set getUsuarios() {
+        return Usuarios;
+    }
+
+    public void setUsuarios(Set Usuarios) {
+        this.Usuarios = Usuarios;
+    }
+    
 
     public int getIdGrupo() {
         return idGrupo;
@@ -76,7 +88,12 @@ public class AdminAction extends ActionSupport {
     
     public String modificarGrupo()
     {
-        return "0";
+        BaseDatos BD = new BaseDatos();
+        Grupo x = BD.SolicitarGrupo(idGrupo);
+        lista = BD.TodosGrupos();
+        Usuarios = x.getUsuarioses();
+        mensaje = "Grupo requerido:"+idGrupo;
+        return "1";
     }
     
     
@@ -93,7 +110,7 @@ public class AdminAction extends ActionSupport {
         for (int i = 0; i < Tem.size(); i++) {
             Grupos.add( ((Grupo) Tem.get(i)).getNombre() );
         }
-        
+       
         for (int i = 0; i < lista.size(); i++) {
             Usuarioprueba = (Usuarios) lista.get(i);
             System.out.println("Grupo"+Usuarioprueba.getGrupo().getNombre());

@@ -35,6 +35,9 @@
         <action name="eliminarUsuario" class="Administrador.AdminDeleteUser" method="eliminarUsuario">
             <result name="1">/AdministradorUsuarios.jsp</result>
     	</action>
+        <action name="modificarUsuario" class="Administrador.AdminModUser" method="modificarUsuario">
+            <result name="1">/AdministradorUsuarios.jsp</result>
+    	</action>
         
         <!--ACCIONES ALUMNO-->  
         <action name="cargarCalificaciones" class="Alumno.action.AlumnoAction" method="cargarCalificaciones">

@@ -28,12 +28,12 @@ public class BaseDatos {
     public BaseDatos() {
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
         Transaction t1 = hibernateSession.beginTransaction();
-        g = (Grupo) hibernateSession.createQuery("from Grupo where idGrupo = 1").uniqueResult();
+        
     }
 
     public boolean iniciarSesion(String userName, String password)//Returna true si el usuario es valido en la base de datos
     {
-
+        
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
         Transaction t1 = hibernateSession.beginTransaction();
         u = (Usuarios) hibernateSession.createQuery("from Usuarios where usuario='" + userName + "'AND contrasena='" + password + "'").uniqueResult();
@@ -53,14 +53,16 @@ public class BaseDatos {
         u = (Usuarios) hibernateSession.createQuery("from Usuarios where usuario='" + userName + "'").uniqueResult();
         return u.getTipoUsuario();
     }
-    public boolean agregarUsuario(String usernameN, String passwordN, int tipoN, String nombreN, String app, String apm)
+    public boolean agregarUsuario(String usernameN, String passwordN, int tipoN, String nombreN, String app, String apm, String grupoN)
     {
+        g = (Grupo) hibernateSession.createQuery("from Grupo where nombre = '"+grupoN+"'").uniqueResult();
         Usuarios nuevo = new Usuarios();
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
         Transaction t1 = hibernateSession.beginTransaction();
         nuevo = (Usuarios) hibernateSession.createQuery("from Usuarios where usuario ='" + usernameN + "'").uniqueResult();
         if(nuevo == null) // si nuevo es null se puede agregar
         {
+            
             Usuarios N = new Usuarios();
             N.setUsuario(usernameN);
             N.setContrasena(passwordN);
@@ -124,6 +126,14 @@ public class BaseDatos {
 
         Query consulta = hibernateSession.createQuery("from " + Tabla);
         return consulta.list();
+    }
+    
+    public Grupo SolicitarGrupo(int id)
+    {
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = hibernateSession.beginTransaction();
+        Grupo GrupoSolicitado = (Grupo) hibernateSession.load(Grupo.class, id);
+        return GrupoSolicitado;
     }
     
     

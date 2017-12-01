@@ -80,7 +80,7 @@
                     <td> <s:a href="%{temporalA}">Eliminar</s:a></td>
                 </tr>               
                 <tr>
-                    <s:form theme="simple">
+                    <s:form theme="simple" action="/All/modificarUsuario">
                         <td>
                             <s:hidden name="iduserMod" value="%{idUsuario}" />
                         </td>
@@ -100,7 +100,7 @@
                             <s:textfield name="apMaternoMod" value="%{apMaterno}" />
                         </td>
                         <td>
-                            <sx:autocompleter  value="%{Grupo.Nombre}" size="1" name="idGrupoMod" list = "Grupos" showDownArrow="false"></sx:autocompleter>
+                            <sx:autocompleter size="1" name="grupoMod" list = "Grupos" showDownArrow="false"/>
                         </td>
                         <td>
                             <s:submit value="modificar" />

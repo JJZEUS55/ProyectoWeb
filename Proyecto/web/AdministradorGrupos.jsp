@@ -30,6 +30,9 @@
             <s:submit value="Agregar" />
         </s:form>
         <h3><s:property value="mensaje"/></h3>
+        <s:iterator value="Usuarios">
+                <s:property value="usuario"></s:property>
+        </s:iterator>
         <hr/>
         <table>
             <tr>
@@ -37,6 +40,8 @@
                 <td>Nombre del grupo</td>
                 <td>Accion</td>
             </tr>
+            
+            
             
             <s:iterator value="lista">
                 <s:url action="modificarGrupo" var="temporalA" >
