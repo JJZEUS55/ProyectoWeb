@@ -135,6 +135,58 @@ public class BaseDatos {
         Grupo GrupoSolicitado = (Grupo) hibernateSession.load(Grupo.class, id);
         return GrupoSolicitado;
     }
+    public List AlumnosSinGrupo()
+    {
+       hibernateSession = HibernateUtil.getSessionFactory().openSession();
+       Query consulta = hibernateSession.createQuery("from Usuarios where tipoUsuario = 1 and idGrupo = 1 ");
+       return consulta.list();
+    }
+    
+    public List ProfesoresSinGrupo()
+    {
+       hibernateSession = HibernateUtil.getSessionFactory().openSession();
+       Query consulta = hibernateSession.createQuery("from Usuarios where tipoUsuario = 2 and idGrupo = 1 ");
+       return consulta.list();
+    }
+    
+    public String ProfesorDelGrupo(int idGrupo)
+    {
+        Usuarios Profesor;
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Profesor = (Usuarios)hibernateSession.createQuery("from Usuarios where tipoUsuario = 2 and idGrupo ="+idGrupo).uniqueResult();
+        if(Profesor == null)
+            return "Sin asignar";
+        else
+            return Profesor.getNombre()+" "+Profesor.getApPaterno()+" "+Profesor.getApMaterno();
+    }
+    
+    public int idProfesorDelGrupo(int idGrupo)
+    {
+        Usuarios Profesor;
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Profesor = (Usuarios)hibernateSession.createQuery("from Usuarios where tipoUsuario = 2 and idGrupo ="+idGrupo).uniqueResult();
+        if(Profesor == null)
+            return 0;
+        else
+            return Profesor.getIdUsuario();
+    }
+    
+    
+    
+    public void CambiarUsuariodeGrupo(int idUsuario, int idGrupo) // cambiar el grupo al comun
+    {
+        System.out.println("Cambiandsoooooooooooooo id user:"+ idUsuario+" to idgrup "+idGrupo);
+        Usuarios user;
+        Grupo grupoN;
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = hibernateSession.beginTransaction();
+        user = (Usuarios)hibernateSession.createQuery("from Usuarios where idUsuario = "+idUsuario).uniqueResult();
+        grupoN = (Grupo) hibernateSession.createQuery("from Grupo where idGrupo ="+ idGrupo).uniqueResult();
+        user.setGrupo(grupoN);
+        hibernateSession.update(user);
+        t.commit();
+        
+    }
     
     
     /**    Empiezan Metodos del ALUMNO

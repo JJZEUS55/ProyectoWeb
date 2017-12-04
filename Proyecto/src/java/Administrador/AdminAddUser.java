@@ -120,7 +120,7 @@ public class AdminAddUser extends ActionSupport {
             lista = BD.TodosTablaX("Usuarios");
             return "1";
         }
-        
+
         if(BD.agregarUsuario(usernameN, passwordN, tem, nombreN, apellidoPN, apellidoMN, grupoN)){
             mensaje = "Nuevo nuevo usuario agregado";
         }

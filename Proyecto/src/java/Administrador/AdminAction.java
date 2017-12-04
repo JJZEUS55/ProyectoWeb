@@ -25,6 +25,75 @@ public class AdminAction extends ActionSupport {
     private String NombreGrupo;
     private int idGrupo;
     private Set Usuarios;
+    private List UsuariosSinGrupo;
+    private List ProfesoresSinGrupo;
+    private String NombreGrupoMod;
+    private String ProfesorGrupoMod;
+    private String profesorM;
+
+    public String getProfesorM() {
+        return profesorM;
+    }
+
+    public void setProfesorM(String profesorM) {
+        this.profesorM = profesorM;
+    }
+    private int user; 
+    private int grupoC;
+
+    public int getGrupoC() {
+        return grupoC;
+    }
+
+    public void setGrupoC(int grupoC) {
+        this.grupoC = grupoC;
+    }
+    
+
+    public int getUser() {
+        return user;
+    }
+
+    public void setUser(int user) {
+        this.user = user;
+    }
+
+    public List getUsuariosSinGrupo() {
+        return UsuariosSinGrupo;
+    }
+
+    public void setUsuariosSinGrupo(List UsuariosSinGrupo) {
+        this.UsuariosSinGrupo = UsuariosSinGrupo;
+    }
+
+    public String getProfesorGrupoMod() {
+        return ProfesorGrupoMod;
+    }
+
+    public void setProfesorGrupoMod(String ProfesorGrupoMod) {
+        this.ProfesorGrupoMod = ProfesorGrupoMod;
+    }
+    
+
+    public String getNombreGrupoMod() {
+        return NombreGrupoMod;
+    }
+
+    public void setNombreGrupoMod(String NombreGrupoMod) {
+        this.NombreGrupoMod = NombreGrupoMod;
+    }
+    
+    
+
+    public List getProfesoresSinGrupo() {
+        return ProfesoresSinGrupo;
+    }
+
+    public void setProfesoresSinGrupo(List ProfesoresSinGrupo) {
+        this.ProfesoresSinGrupo = ProfesoresSinGrupo;
+    }
+    
+    
 
     public Set getUsuarios() {
         return Usuarios;
@@ -88,10 +157,7 @@ public class AdminAction extends ActionSupport {
     
     public String modificarGrupo()
     {
-        BaseDatos BD = new BaseDatos();
-        Grupo x = BD.SolicitarGrupo(idGrupo);
-        lista = BD.TodosGrupos();
-        Usuarios = x.getUsuarioses();
+        initModGrupo();
         mensaje = "Grupo requerido:"+idGrupo;
         return "1";
     }
@@ -148,6 +214,41 @@ public class AdminAction extends ActionSupport {
         lista = BD.TodosTablaX("Grupo");
         return "1";
     }
-
+    
+    public String CambiarUsuariodeGrupo()
+    {
+        System.out.println("cambiando usuario de grupo");
+        BaseDatos BD = new BaseDatos();
+        BD.CambiarUsuariodeGrupo(user, grupoC);
+        initModGrupo();
+        return "1";
+    }
+    
+    public String CambiarProfesorGrupo()
+    { 
+        String cad[] = profesorM.split(":");
+        initModGrupo();
+        mensaje = cad[0];
+        return "1";
+    }
+    
+    public void initModGrupo()
+    {
+        BaseDatos BD = new BaseDatos();
+        Grupo GrupoSolicitado = BD.SolicitarGrupo(idGrupo);
+        Usuarios Profesor;
+        //List SinGrupo = BD.AlumnosSinGrupo();
+        lista = BD.TodosGrupos();
+        Usuarios = GrupoSolicitado.getUsuarioses();
+        UsuariosSinGrupo = BD.AlumnosSinGrupo();
+        NombreGrupoMod = GrupoSolicitado.getNombre();
+        if(idGrupo == 1 )
+            ProfesorGrupoMod = "----";
+        else
+            ProfesorGrupoMod = BD.ProfesorDelGrupo(idGrupo);
+        
+        ProfesoresSinGrupo = BD.ProfesoresSinGrupo();
+        
+    }
     
 }
