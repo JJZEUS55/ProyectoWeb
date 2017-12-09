@@ -4,7 +4,9 @@ function inicio(Document,canvas) {
     unidades=[];
     Xs=[];
     X2s=[];
+    InterfazActiva=0;
     
+   
     
     function BotonTitulo(Nombre,x,y,R,G,B)
     {
@@ -48,7 +50,7 @@ function inicio(Document,canvas) {
         
         this.Borrar=function (){
           this.Forma.remove(); 
-          this.Forma.remove();  
+          
         };
         this.Dibujar=function()
         {
@@ -72,7 +74,7 @@ function inicio(Document,canvas) {
         
         this.text = new fabric.Text(Nombre, { 
             left: x+(width/3), top: y+(height/3), 
-            fontSize: 15
+            fontSize: 12
         });
         this.text.lockMovementX = true;//BloquearMovimiento
         this.text.lockMovementY = true;
@@ -136,25 +138,115 @@ function inicio(Document,canvas) {
           
     }
     
+     function Texto(Texto,X,Y)
+    {
+        this.text = new fabric.Text(Texto, { 
+            left: X, top: Y, 
+            fontSize: 15
+        });
+        this.text.lockMovementX = true;//BloquearMovimiento
+        this.text.lockMovementY = true;
+        this.text.set('selectable', false);
+        this.Borrar=function (){
+          this.text.remove(); 
+          
+        };
+        this.Dibujar=function()
+        {
+            canvas.add(this.text);
+        };
+        canvas.add(this.text);
+    }
+    
     function interfazSolve()
     {
-        LadoIzquierdo = new Fondo(200,200,50,180,100,60,0);
-        LadoDerecho = new Fondo(200,200,260,180,0,60,100);
-        Visible=true;
-        this.MosBorr=function ()
+        this.LadoIzquierdo = new Fondo(200,200,50,180,100,60,0);
+        this.LadoDerecho = new Fondo(200,200,260,180,0,60,200);
+        //Visible=true;
+        this.MosBorr=function (Visible)
         {
-            if(Visible){
-                LadoIzquierdo.Borrar();
-                LadoDerecho.Borrar();
+            if(!Visible){
+                this.LadoIzquierdo.Borrar();
+                this.LadoDerecho.Borrar();
             }
-            else
+            else       
             {
-                LadoIzquierdo.Dibujar();
-                LadoDerecho.Dibujar();
+                this.LadoIzquierdo.Dibujar();
+                this.LadoDerecho.Dibujar();
             }
             Visible=!Visible;
         };
-        
+        //MosBorr(false);
+    }
+    
+    function interfazSubstitute()
+    {
+        this.LadosuperiorIZ = new Fondo(200,100,50,175,100,60,0);
+        this.LadosuperiorDer = new Fondo(200,100,250,175,100,60,0);
+        this.LadoDerecho = new Fondo(400,100,50,285,0,60,100);
+        this.Text1=new Texto("Valor de x",210,175);
+        this.Text2=new Texto("Expresion",210,282);
+        this.MosBorr=function (Visible)
+        {
+            if(!Visible){
+                this.LadosuperiorIZ.Borrar();
+                this.LadosuperiorDer.Borrar();
+                this.LadoDerecho.Borrar();
+                this.Text1.Borrar();
+                this.Text2.Borrar();
+            }
+            else
+            {
+                this.LadosuperiorIZ.Dibujar();
+                this.LadosuperiorDer.Dibujar();
+                this.LadoDerecho.Dibujar();
+                this.Text1.Dibujar();
+                this.Text2.Dibujar();
+            }
+            //Visible=!Visible;
+        };
+        //this.MosBorr(false);
+    }
+    
+    function interfazExpand()
+    {
+        this.LadoIzquierdo = new Fondo(200,200,50,180,100,60,0);
+        this.LadoDerecho = new Fondo(200,200,260,180,0,60,200);
+        //Visible=true;
+        this.MosBorr=function (Visible)
+        {
+            if(!Visible){
+                this.LadoIzquierdo.Borrar();
+                this.LadoDerecho.Borrar();
+            }
+            else       
+            {
+                this.LadoIzquierdo.Dibujar();
+                this.LadoDerecho.Dibujar();
+            }
+            Visible=!Visible;
+        };
+        //MosBorr(false);
+    }
+    function interfazFactor()
+    {
+        this.LadoIzquierdo = new Fondo(200,200,50,180,100,60,0);
+        this.LadoDerecho = new Fondo(200,200,260,180,0,60,200);
+        //Visible=true;
+        this.MosBorr=function (Visible)
+        {
+            if(!Visible){
+                this.LadoIzquierdo.Borrar();
+                this.LadoDerecho.Borrar();
+            }
+            else       
+            {
+                this.LadoIzquierdo.Dibujar();
+                this.LadoDerecho.Dibujar();
+            }
+            Visible=!Visible;
+        };
+        //MosBorr(false);
     }
     
     
@@ -179,48 +271,47 @@ function inicio(Document,canvas) {
         ActualizaDatos();
     }
     
-       
+          
+          
+    //Creacion de Botones
+    var Solve= new BotonTitulo("Solve",50,0,200,0,0);
+    var Substitute= new BotonTitulo("Substitute",160,0,0,200,0);
+    var Expand= new BotonTitulo("Expand",270,0,0,0,200);
+    var Factor= new BotonTitulo("Factor",380,0,200,200,0);
+    var Limpiar= new BotonTitulo("Limpiar",380,100,200,200,0);
+    var Validar= new BotonTitulo("Validar",260,100,200,200,0);
+
+    //Agregar textos
+    text1=new Texto("Construye tu modelo",200,150);
+
+    //Iniciar Interfaces
+    var interfaces=[4];
+    interfaces[0]=new interfazSolve();
+    interfaces[0].MosBorr(false);
+    interfaces[1]=new interfazSubstitute();
+    interfaces[1].MosBorr(false);
+    interfaces[2]=new interfazExpand();
+    interfaces[2].MosBorr(false);
+    interfaces[3]=new interfazFactor();
+    interfaces[3].MosBorr(false);
 
     
-        
     
-    
-    
-    
-          
-          
-          cuenta = 0;
-          
-          
-          //Creacion de Botones
-          var Solve= new BotonTitulo("Solve",50,0,200,0,0);
-          var Substitute= new BotonTitulo("Substitute",160,0,0,200,0);
-          var Expand= new BotonTitulo("Expand",270,0,0,0,200);
-          var Factor= new BotonTitulo("Factor",380,0,200,200,0);
-          var Limpiar= new BotonTitulo("Limpiar",380,100,200,200,0);
-          
-          var Interfaz=new interfazSolve();
-          
-          //Generando Fondos.
-          var FondoDerecho= new Fondo(150,400,550,0,100,20,100);
-          var FondoSuperior= new Fondo(550,10,0,30,0,0,0);
-          var FondoInferior= new Fondo(550,10,0,120,0,0,0);
-          
-          
-          
-          //Botones AgregaFiguras
-          var unidad= new BotonAddForma(30,30,570,220,'200,0,0',"1");
-          var X= new BotonAddForma(60,30,570,270,'0,100,200',"X");
-          var X2= new BotonAddForma(60,60,570,320,'50,500,200',"X^2");
-          
-          
-          function FuncionSolve()
-            {
-                Interfaz.MosBorr();
+    XRel=-45;
+    //Generando Fondos.
+    var FondoDerecho= new Fondo(150,400,550+XRel,0,100,20,100);
+    var FondoSuperior= new Fondo(550+XRel,10,0,30,0,0,0);
+    var FondoInferior= new Fondo(550+XRel,10,0,120,0,0,0);
 
-                
-            }
+
+
+    //Botones AgregaFiguras
+    var unidad= new BotonAddForma(20,20,570+XRel,220,'200,0,0',"1");
+    var X= new BotonAddForma(40,20,570+XRel,270,'0,100,200',"X");
+    var X2= new BotonAddForma(40,40,570+XRel,320,'50,500,200',"X^2");
           
+          
+         
           
 
           document.onkeyup=function (evObject){
@@ -230,6 +321,27 @@ function inicio(Document,canvas) {
               //
               EliminarSeleccion();
           };
+          
+          
+          
+          function CambiaInterfaz(i)
+            {
+                InterfazActiva=i;
+                for( j=0;j<4;j++)
+                {
+                    interfaces[j].MosBorr(false);
+                    if(i===j+1)
+                        interfaces[j].MosBorr(true);
+                    
+                        
+                }
+                //interfaces[0].MosBorr  (false);
+                //interfaces[1].MosBorr(false);
+                
+            }
+          
+          
+          
           
           function EliminarSeleccion(){
               //Recuperamos objeto
@@ -291,9 +403,15 @@ function inicio(Document,canvas) {
           function  Actualizacion(options){              
          
               if(Solve.IsSelect(options.target))
-                  FuncionSolve();
+                  CambiaInterfaz(1);
               else if(Limpiar.IsSelect(options.target))
                   limpiarFiguras();
+              else if(Substitute.IsSelect(options.target))
+                  CambiaInterfaz(2);
+              else if(Expand.IsSelect(options.target))
+                  CambiaInterfaz(3);
+              else if(Factor.IsSelect(options.target))
+                  CambiaInterfaz(4);
               try{
               options.target.setCoords();
               

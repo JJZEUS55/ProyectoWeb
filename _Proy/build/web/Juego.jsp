@@ -14,12 +14,11 @@
         <script src="Juego.js"></script>
     </head>
     <body>
-        <h1>Holo </h1>
         <input type="text" value="0" id="Cont">
         <input type="text" value="0" id="Cont2">
         <input type="text" value="0" id="Cont3">
         
-        <canvas id="c" width="650" height="400" >
+        <canvas id="c" width="600" height="400" >
             
         </canvas>
         <s:textarea id="log" value=""></s:textarea>
