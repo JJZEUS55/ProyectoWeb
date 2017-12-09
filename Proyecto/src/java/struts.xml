@@ -32,6 +32,9 @@
         <action name="CambiarProfesorGrupo" class="Administrador.AdminAction" method="CambiarProfesorGrupo">
             <result name="1">/AdministradorGruposMod.jsp</result>
     	</action>
+        <action name="Busqueda" class="Administrador.AdminAction" method="Busqueda">
+            <result name="1">/AdministradorUsuarios.jsp</result>
+    	</action>
         <action name="cargarUsuarios" class="Administrador.AdminAction" method="cargarUsuarios">
             <result name="1">/AdministradorUsuarios.jsp</result>
     	</action> 

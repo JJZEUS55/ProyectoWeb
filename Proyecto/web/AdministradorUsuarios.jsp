@@ -32,7 +32,7 @@
                 </nav>
             </div>
             <h1>Usuarios</h1>
-
+            
             <div class="container">
                 <h2>Nuevo usuario</h2>
             <s:form action="/All/agregarUsuarios" theme="simple" >
@@ -78,11 +78,28 @@
                 </div>
             </s:form>
         </div>
+            
+        <br>
+        
         <br>
         <h3><s:property value="mensaje" /></h3>
         <br>
         <br />
-
+        <div class="container">
+            <s:form theme="simple" action="/All/Busqueda">
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col">
+                            <s:textfield name="Buscar" placeholder="...." cssClass="form-control"/>
+                        </div>
+                        <div class="col">
+                            <s:submit value="Buscar" cssClass="btn btn-primary"/>
+                        </div>
+                    </div>
+                </div>
+            </s:form>
+        </div>
+        <br>
         <table border="1" class="table table-hover">
             <thead>
                 <tr>

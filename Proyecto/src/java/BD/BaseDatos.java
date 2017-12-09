@@ -239,6 +239,15 @@ public class BaseDatos {
             return Profesor.getIdUsuario();
     }
     
+    public List ResultadoBusqueda(String campo)
+    {
+        System.out.println("Busqueda: "+campo);
+        List resultados;
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        resultados = hibernateSession.createQuery("from Usuarios where (idUsuario like '%"+campo+"%') or (usuario like '%"+campo+"%') or (tipoUsuario like '%"+campo+"%') or (nombre like '%"+campo+"%') or (apPaterno like '%"+campo+"%') or (apMaterno like '%"+campo+"%') or (idGrupo like '%"+campo+"%') ").list();
+        
+        return resultados;
+    }
     
     
     

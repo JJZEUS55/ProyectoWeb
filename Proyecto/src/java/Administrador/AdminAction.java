@@ -30,6 +30,15 @@ public class AdminAction extends ActionSupport {
     private String NombreGrupoMod;
     private String ProfesorGrupoMod;
     private String profesorM;
+    private String Buscar;
+
+    public String getBuscar() {
+        return Buscar;
+    }
+
+    public void setBuscar(String Buscar) {
+        this.Buscar = Buscar;
+    }
 
     public String getProfesorM() {
         return profesorM;
@@ -162,7 +171,12 @@ public class AdminAction extends ActionSupport {
         return "1";
     }
     
-    
+    public String Busqueda()
+    {
+        BaseDatos BD = new BaseDatos();
+        lista = BD.ResultadoBusqueda(Buscar);
+        return "1";
+    }
     
     public String cargarUsuarios() 
     {   
