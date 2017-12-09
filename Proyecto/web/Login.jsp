@@ -8,8 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="CSS/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="<s:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
         <title>Inicio sesion</title>
     </head>
     <body>

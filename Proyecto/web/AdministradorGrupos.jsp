@@ -10,6 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="<s:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
@@ -34,31 +35,32 @@
                 <s:property value="usuario"></s:property>
         </s:iterator>
         <hr/>
-        <table>
-            <tr>
-                <td>Identificador Grupo</td>
-                <td>Nombre del grupo</td>
-                <td>Accion</td>
-            </tr>
-            
-            
-            
-            <s:iterator value="lista">
-                <s:url action="modificarGrupo" var="temporalA" >
-                    <s:param name="idGrupo" value="%{idGrupo}" />
-                </s:url>
-                <s:url action="eliminarGrupo" var="temporalB" >
-                    <s:param name="idGrupo" value="%{idGrupo}" />
-                </s:url>
+        <table class="table table-hover">
+            <thead>
                 <tr>
-                    <td><s:property value="idGrupo"/></td>
-                    <td><s:property value="nombre"/></td>
-                    <td>
-                        <s:a href="%{temporalA}">modificar</s:a> ||
-                        <s:a href="%{temporalB}">eliminar</s:a>
-                    </td>
-                </tr>  
-            </s:iterator>
+                    <th scope="col">Id Grupo</th>
+                    <th scope="col">Nombre del grupo</th>
+                    <th scope="col">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <s:iterator value="lista">
+                    <s:url action="modificarGrupo" var="temporalA" >
+                        <s:param name="idGrupo" value="%{idGrupo}" />
+                    </s:url>
+                    <s:url action="eliminarGrupo" var="temporalB" >
+                        <s:param name="idGrupo" value="%{idGrupo}" />
+                    </s:url>
+                    <tr>
+                        <td><s:property value="idGrupo"/></td>
+                        <td><s:property value="nombre"/></td>
+                        <td>
+                            <s:a href="%{temporalA}">modificar</s:a> ||
+                            <s:a href="%{temporalB}">eliminar</s:a>
+                        </td>
+                    </tr>  
+                </s:iterator>
+            </tbody>
         </table>
     </body>
 </html>

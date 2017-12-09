@@ -10,7 +10,8 @@
 <html>
     <sx:head/>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+        <link href="<s:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
         <title>Usuarios</title>
         
     </head>
@@ -39,75 +40,78 @@
         <h3><s:property value="mensaje" /></h3>
 
         <br />
-        <table border="1">
-            <tr>
-                <td>IdUsuario</td>
-                <td>Usuario</td>
-                <td>Tipo</td>
-                <td>Nombre</td>
-                <td>Apellido Paterno</td>
-                <td>Apellido Materno</td>
-                <td>Grupo</td>
-                <td>Accion</td>
-            </tr>
-        
-            <s:iterator value="lista">
-                <s:url action="eliminarUsuario" var="temporalA" >
-                    <s:param name="id" value="%{idUsuario}" />
-                </s:url>  
+        <table border="1" class="table table-hover">
+            <thead>
                 <tr>
-                    <td>
-                        <s:property value="%{idUsuario}" />
-                    </td>
-                    <td>
-                        <s:property value="%{usuario}" />
-                    </td>
-                    <td>
-                        <s:property value="%{tipoUsuario}" />
-                    </td>
-                    <td>
-                        <s:property value="%{nombre}" />
-                    </td>
-                    <td>
-                        <s:property value="%{apPaterno}" />
-                    </td>
-                    <td>
-                        <s:property value="%{apMaterno}" />
-                    </td>
-                    <td rowspan="2">
-                        <s:property value="%{Grupo.Nombre}" />
-                    </td>
-                    <td> <s:a href="%{temporalA}">Eliminar</s:a></td>
-                </tr>               
-                <tr>
-                    <s:form theme="simple" action="/All/modificarUsuario">
-                        <td>
-                            <s:hidden name="iduserMod" value="%{idUsuario}" />
-                        </td>
-                        <td>
-                            <s:textfield name="usuarioMod" value="%{usuario}" />
-                        </td>
-                        <td>
-                            <s:textfield name="tipoUsuarioMod" value="%{tipoUsuario}" />
-                        </td>
-                        <td>
-                            <s:textfield name="nombreMod" value="%{nombre}" />
-                        </td>
-                        <td>
-                            <s:textfield name="apPaternoMod" value="%{apPaterno}" />
-                        </td>
-                        <td>
-                            <s:textfield name="apMaternoMod" value="%{apMaterno}" />
-                            
-                        </td>
-                        <td>
-                            <s:hidden name="grupoMod" value="%{Grupo.Nombre}" />
-                            <s:submit value="modificar" />
-                        </td>
-                    </s:form>
+                    <th scope="col">IdUsuario</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido Paterno</th>
+                    <th scope="col">Apellido Materno</th>
+                    <th scope="col">Grupo</th>
+                    <th scope="col">Accion</th>
                 </tr>
-                
-            </s:iterator>
+            </thead>
+            <tbody>
+                <s:iterator value="lista">
+                    <s:url action="eliminarUsuario" var="temporalA" >
+                        <s:param name="id" value="%{idUsuario}" />
+                    </s:url>  
+                    <tr>
+                        <td>
+                            <s:property value="%{idUsuario}" />
+                        </td>
+                        <td>
+                            <s:property value="%{usuario}" />
+                        </td>
+                        <td>
+                            <s:property value="%{tipoUsuario}" />
+                        </td>
+                        <td>
+                            <s:property value="%{nombre}" />
+                        </td>
+                        <td>
+                            <s:property value="%{apPaterno}" />
+                        </td>
+                        <td>
+                            <s:property value="%{apMaterno}" />
+                        </td>
+                        <td rowspan="2">
+                            <s:property value="%{Grupo.Nombre}" />
+                        </td>
+                        <td> <s:a href="%{temporalA}">Eliminar</s:a></td>
+                    </tr>               
+                    <tr>
+                        <s:form theme="simple" action="/All/modificarUsuario">
+                            <td>
+                                <s:hidden name="iduserMod" value="%{idUsuario}" />
+                            </td>
+                            <td>
+                                <s:textfield name="usuarioMod" value="%{usuario}" />
+                            </td>
+                            <td>
+                                <s:textfield name="tipoUsuarioMod" value="%{tipoUsuario}" />
+                            </td>
+                            <td>
+                                <s:textfield name="nombreMod" value="%{nombre}" />
+                            </td>
+                            <td>
+                                <s:textfield name="apPaternoMod" value="%{apPaterno}" />
+                            </td>
+                            <td>
+                                <s:textfield name="apMaternoMod" value="%{apMaterno}" />
+
+                            </td>
+                            <td>
+                                <s:hidden name="grupoMod" value="%{Grupo.Nombre}" />
+                                <s:submit value="modificar" />
+                            </td>
+                        </s:form>
+                    </tr>
+
+                </s:iterator>
+            </tbody>
         </table>
     </body>
 </html>

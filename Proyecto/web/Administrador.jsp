@@ -10,8 +10,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="<s:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Bienvenido</title>
     </head>
     <body>
         <h1>Hello Admin ${sessionScope.username}</h1>
