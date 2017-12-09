@@ -17,14 +17,13 @@ public class AdminModUser extends ActionSupport {
     private int iduserMod;
     private String usuarioMod;
     private int tipoUsuarioMod;
-    private String grupoMod;
     private String nombreMod;
     private String apPaternoMod;
     private String apMaternoMod;
-    private String abc;
+    private String grupoMod;
     private String mensaje;
     private List lista;
-    
+
     public String getGrupoMod() {
         return grupoMod;
     }
@@ -104,10 +103,18 @@ public class AdminModUser extends ActionSupport {
 
     public String modificarUsuario()
     {
-        System.out.println(abc);
+        System.out.println(grupoMod);
         BaseDatos BD = new BaseDatos();
-        lista = BD.TodosTablaX("Usuarios");
-        mensaje="prueba usuario"+iduserMod+":"+ usuarioMod+ " "+ tipoUsuarioMod +" "+ nombreMod +" "+apPaternoMod +" "+ apMaternoMod+" "+grupoMod ;
+        if(BD.Modusuario(iduserMod, usuarioMod, tipoUsuarioMod, nombreMod, apPaternoMod, apMaternoMod, grupoMod))
+        {
+            lista = BD.TodosTablaX("Usuarios");
+            mensaje="Cambios realizados";
+        }
+        else
+        {
+            lista = BD.TodosTablaX("Usuarios");
+            mensaje="Error al realizar cambios";
+        }
         return "1";
     }
     

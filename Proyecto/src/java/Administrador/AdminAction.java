@@ -226,9 +226,24 @@ public class AdminAction extends ActionSupport {
     
     public String CambiarProfesorGrupo()
     { 
+        BaseDatos BD = new BaseDatos();
         String cad[] = profesorM.split(":");
+        Usuarios profesorActual = BD.ProfesorDelGrupo_Us(idGrupo);
+        Usuarios profesorNuevo = BD.getUsuario(Integer.parseInt(cad[0]));
+        if(profesorActual == null){
+            System.out.println("Sin asiganr paso no requerido");
+            BD.CambiarUsuariodeGrupo(profesorNuevo.getIdUsuario(), idGrupo); // si el grupo esta sin asignar solo se agrega el nuevo profesor
+        }
+        else
+        {
+            System.out.println("Profesor Actual: "+profesorActual.getNombre() +" Profesor Nuevo: "+profesorNuevo.getNombre());
+            BD.CambiarUsuariodeGrupo(profesorActual.getIdUsuario(), 1); // cambia el profesor actual al grupo general
+            BD.CambiarUsuariodeGrupo(profesorNuevo.getIdUsuario(), idGrupo);  // se asigna el nuevo profesor
+        }
+        mensaje = "Cambio Realizado";
+        
+        
         initModGrupo();
-        mensaje = cad[0];
         return "1";
     }
     

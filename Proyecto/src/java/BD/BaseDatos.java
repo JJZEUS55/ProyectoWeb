@@ -14,10 +14,13 @@ import entity.Grupo;
 import entity.HibernateUtil;
 import entity.Usuarios;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import java.util.Set;
 
 public class BaseDatos {
 
@@ -81,6 +84,26 @@ public class BaseDatos {
             return false;
         }
     }
+    
+    public boolean Modusuario(int id, String usernameN, int tipoN, String nombreN, String app, String apm, String nombreGrupo)
+    {
+        if(tipoN == 2 && checkGrupo(nombreGrupo) == true)
+        {
+            return false;
+        }
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t1 = hibernateSession.beginTransaction();
+        Usuarios userMod = (Usuarios) hibernateSession.load(Usuarios.class, id);
+        userMod.setUsuario(usernameN);
+        userMod.setTipoUsuario(tipoN);
+        userMod.setNombre(nombreN);
+        userMod.setApPaterno(app);
+        userMod.setApMaterno(apm);
+        hibernateSession.update(userMod);
+        t1.commit();
+        return true;
+    }
+    
     public List TodosGrupos() // Regresa una lista con todos los grupos de la base
     {
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
@@ -135,6 +158,15 @@ public class BaseDatos {
         Grupo GrupoSolicitado = (Grupo) hibernateSession.load(Grupo.class, id);
         return GrupoSolicitado;
     }
+    
+    public Grupo SolicitarGrupo(String nombre)
+    {
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = hibernateSession.beginTransaction();
+        Grupo GrupoSolicitado = (Grupo) hibernateSession.createQuery("from Grupo where nombre ='"+nombre+"' ").uniqueResult();
+        return GrupoSolicitado;
+    }
+    
     public List AlumnosSinGrupo()
     {
        hibernateSession = HibernateUtil.getSessionFactory().openSession();
@@ -160,6 +192,42 @@ public class BaseDatos {
             return Profesor.getNombre()+" "+Profesor.getApPaterno()+" "+Profesor.getApMaterno();
     }
     
+    public Usuarios ProfesorDelGrupo_Us(int idGrupo)
+    {
+        Usuarios Profesor;
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Profesor = (Usuarios)hibernateSession.createQuery("from Usuarios where tipoUsuario = 2 and idGrupo ="+idGrupo).uniqueResult();
+        if(Profesor == null)
+            return null;
+        else
+            return Profesor;
+    }
+    
+    public boolean checkGrupo(String nombreGrupo) // checa si tiene profesor el grupo true->si tiene
+    {
+        Grupo grupoCheck;
+        Set usersSet;
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        grupoCheck = (Grupo)hibernateSession.createQuery("from Grupo where nombre ='"+nombreGrupo+"' ").uniqueResult();
+        usersSet = grupoCheck.getUsuarioses();
+        List users = new ArrayList(usersSet);
+        for (int i = 0; i <users.size(); i++) {
+            if(((Usuarios)users.get(i)).getTipoUsuario() == 2 )
+                return true;
+        }
+        return false;
+        
+    }
+    
+    public Usuarios getUsuario(int idUser)
+    {
+        
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = hibernateSession.beginTransaction();
+        Usuarios usuario = (Usuarios) hibernateSession.load(Usuarios.class, idUser);
+        return usuario;
+    }
+    
     public int idProfesorDelGrupo(int idGrupo)
     {
         Usuarios Profesor;
@@ -173,9 +241,11 @@ public class BaseDatos {
     
     
     
-    public void CambiarUsuariodeGrupo(int idUsuario, int idGrupo) // cambiar el grupo al comun
+    
+    
+    public void CambiarUsuariodeGrupo(int idUsuario, int idGrupo) // cambia un usuario a otro grupo idgrupo corresponde al nuevo grupo
     {
-        System.out.println("Cambiandsoooooooooooooo id user:"+ idUsuario+" to idgrup "+idGrupo);
+        System.out.println("Cambiando id user:"+ idUsuario+" to idgrup "+idGrupo);
         Usuarios user;
         Grupo grupoN;
         hibernateSession = HibernateUtil.getSessionFactory().openSession();

@@ -74,7 +74,7 @@
                     <td>
                         <s:property value="%{apMaterno}" />
                     </td>
-                    <td>
+                    <td rowspan="2">
                         <s:property value="%{Grupo.Nombre}" />
                     </td>
                     <td> <s:a href="%{temporalA}">Eliminar</s:a></td>
@@ -98,11 +98,10 @@
                         </td>
                         <td>
                             <s:textfield name="apMaternoMod" value="%{apMaterno}" />
+                            
                         </td>
                         <td>
-                            <sx:autocompleter size="1" name="grupoMod" list = "Grupos" showDownArrow="false"/>
-                        </td>
-                        <td>
+                            <s:hidden name="grupoMod" value="%{Grupo.Nombre}" />
                             <s:submit value="modificar" />
                         </td>
                     </s:form>
