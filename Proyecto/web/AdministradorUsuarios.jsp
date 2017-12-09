@@ -11,24 +11,30 @@
     <sx:head/>
     <head>
         <link href="<s:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
+        <link href="<s:url value="/css/main.css"/>" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
         <title>Usuarios</title>
-        
+
     </head>
     <body>
-        <h1>Usuarios</h1>
-        <h1>Hello Admin ${sessionScope.username}</h1>
-        <h1><a href="Cerrar.action">Logout</a></h1>
-        
-        <hr>
-        <s:url action="cargarGrupos" var="prueba" />
-        <s:url action="cargarUsuarios" var="prueba2" />
-        <h1><s:a href="%{prueba}">Modificar grupos</s:a></h1>
-        <h1><s:a href="%{prueba2}">Modificar usuarios</s:a></h1>
-        <hr>
-        <br>
-        <div class="container">
-            <h2>Nuevo usuario</h2>
+        <div id="header">
+            <h1>Bienvenido Admin ${sessionScope.username}</h1>
+            <h1><a href="Cerrar.action">Logout</a></h1>
+
+            <nav id="nav"> 
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><s:url action="cargarGrupos" var="prueba" >Cargar Grupos</s:url></li>
+                    <li><s:url action="cargarUsuarios" var="prueba2" >Cargar Usuarios</s:url></li>
+                    <li><s:a href="%{prueba}">Modificar grupos</s:a></li>
+                    <li class="current"><s:a href="%{prueba2}">Modificar usuarios</s:a></li>
+                    </ul>
+                </nav>
+            </div>
+            <h1>Usuarios</h1>
+
+            <div class="container">
+                <h2>Nuevo usuario</h2>
             <s:form action="/All/agregarUsuarios" theme="simple" >
                 <div class="form-group">
                     <div class="form-row">
@@ -62,7 +68,7 @@
 
                 </div>
                 <div class="form-group">
-                        <s:select name="tipoN" list="{'Alumno','Profesor','Administrador'}" theme="simple" cssClass="custom-select d-block my-3"/>
+                    <s:select name="tipoN" list="{'Alumno','Profesor','Administrador'}" theme="simple" cssClass="custom-select d-block my-3"/>
 
                 </div>
                 <div class="form-row">
@@ -76,7 +82,7 @@
         <h3><s:property value="mensaje" /></h3>
         <br>
         <br />
-        
+
         <table border="1" class="table table-hover">
             <thead>
                 <tr>
@@ -118,8 +124,8 @@
                             <s:property value="%{Grupo.Nombre}" />
                         </td>
                         <td> <s:a href="%{temporalA}" cssClass="btn btn-danger">Eliminar</s:a></td>
-                    </tr>               
-                    <tr>
+                        </tr>               
+                        <tr>
                         <s:form theme="simple" action="/All/modificarUsuario">
                             <td>
                                 <s:hidden name="iduserMod" value="%{idUsuario}" />
