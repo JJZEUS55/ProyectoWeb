@@ -8,6 +8,7 @@ import BD.BaseDatos;
 import com.opensymphony.xwork2.ActionSupport;
 import entity.Grupo;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -120,9 +121,34 @@ public class AdminAddUser extends ActionSupport {
             lista = BD.TodosTablaX("Usuarios");
             return "1";
         }
-        
-        if(BD.agregarUsuario(usernameN, passwordN, tem, nombreN, apellidoPN, apellidoMN)){
-            mensaje = "Nuevo agregado";
+        else if(tem == 3)
+        {
+            if(!BD.agregarUsuario(usernameN, passwordN, tem, nombreN, apellidoPN, apellidoMN, "grupo")){
+                mensaje = "Error";}
+        }
+        else if(BD.SolicitarGrupo(grupoN) == null)
+        {
+            mensaje = "El grupo ingresado no existe -- se agrego a grupo";
+            if(!BD.agregarUsuario(usernameN, passwordN, tem, nombreN, apellidoPN, apellidoMN, "grupo"))
+            {
+                mensaje = "Error";
+            }
+            lista = BD.TodosTablaX("Usuarios");
+            return "1";
+        }
+        else if(tem == 2 && BD.checkGrupo(grupoN) == true)
+        {
+           
+            mensaje = "El grupo ya tiene profesor-- se agrego a grupo";
+            if(!BD.agregarUsuario(usernameN, passwordN, tem, nombreN, apellidoPN, apellidoMN, "grupo"))
+            {
+                mensaje = "Error";
+            }
+            lista = BD.TodosTablaX("Usuarios");
+            return "1";
+        }
+        else if(BD.agregarUsuario(usernameN, passwordN, tem, nombreN, apellidoPN, apellidoMN, grupoN)){
+            mensaje = "Nuevo nuevo usuario agregado";
         }
         else{
             mensaje = "Error";

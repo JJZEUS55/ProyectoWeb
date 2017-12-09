@@ -18,13 +18,22 @@
             <result name="1">/AdministradorGrupos.jsp</result>
     	</action>
         <action name="modificarGrupo" class="Administrador.AdminAction" method="modificarGrupo">
-            <result name="1">/AdministradorGrupos.jsp</result>
+            <result name="1">/AdministradorGruposMod.jsp</result>
     	</action>
         <action name="eliminarGrupo" class="Administrador.AdminAction" method="eliminarGrupo">
             <result name="1">/AdministradorGrupos.jsp</result>
     	</action>
         <action name="agregarGrupo" class="Administrador.AdminAction" method="agregarGrupo">
             <result name="1">/AdministradorGrupos.jsp</result>
+    	</action>
+        <action name="CambiarUsuariodeGrupo" class="Administrador.AdminAction" method="CambiarUsuariodeGrupo">
+            <result name="1">/AdministradorGruposMod.jsp</result>
+    	</action>
+        <action name="CambiarProfesorGrupo" class="Administrador.AdminAction" method="CambiarProfesorGrupo">
+            <result name="1">/AdministradorGruposMod.jsp</result>
+    	</action>
+        <action name="Busqueda" class="Administrador.AdminAction" method="Busqueda">
+            <result name="1">/AdministradorUsuarios.jsp</result>
     	</action>
         <action name="cargarUsuarios" class="Administrador.AdminAction" method="cargarUsuarios">
             <result name="1">/AdministradorUsuarios.jsp</result>
@@ -33,6 +42,9 @@
             <result name="1">/AdministradorUsuarios.jsp</result>
     	</action>     
         <action name="eliminarUsuario" class="Administrador.AdminDeleteUser" method="eliminarUsuario">
+            <result name="1">/AdministradorUsuarios.jsp</result>
+    	</action>
+        <action name="modificarUsuario" class="Administrador.AdminModUser" method="modificarUsuario">
             <result name="1">/AdministradorUsuarios.jsp</result>
     	</action>
         

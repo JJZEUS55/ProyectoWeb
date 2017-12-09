@@ -10,105 +10,168 @@
 <html>
     <sx:head/>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+        <link href="<s:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
+        <link href="<s:url value="/css/main.css"/>" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
         <title>Usuarios</title>
-        
+
     </head>
     <body>
-        <h1>Usuarios</h1>
-        <h1>Hello Admin ${sessionScope.username}</h1>
-        <h1><a href="Cerrar.action">Logout</a></h1>
-        
-        <hr>
-        <s:url action="cargarGrupos" var="prueba" />
-        <s:url action="cargarUsuarios" var="prueba2" />
-        <h1><s:a href="%{prueba}">Modificar grupos</s:a></h1>
-        <h1><s:a href="%{prueba2}">Modificar usuarios</s:a></h1>
-        <hr>
-        
-        <s:form action="/All/agregarUsuarios" >
-            <s:textfield name="usernameN" label="Usuario"/>
-            <s:textfield name="passwordN" label="Password" />
-            <s:select name="tipoN" label="Tipo de usuario" list="{'Alumno','Profesor','Administrador'}" />
-            <s:textfield name="nombreN" label="Nombre" />
-            <s:textfield name="apellidoPN" label="Apellido Paterno" />
-            <s:textfield name="apellidoMN" label="Apellido Materno" />
-            <sx:autocompleter size="1" name="grupoN" list = "Grupos" showDownArrow="false" label="Grupo"/>
-            <s:submit value="Agregar"/>
-        </s:form>
-        <h3><s:property value="mensaje" /></h3>
+        <div id="header">
+            <h1>Bienvenido Admin ${sessionScope.username}</h1>
+            <h1><a href="Cerrar.action">Logout</a></h1>
 
-        <br />
-        <table border="1">
-            <tr>
-                <td>IdUsuario</td>
-                <td>Usuario</td>
-                <td>Tipo</td>
-                <td>Nombre</td>
-                <td>Apellido Paterno</td>
-                <td>Apellido Materno</td>
-                <td>Grupo</td>
-                <td>Accion</td>
-            </tr>
+            <nav id="nav"> 
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><s:url action="cargarGrupos" var="prueba" >Cargar Grupos</s:url></li>
+                    <li><s:url action="cargarUsuarios" var="prueba2" >Cargar Usuarios</s:url></li>
+                    <li><s:a href="%{prueba}">Modificar grupos</s:a></li>
+                    <li class="current"><s:a href="%{prueba2}">Modificar usuarios</s:a></li>
+                    </ul>
+                </nav>
+            </div>
+            <h1>Usuarios</h1>
+            
+            <div class="container">
+                <h2>Nuevo usuario</h2>
+            <s:form action="/All/agregarUsuarios" theme="simple" >
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col">
+                            <s:textfield name="usernameN" placeholder="Usuario" cssClass="form-control"/>
+                        </div>
+                        <div class="col">
+                            <s:textfield name="passwordN" placeholder="Password" cssClass="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <div class="form-row">
+                        <div class="col">
+                            <s:textfield name="nombreN" placeholder="Nombre" cssClass="form-control"/>
+                        </div>
+                        <div class="col">
+                            <s:textfield name="apellidoPN" placeholder="Apellido Paterno" cssClass="form-control"/>
+                        </div>
+                        <div class="col">
+                            <s:textfield name="apellidoMN" placeholder="Apellido Materno"  cssClass="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+
+                    <div class="col">
+                        <sx:autocompleter size="1" name="grupoN" list = "Grupos" showDownArrow="false" cssClass="form-control" />
+                    </div>
+
+
+                </div>
+                <div class="form-group">
+                    <s:select name="tipoN" list="{'Alumno','Profesor','Administrador'}" theme="simple" cssClass="custom-select d-block my-3"/>
+
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <s:submit value="Agregar" cssClass="btn btn-primary"/>
+                    </div>
+                </div>
+            </s:form>
+        </div>
+            
+        <br>
         
-            <s:iterator value="lista">
-                <s:url action="eliminarUsuario" var="temporalA" >
-                    <s:param name="id" value="%{idUsuario}" />
-                </s:url>  
+        <br>
+        <h3><s:property value="mensaje" /></h3>
+        <br>
+        <br />
+        <div class="container">
+            <s:form theme="simple" action="/All/Busqueda">
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col">
+                            <s:textfield name="Buscar" placeholder="...." cssClass="form-control"/>
+                        </div>
+                        <div class="col">
+                            <s:submit value="Buscar" cssClass="btn btn-primary"/>
+                        </div>
+                    </div>
+                </div>
+            </s:form>
+        </div>
+        <br>
+        <table border="1" class="table table-hover">
+            <thead>
                 <tr>
-                    <td>
-                        <s:property value="%{idUsuario}" />
-                    </td>
-                    <td>
-                        <s:property value="%{usuario}" />
-                    </td>
-                    <td>
-                        <s:property value="%{tipoUsuario}" />
-                    </td>
-                    <td>
-                        <s:property value="%{nombre}" />
-                    </td>
-                    <td>
-                        <s:property value="%{apPaterno}" />
-                    </td>
-                    <td>
-                        <s:property value="%{apMaterno}" />
-                    </td>
-                    <td>
-                        <s:property value="%{Grupo.Nombre}" />
-                    </td>
-                    <td> <s:a href="%{temporalA}">Eliminar</s:a></td>
-                </tr>               
-                <tr>
-                    <s:form theme="simple">
-                        <td>
-                            <s:hidden name="iduserMod" value="%{idUsuario}" />
-                        </td>
-                        <td>
-                            <s:textfield name="usuarioMod" value="%{usuario}" />
-                        </td>
-                        <td>
-                            <s:textfield name="tipoUsuarioMod" value="%{tipoUsuario}" />
-                        </td>
-                        <td>
-                            <s:textfield name="nombreMod" value="%{nombre}" />
-                        </td>
-                        <td>
-                            <s:textfield name="apPaternoMod" value="%{apPaterno}" />
-                        </td>
-                        <td>
-                            <s:textfield name="apMaternoMod" value="%{apMaterno}" />
-                        </td>
-                        <td>
-                            <sx:autocompleter  value="%{Grupo.Nombre}" size="1" name="idGrupoMod" list = "Grupos" showDownArrow="false"></sx:autocompleter>
-                        </td>
-                        <td>
-                            <s:submit value="modificar" />
-                        </td>
-                    </s:form>
+                    <th scope="col">IdUsuario</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido Paterno</th>
+                    <th scope="col">Apellido Materno</th>
+                    <th scope="col">Grupo</th>
+                    <th scope="col">Accion</th>
                 </tr>
-                
-            </s:iterator>
+            </thead>
+            <tbody>
+                <s:iterator value="lista">
+                    <s:url action="eliminarUsuario" var="temporalA" >
+                        <s:param name="id" value="%{idUsuario}" />
+                    </s:url>  
+                    <tr>
+                        <td>
+                            <s:property value="%{idUsuario}" />
+                        </td>
+                        <td>
+                            <s:property value="%{usuario}" />
+                        </td>
+                        <td>
+                            <s:property value="%{tipoUsuario}" />
+                        </td>
+                        <td>
+                            <s:property value="%{nombre}" />
+                        </td>
+                        <td>
+                            <s:property value="%{apPaterno}" />
+                        </td>
+                        <td>
+                            <s:property value="%{apMaterno}" />
+                        </td>
+                        <td rowspan="2">
+                            <s:property value="%{Grupo.Nombre}" />
+                        </td>
+                        <td> <s:a href="%{temporalA}" cssClass="btn btn-danger">Eliminar</s:a></td>
+                        </tr>               
+                        <tr>
+                        <s:form theme="simple" action="/All/modificarUsuario">
+                            <td>
+                                <s:hidden name="iduserMod" value="%{idUsuario}" />
+                            </td>
+                            <td>
+                                <s:textfield name="usuarioMod" value="%{usuario}" />
+                            </td>
+                            <td>
+                                <s:textfield name="tipoUsuarioMod" value="%{tipoUsuario}" />
+                            </td>
+                            <td>
+                                <s:textfield name="nombreMod" value="%{nombre}" />
+                            </td>
+                            <td>
+                                <s:textfield name="apPaternoMod" value="%{apPaterno}" />
+                            </td>
+                            <td>
+                                <s:textfield name="apMaternoMod" value="%{apMaterno}" />
+
+                            </td>
+                            <td>
+                                <s:hidden name="grupoMod" value="%{Grupo.Nombre}" />
+                                <s:submit value="modificar" cssClass="btn btn-warning"/>
+                            </td>
+                        </s:form>
+                    </tr>
+
+                </s:iterator>
+            </tbody>
         </table>
     </body>
 </html>
