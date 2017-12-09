@@ -1,9 +1,9 @@
 
 function inicio(Document,canvas) {   
     //Variables Globales
-    unidades=[];
-    Xs=[];
-    X2s=[];
+    var unidades=[];
+    var Xs=[];
+    var X2s=[];
     InterfazActiva=0;
     
    
@@ -56,6 +56,16 @@ function inicio(Document,canvas) {
         {
             canvas.add(this.Forma);
         };
+        this.Intercepta=function (Obj){
+            if(this.Forma===Obj)
+                return false;
+            if(this.Forma.intersectsWithObject(Obj))
+              {
+                  //alert("Interseccion!!!");
+                  //imprimir("interseccion\n");
+                  return true;
+              }
+        };
         canvas.add(this.Forma);
     }
     
@@ -106,7 +116,7 @@ function inicio(Document,canvas) {
                     unidades.push(NuevaFigura);
                     break;
                 case "X":
-                    Xs.push(NuevaFigura)
+                    Xs.push(NuevaFigura);
                     break;
                 case "X^2":
                     X2s.push(NuevaFigura);
@@ -210,19 +220,22 @@ function inicio(Document,canvas) {
     
     function interfazExpand()
     {
-        this.LadoIzquierdo = new Fondo(200,200,50,180,100,60,0);
-        this.LadoDerecho = new Fondo(200,200,260,180,0,60,200);
+        this.LadoIzquierdo = new Fondo(25,200,240,180,100,60,0);
+        this.LadoSup = new Fondo(200,25,240,180,100,60,0);
+        this.LadoDerecho = new Fondo(175,175,265,205,0,60,200);
         //Visible=true;
         this.MosBorr=function (Visible)
         {
             if(!Visible){
                 this.LadoIzquierdo.Borrar();
                 this.LadoDerecho.Borrar();
+                this.LadoSup.Borrar();
             }
             else       
             {
                 this.LadoIzquierdo.Dibujar();
                 this.LadoDerecho.Dibujar();
+                this.LadoSup.Dibujar();
             }
             Visible=!Visible;
         };
@@ -230,23 +243,25 @@ function inicio(Document,canvas) {
     }
     function interfazFactor()
     {
-        this.LadoIzquierdo = new Fondo(200,200,50,180,100,60,0);
-        this.LadoDerecho = new Fondo(200,200,260,180,0,60,200);
+        this.LadoIzquierdo = new Fondo(25,200,240,180,100,60,0);
+        this.LadoSup = new Fondo(200,25,240,180,100,60,0);
+        this.LadoDerecho = new Fondo(175,175,265,205,0,60,200);
         //Visible=true;
         this.MosBorr=function (Visible)
         {
             if(!Visible){
                 this.LadoIzquierdo.Borrar();
                 this.LadoDerecho.Borrar();
+                this.LadoSup.Borrar();
             }
             else       
             {
                 this.LadoIzquierdo.Dibujar();
                 this.LadoDerecho.Dibujar();
+                this.LadoSup.Dibujar();
             }
             Visible=!Visible;
         };
-        //MosBorr(false);
     }
     
     
@@ -306,7 +321,7 @@ function inicio(Document,canvas) {
 
 
     //Botones AgregaFiguras
-    var unidad= new BotonAddForma(20,20,570+XRel,220,'200,0,0',"1");
+    var unidad= new BotonAddForma(20,20,570+XRel,220,'255,250,0',"1");
     var X= new BotonAddForma(40,20,570+XRel,270,'0,100,200',"X");
     var X2= new BotonAddForma(40,40,570+XRel,320,'50,500,200',"X^2");
           
@@ -370,7 +385,52 @@ function inicio(Document,canvas) {
               ActualizaDatos();
           }
           
-          
+          function CuentaIntercepciones(Fondo)
+          {
+              var res=[3];
+              res[0]=0;
+              res[1]=0;
+              res[2]=0;
+              for(i=0;i<unidades.length;i++)
+              {
+                  if(Fondo.Intercepta(unidades[i]))
+                      res[0]++;
+              }
+              for(i=0;i<Xs.length;i++)
+              {
+                  if(Fondo.Intercepta(Xs[i]))
+                      res[1]++;
+              }
+              for(i=0;i<X2s.length;i++)
+              {
+                  if(Fondo.Intercepta(X2s[i]))
+                      res[2]++;
+              }
+              return res;
+          }
+    
+          function Validacion()
+          {
+              switch (InterfazActiva)
+              {
+                  case 1:
+                      
+                      res=CuentaIntercepciones(interfaces[0].LadoIzquierdo);
+                      imprimir("\nLado Izquierdo:"+res[0]+","+res[1]+","+res[2]);
+                      res=CuentaIntercepciones(interfaces[0].LadoDerecho);
+                      imprimir("Lado Izquierdo:"+res[0]+","+res[1]+","+res[2]);
+                      
+                      break;
+                  case 2:
+                      break;
+                  case 3:
+                      break;
+                  case 4:
+                      break;
+                      
+                      
+              }
+          }
           
           
           
@@ -385,8 +445,8 @@ function inicio(Document,canvas) {
           function imprimir(Str)
           {
               co=document.getElementById("log");              
-              co.appendChild(document.createTextNode(Str));
-
+              co.appendChild(document.createTextNode(Str+","));
+              
           }
           
           function ActualizaDatos()
@@ -412,6 +472,8 @@ function inicio(Document,canvas) {
                   CambiaInterfaz(3);
               else if(Factor.IsSelect(options.target))
                   CambiaInterfaz(4);
+              else if(Validar.IsSelect(options.target))
+                  Validacion();
               try{
               options.target.setCoords();
               
