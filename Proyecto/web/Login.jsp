@@ -9,13 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link href="CSS/bootstrap.min.css" rel="stylesheet" media="screen">
+        <title>Inicio sesion</title>
     </head>
     <body>
-        <s:form action="/All/Iniciar">
-            <s:textfield name="username" />
-            <s:password name="password" />
-            <s:submit />
+        <s:form action="/All/Iniciar" cssClass="well form-search">
+            <s:textfield name="username" placeholder="username"/>
+            <s:password name="password" placeholder="password"/>
+            <s:submit value="Iniciar"/>
         </s:form>
         <h1><s:property value="mensaje"/></h1>
     </body>
