@@ -16,22 +16,29 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Grupos</h1>
-        <h1>Hello Admin ${sessionScope.username}</h1>
-        <h1><a href="Cerrar.action">Logout</a></h1>
+        <div id="header">
+            <h1>Bienvenido Admin ${sessionScope.username}</h1>
+            <h1><a href="Cerrar.action">Logout</a></h1>
+
+            <nav id="nav"> 
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><s:url action="cargarGrupos" var="prueba" >Cargar Grupos</s:url></li>
+                    <li><s:url action="cargarUsuarios" var="prueba2" >Cargar Usuarios</s:url></li>
+                    <li class="current"><s:a href="%{prueba}">Modificar grupos</s:a></li>
+                    <li><s:a href="%{prueba2}">Modificar usuarios</s:a></li>
+                </ul>
+            </nav>
+        </div>
+                
+  
         
-        <hr>
-        <s:url action="cargarGrupos" var="prueba" />
-        <s:url action="cargarUsuarios" var="prueba2" />
-        <h1><s:a href="%{prueba}">Modificar grupos</s:a></h1>
-        <h1><s:a href="%{prueba2}">Modificar usuarios</s:a></h1>
-        <hr>
         
         <div class="container">
             
-            <s:label value="Grupo: %{NombreGrupoMod}" />
+            <s:label value="Grupo seleccionado: %{NombreGrupoMod}" />
             <br>
-            <s:label value="Profesor: %{ProfesorGrupoMod}" />
+            <s:label value="Profesor del grupo: %{ProfesorGrupoMod}" />
             <br>
             <s:form theme="simple" action="/All/CambiarProfesorGrupo">
                 <s:hidden name="idGrupo" value="%{idGrupo}" />
@@ -40,7 +47,7 @@
                 <s:submit value="Cambiar profesor" />
             </s:form>
             <s:property value="mensaje" />
-            
+            <hr>
             <br><br>
             <div class="row">
                 <div class="col-sm-6">
