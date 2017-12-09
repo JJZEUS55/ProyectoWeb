@@ -157,6 +157,27 @@ function inicio(Document,canvas) {
         
     }
     
+    function interfazSubstitute()
+    {
+        LadoIzquierdo = new Fondo(200,200,50,180,100,60,0);
+        LadoDerecho = new Fondo(200,200,260,180,0,60,100);
+        Visible=true;
+        this.MosBorr=function ()
+        {
+            if(Visible){
+                LadoIzquierdo.Borrar();
+                LadoDerecho.Borrar();
+            }
+            else
+            {
+                LadoIzquierdo.Dibujar();
+                LadoDerecho.Dibujar();
+            }
+            Visible=!Visible;
+        };
+        
+    }
+    
     
     function limpiarFiguras()
     {
@@ -198,8 +219,9 @@ function inicio(Document,canvas) {
           var Expand= new BotonTitulo("Expand",270,0,0,0,200);
           var Factor= new BotonTitulo("Factor",380,0,200,200,0);
           var Limpiar= new BotonTitulo("Limpiar",380,100,200,200,0);
+          var Validar= new BotonTitulo("Validar",260,100,200,200,0);
           
-          var Interfaz=new interfazSolve();
+          var Solve=new interfazSolve();
           
           //Generando Fondos.
           var FondoDerecho= new Fondo(150,400,550,0,100,20,100);
@@ -220,7 +242,10 @@ function inicio(Document,canvas) {
 
                 
             }
-          
+          function FuncionSubstitue()
+          {
+              
+          }
           
 
           document.onkeyup=function (evObject){
@@ -294,6 +319,8 @@ function inicio(Document,canvas) {
                   FuncionSolve();
               else if(Limpiar.IsSelect(options.target))
                   limpiarFiguras();
+              else if(Substitute.IsSelect(options.target))
+                  FuncionSubstitue();
               try{
               options.target.setCoords();
               
