@@ -66,7 +66,7 @@
                                         <s:hidden value="%{idUsuario}" name="user" />
                                         <s:hidden value="%{idGrupo}" name="idGrupo" />
                                         <s:hidden value="1" name="grupoC" />
-                                        <s:submit value="Eliminar" />
+                                        <s:submit value="Eliminar" cssClass="btn btn-danger"/>
                                     </s:form>
                                 </td>
                             </tr>
@@ -98,7 +98,7 @@
                                             <s:hidden value="%{idUsuario}" name="user" />
                                             <s:hidden value="%{idGrupo}" name="grupoC" />
                                             <s:hidden value="%{idGrupo}" name="idGrupo" />
-                                            <s:submit value="Agregar" />
+                                            <s:submit value="Agregar" cssClass="btn btn-success" />
                                         </s:form>
                                     </td>
                                 </tr>  

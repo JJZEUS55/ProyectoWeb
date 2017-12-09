@@ -26,20 +26,57 @@
         <h1><s:a href="%{prueba}">Modificar grupos</s:a></h1>
         <h1><s:a href="%{prueba2}">Modificar usuarios</s:a></h1>
         <hr>
-        
-        <s:form action="/All/agregarUsuarios" >
-            <s:textfield name="usernameN" label="Usuario"/>
-            <s:textfield name="passwordN" label="Password" />
-            <s:select name="tipoN" label="Tipo de usuario" list="{'Alumno','Profesor','Administrador'}" />
-            <s:textfield name="nombreN" label="Nombre" />
-            <s:textfield name="apellidoPN" label="Apellido Paterno" />
-            <s:textfield name="apellidoMN" label="Apellido Materno" />
-            <sx:autocompleter size="1" name="grupoN" list = "Grupos" showDownArrow="false" label="Grupo"/>
-            <s:submit value="Agregar"/>
-        </s:form>
-        <h3><s:property value="mensaje" /></h3>
+        <br>
+        <div class="container">
+            <h2>Nuevo usuario</h2>
+            <s:form action="/All/agregarUsuarios" theme="simple" >
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col">
+                            <s:textfield name="usernameN" placeholder="Usuario" cssClass="form-control"/>
+                        </div>
+                        <div class="col">
+                            <s:textfield name="passwordN" placeholder="Password" cssClass="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <div class="form-row">
+                        <div class="col">
+                            <s:textfield name="nombreN" placeholder="Nombre" cssClass="form-control"/>
+                        </div>
+                        <div class="col">
+                            <s:textfield name="apellidoPN" placeholder="Apellido Paterno" cssClass="form-control"/>
+                        </div>
+                        <div class="col">
+                            <s:textfield name="apellidoMN" placeholder="Apellido Materno"  cssClass="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
 
+                    <div class="col">
+                        <sx:autocompleter size="1" name="grupoN" list = "Grupos" showDownArrow="false" cssClass="form-control" />
+                    </div>
+
+
+                </div>
+                <div class="form-group">
+                        <s:select name="tipoN" list="{'Alumno','Profesor','Administrador'}" theme="simple" cssClass="custom-select d-block my-3"/>
+
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <s:submit value="Agregar" cssClass="btn btn-primary"/>
+                    </div>
+                </div>
+            </s:form>
+        </div>
+        <br>
+        <h3><s:property value="mensaje" /></h3>
+        <br>
         <br />
+        
         <table border="1" class="table table-hover">
             <thead>
                 <tr>
@@ -80,7 +117,7 @@
                         <td rowspan="2">
                             <s:property value="%{Grupo.Nombre}" />
                         </td>
-                        <td> <s:a href="%{temporalA}">Eliminar</s:a></td>
+                        <td> <s:a href="%{temporalA}" cssClass="btn btn-danger">Eliminar</s:a></td>
                     </tr>               
                     <tr>
                         <s:form theme="simple" action="/All/modificarUsuario">
@@ -105,7 +142,7 @@
                             </td>
                             <td>
                                 <s:hidden name="grupoMod" value="%{Grupo.Nombre}" />
-                                <s:submit value="modificar" />
+                                <s:submit value="modificar" cssClass="btn btn-warning"/>
                             </td>
                         </s:form>
                     </tr>

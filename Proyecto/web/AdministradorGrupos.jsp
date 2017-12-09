@@ -25,12 +25,20 @@
         <h1><s:a href="%{prueba}">Modificar grupos</s:a></h1>
         <h1><s:a href="%{prueba2}">Modificar usuarios</s:a></h1>
         <hr>
-        <h1>Nuevo Grupo</h1>
-        <s:form action="/All/agregarGrupo">
-            <s:textfield name="NombreGrupo" label="Nombre del grupo" />
-            <s:submit value="Agregar" />
-        </s:form>
+        <br>
+        <div class="container">
+            <h2>Nuevo Grupo</h2>
+            <s:form action="/All/agregarGrupo" theme="simple">
+                <div class="form-group">
+                    <s:textfield name="NombreGrupo" placeholder="Nombre del grupo" cssClass="form-control"/>
+                    <s:submit value="Agregar" cssClass="btn"/>
+                </div>
+            </s:form>
+
+        </div>
+        <br>
         <h3><s:property value="mensaje"/></h3>
+        <br>
         <s:iterator value="Usuarios">
                 <s:property value="usuario"></s:property>
         </s:iterator>
@@ -55,8 +63,8 @@
                         <td><s:property value="idGrupo"/></td>
                         <td><s:property value="nombre"/></td>
                         <td>
-                            <s:a href="%{temporalA}">modificar</s:a> ||
-                            <s:a href="%{temporalB}">eliminar</s:a>
+                            <s:a href="%{temporalA}" cssClass="btn btn-success">modificar</s:a>
+                            <s:a href="%{temporalB}" cssClass="btn btn-danger">eliminar</s:a>
                         </td>
                     </tr>  
                 </s:iterator>
