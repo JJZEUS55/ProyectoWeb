@@ -24,9 +24,9 @@
 
                 <s:form action="/All/Iniciar" cssClass="well form-search">
                     <div class="txt1">
-                        <i class="fa fa-user">
-                            <s:textfield id="txtUsuario" cssClass="txtUsuario" name="username" placeholder="Usuario"/>  
-                        </i>
+                        <span class="fa fa-user" aria-hidden="true">                      
+                            <s:textfield id="txtUsuario"  name="username" placeholder="Usuario"/>  
+                        </span>
                     </div>
                     <div class="txt2">
                         <i class="fa fa-key">

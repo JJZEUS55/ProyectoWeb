@@ -69,6 +69,9 @@
         <action name="cambiarCalificacion" class="Maestro.MaestroAction" method="modificarCalificacion">
             <result name="1">/TeacherCalificar.jsp</result>            
         </action>      
+        <action name="ejercicio" class="Maestro.MaestroAction" method="ejercicio">
+            <result name="1">/TeacherEjercicio.jsp</result>            
+        </action>      
          
     </package>
 </struts>

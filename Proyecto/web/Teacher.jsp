@@ -16,18 +16,23 @@
 
             <nav id="nav"> 
                 <ul>
-                    <li class="current"><a href="#">Inicio</a></li>
-                    <s:url action="cargarGrupo" var="prueba" >
+                    <s:url action="Iniciar" var="pruebaInicio">
+                        <s:param name="userName" value="username"/> 
+                    </s:url>
+                    <li class="current"><s:a href="%{pruebaInicio}">Inicio</s:a></li>
+                        <s:url action="cargarGrupo" var="prueba" >
+                            <s:param name="userName" value="username"/>
+                        </s:url>
+
+                    <s:url action="ejercicio" var="prueba2" >
                         <s:param name="userName" value="username"/>
                     </s:url>
-                   
-                    <s:url action="cargarUsuarios" var="prueba2" ></s:url>
                     <li><s:a href="%{prueba}">Grupos</s:a></li>
                     <li><s:a href="%{prueba2}">Ejercicios</s:a></li>
-                </ul>
-            </nav>                
-        </div>
-                 <h3><s:property value="username"/>  holo</h3>
+                    </ul>
+                </nav>                
+            </div>
+            <h3><s:property value="username"/></h3>
         <hr>
     </body>
 </html>

@@ -77,5 +77,39 @@ INSERT INTO `usuarios` (`idUsuario`,`usuario`,`contrasena`,`tipoUsuario`,`nombre
 insert into calificaciones values(1, 1, 9);
 
 
+-- Cambios a la tabla de tareas por que puto cocinero >:v
+-- se añade la calificacion a esta tabla
+
+alter table tareas drop column archivo;
+
+alter table tareas add column calificacion int;
+
+alter table tareas add column int1solveiz1 int;
+alter table tareas add column int1solveiz2 int;
+alter table tareas add column int1solveiz3 int;
+alter table tareas add column int1solveder1 int;
+alter table tareas add column int1solveder2 int;
+alter table tareas add column int1solveder3 int;
+
+alter table tareas add column int2solveiz1 int;
+alter table tareas add column int2solveiz2 int;
+alter table tareas add column int2solveiz3 int;
+alter table tareas add column int2solveder1 int;
+alter table tareas add column int2solveder2 int;
+alter table tareas add column int2solveder3 int;
+
+alter table tareas add column int3solveiz1 int;
+alter table tareas add column int3solveiz2 int;
+alter table tareas add column int3solveiz3 int;
+alter table tareas add column int3solveder1 int;
+alter table tareas add column int3solveder2 int;
+alter table tareas add column int3solveder3 int;
+
+alter table tareas add column int4solveiz1 int;
+alter table tareas add column int4solveiz2 int;
+alter table tareas add column int4solveiz3 int;
+alter table tareas add column int4solveder1 int;
+alter table tareas add column int4solveder2 int;
+alter table tareas add column int4solveder3 int;
 
 

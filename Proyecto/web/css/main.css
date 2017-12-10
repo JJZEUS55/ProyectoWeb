@@ -3288,3 +3288,21 @@ input[type="button"].small,
     height: 10px;
     text-align: center;
 }
+/*
+.txt1{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	padding: 12px 12px 12px 4px;
+	background: rgba(132, 132, 132, 0.27);
+}
+
+.txt1 span {
+	flex-basis: 10%;
+	-webkit-flex-basis: 10%;
+	display: inline-block;
+	font-size: 17px;
+	color: #fff;
+	line-height: 40px;
+}*/

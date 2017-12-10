@@ -17,17 +17,18 @@
     </head>
     <body>
         <div id="header">
-            <h1>Bienvenido Maestro ${sessionScope.username}</h1>
+            <h1>Maestro ${sessionScope.username}</h1>
             <h1><a href="Cerrar.action">Logout</a></h1>
 
             <nav id="nav"> 
                 <ul>
                     <li><a href="#">Inicio</a></li>
                         <s:url action="cargarGrupo" var="prueba" >
-                            <s:param name="userName" value="username"/>
+                            <s:param name="userName" value="userName"/>
                         </s:url>
-
-                    <s:url action="cargarUsuarios" var="prueba2" ></s:url>
+                        <s:url action="ejercicio" var="prueba2" >
+                            <s:param name="userName" value="userName"/>
+                        </s:url>
                     <li class="current"><s:a href="%{prueba}">Grupos</s:a></li>
                     <li><s:a href="%{prueba2}">Ejercicios</s:a></li>
                     </ul>
@@ -46,6 +47,7 @@
                 <s:iterator>
                     <s:url action="getAlumnos" var="temporalA" >
                         <s:param name="idGrupo" value="grupo.idGrupo" />
+                        <s:param name="userName" value="userName"/>
                     </s:url>
                     <tr>
                         <td><s:property value="grupo.idGrupo"/></td>
@@ -58,5 +60,6 @@
                 </s:iterator>
             </tbody>
         </table>
+
     </body>
 </html>
