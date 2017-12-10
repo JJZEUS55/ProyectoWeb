@@ -19,7 +19,16 @@ import org.hibernate.Transaction;
  */
 public class AdminDeleteUser extends ActionSupport {
     private int id;
+    private String mensaje;
     private List lista;
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
 
     public int getId() {
         return id;
@@ -47,9 +56,11 @@ public class AdminDeleteUser extends ActionSupport {
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
         Transaction t = hibernateSession.beginTransaction();
         Usuarios UserEliminado = (Usuarios) hibernateSession.load(Usuarios.class, id);
+        mensaje="Usuario eliminado: "+UserEliminado.getUsuario();
         hibernateSession.delete(UserEliminado);
         t.commit();
         lista = BD.TodosTablaX("Usuarios");
+        
         return "1";
     }
     

@@ -48,7 +48,9 @@
                 <s:submit value="Cambiar profesor" />
             </s:form>
             <div class="container">
-                <h3><s:property value="mensaje" /></h3>
+                <div class="alert alert-info">
+                    <s:property value="mensaje"/>
+                </div>
             </div>
             <hr>
             <br><br>

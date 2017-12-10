@@ -52,7 +52,9 @@
         </div>
         <br>
         <div class="container">
-            <h3><s:property value="mensaje" /></h3>
+            <div class="alert alert-info">
+                <s:property value="mensaje"/>
+            </div>
         </div>
         <br>
         <s:iterator value="Usuarios">

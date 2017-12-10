@@ -35,8 +35,11 @@
                     </div>
                     <s:submit id="btnEntrar" value="Iniciar"/>
                 </s:form>
+                <div class="alert alert-info">
+                    <s:property value="mensaje"/>
+                </div>
         </div>
         
-        <h1><s:property value="mensaje"/></h1>
+        
     </body>
 </html>
