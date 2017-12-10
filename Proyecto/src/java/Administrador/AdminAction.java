@@ -153,6 +153,10 @@ public class AdminAction extends ActionSupport {
         this.lista = lista;
     }
     
+    public String getDefaultTipo(){
+        return "Alumno";
+    }
+    
     public AdminAction() {
     }
     

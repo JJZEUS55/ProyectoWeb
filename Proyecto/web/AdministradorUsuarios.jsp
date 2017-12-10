@@ -70,8 +70,8 @@
 
                 </div>
                 <div class="form-group">
-                    <s:select name="tipoN" list="{'Alumno','Profesor','Administrador'}" theme="simple" cssClass="custom-select d-block my-3"/>
-
+                    <!--<s:select name="tipoN" list="{'Alumno','Profesor','Administrador'}" theme="simple" cssClass="custom-select d-block my-3"/>-->
+                    <s:radio name="tipoN" list="{'Alumno','Profesor','Administrador'}" value="DefaultTipo" cssClass="radio" />
                 </div>
                 <div class="form-row">
                     <div class="col">
