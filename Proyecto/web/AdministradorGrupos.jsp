@@ -24,7 +24,8 @@
                 <ul>
                     <s:url action="cargarUsuarios" var="prueba2" ></s:url>
                     <s:url action="cargarGrupos" var="prueba" ></s:url>
-                    <li><a href="#">Inicio</a></li>
+                    <s:url action="InicioAdmin" var="prueba3" ></s:url>
+                    <li><s:a href="%{prueba3}">Inicio</s:a></li>
                     <li class="current"><s:a href="%{prueba}">Modificar grupos</s:a></li>
                     <li><s:a href="%{prueba2}">Modificar usuarios</s:a></li>
                 </ul>

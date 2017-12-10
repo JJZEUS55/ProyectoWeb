@@ -11,6 +11,9 @@
             <result name="3">/Administrador.jsp</result>
             <result name="4">/Login.jsp</result>
         </action>
+        <action name="InicioAdmin" class="Administrador.AdminAction" method="InicioAdmin">
+            <result name="1">/Administrador.jsp</result>
+        </action>
         <action name="Cerrar" class="login.Login" method="Logout">
             <result name="1">/Login.jsp</result>
         </action>

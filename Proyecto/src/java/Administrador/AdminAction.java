@@ -181,7 +181,10 @@ public class AdminAction extends ActionSupport {
         lista = BD.ResultadoBusqueda(Buscar);
         return "1";
     }
-    
+    public String InicioAdmin()
+    {
+        return "1";
+    }
     public String cargarUsuarios() 
     {   
         List Tem;
