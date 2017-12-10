@@ -1,12 +1,35 @@
 
-function inicio(Document,canvas) {   
+function imprimir(Str)
+{
+    co=document.getElementById("log");              
+    co.appendChild(document.createTextNode(Str+","));
+
+}
+
+
+function inicio(canvas) {   
     //Variables Globales
+     function serializa()
+    {
+        
+
+        imprimir(canvas.toSVG());
+    }
     var unidades=[];
     var Xs=[];
     var X2s=[];
+    var unidadesN=[];
+    var XsN=[];
+    var X2sN=[];
     InterfazActiva=0;
     
-   
+    var SolveIz=[3];
+    SolveIz[0]=document.getElementById("SolveIz1").value;
+    SolveIz[1]=document.getElementById("SolveIz2").value;
+    SolveIz[2]=document.getElementById("SolveIz3").value;
+    //uni=;
+    //alert(uni.value);
+    imprimir(""+SolveIz[0]+""+SolveIz[1]+""+SolveIz[2]+"");
     
     function BotonTitulo(Nombre,x,y,R,G,B)
     {
@@ -120,6 +143,15 @@ function inicio(Document,canvas) {
                     break;
                 case "X^2":
                     X2s.push(NuevaFigura);
+                    break;
+                 case "-1":
+                    unidadesN.push(NuevaFigura);
+                    break;
+                case "-X":
+                    XsN.push(NuevaFigura);
+                    break;
+                case "-X^2":
+                    X2sN.push(NuevaFigura);
                     break;
                 
             }
@@ -280,9 +312,25 @@ function inicio(Document,canvas) {
         {
             X2s[i].remove();
         }
+        for(var i=0;i< unidadesN.length;i++)
+        {
+            //i.remove();
+            unidadesN[i].remove();
+        }
+        for(var i=0;i< XsN.length;i++)
+        {
+            XsN[i].remove();
+        }
+        for(var i=0;i< X2sN.length;i++)
+        {
+            X2sN[i].remove();
+        }
         unidades=[];
         Xs=[];
         X2s=[];
+        unidadesN=[];
+        XsN=[];
+        X2sN=[];
         ActualizaDatos();
     }
     
@@ -295,7 +343,8 @@ function inicio(Document,canvas) {
     var Factor= new BotonTitulo("Factor",380,0,200,200,0);
     var Limpiar= new BotonTitulo("Limpiar",380,100,200,200,0);
     var Validar= new BotonTitulo("Validar",260,100,200,200,0);
-
+     //var Guardar= new BotonTitulo("Validar",260,100,200,200,0);
+    
     //Agregar textos
     text1=new Texto("Construye tu modelo",200,150);
 
@@ -321,9 +370,13 @@ function inicio(Document,canvas) {
 
 
     //Botones AgregaFiguras
-    var unidad= new BotonAddForma(20,20,570+XRel,220,'255,250,0',"1");
-    var X= new BotonAddForma(40,20,570+XRel,270,'0,100,200',"X");
-    var X2= new BotonAddForma(40,40,570+XRel,320,'50,500,200',"X^2");
+    Yrel=-20;
+    var unidad= new BotonAddForma(20,20,570+XRel,220+Yrel,'255,250,0',"1");
+    var X= new BotonAddForma(40,20,570+XRel,270+Yrel,'0,100,200',"X");
+    var X2N= new BotonAddForma(40,40,570+XRel,320+Yrel,'50,500,200',"X^2");
+    var unidadN= new BotonAddForma(20,20,595+XRel,240+Yrel,'255,0,0',"-1");
+    var XN= new BotonAddForma(40,20,595+XRel,290+Yrel,'255,0,0',"-X");
+    var X2N= new BotonAddForma(40,40,595+XRel,360+Yrel,'255,0,0',"-X^2");
           
           
          
@@ -381,7 +434,25 @@ function inicio(Document,canvas) {
                  X2s.splice(i,1);
                  ob.remove();
               }
-              
+              if(unidadesN.includes(ob))
+              {
+                 i=unidadesN.indexOf(ob);
+                 unidadesN.splice(i,1);
+                 ob.remove();
+                 //alert("Quedan"+unidades.length);
+              }
+              else if(XsN.includes(ob))
+              {
+                 i=XsN.indexOf(ob);
+                 XsN.splice(i,1);
+                 ob.remove();
+              }
+              else if(X2s.includes(ob))
+              {
+                 i=X2sN.indexOf(ob);
+                 X2sN.splice(i,1);
+                 ob.remove();
+              }
               ActualizaDatos();
           }
           
@@ -406,22 +477,60 @@ function inicio(Document,canvas) {
                   if(Fondo.Intercepta(X2s[i]))
                       res[2]++;
               }
+              for(i=0;i<unidadesN.length;i++)
+              {
+                  if(Fondo.Intercepta(unidadesN[i]))
+                      res[0]--;
+              }
+              for(i=0;i<XsN.length;i++)
+              {
+                  if(Fondo.Intercepta(XsN[i]))
+                      res[1]--;
+              }
+              for(i=0;i<X2sN.length;i++)
+              {
+                  if(Fondo.Intercepta(X2sN[i]))
+                      res[2]--;
+              }
               return res;
           }
-    
-          function Validacion()
+    function CompArray(Ar1,Ar2)
+    {
+       for(i=0;i<3;i++)
+       {
+           //alert(Ar1[i]+","+Ar2[i]);
+            if(!(Ar1[i]==Ar2[i]))
+               return false;
+       }
+       return true;
+    }
+          
+          
+    function Validacion()
           {
-              switch (InterfazActiva)
+        serializa();       
+        switch (InterfazActiva)
               {
                   case 1:
                       
+                      va=["1","0","0"];
+                      //va[0]=1;va[1]=2;va[3]=3;
                       res=CuentaIntercepciones(interfaces[0].LadoIzquierdo);
                       imprimir("\nLado Izquierdo:"+res[0]+","+res[1]+","+res[2]);
+                      if(CompArray(res,SolveIz))
+                          Imprimir ("itworks");
                       res=CuentaIntercepciones(interfaces[0].LadoDerecho);
                       imprimir("Lado Izquierdo:"+res[0]+","+res[1]+","+res[2]);
-                      
+                      if(CompArray(res,va))
+                          Imprimir ("Alv");
                       break;
                   case 2:
+                      res=CuentaIntercepciones(interfaces[1].LadosuperiorDer);
+                      imprimir("\nLado Derecho:"+res[0]+","+res[1]+","+res[2]);
+                      res=CuentaIntercepciones(interfaces[1].LadosuperiorIZ);
+                      imprimir("Lado Izquierdo:"+res[0]+","+res[1]+","+res[2]);
+                      res=CuentaIntercepciones(interfaces[1].LadoDerecho);
+                      imprimir("Lado Inferior:"+res[0]+","+res[1]+","+res[2]);
                       break;
                   case 3:
                       break;
@@ -442,12 +551,7 @@ function inicio(Document,canvas) {
             'mouse:up':Actualizacion
           });
           
-          function imprimir(Str)
-          {
-              co=document.getElementById("log");              
-              co.appendChild(document.createTextNode(Str+","));
-              
-          }
+          
           
           function ActualizaDatos()
           {
@@ -509,18 +613,7 @@ function inicio(Document,canvas) {
 
 
 
-//Actualmente No usado
-    function CreaCuadrado(options){
-              var NuevaFigura = new fabric.Rect({
-                width: 100, height: 100, left: 350, top: 250, angle: 0,
-                fill: 'rgba(0,200,0,0.5)'               
-                });
-              canvas.add(NuevaFigura);
-              canvas.setActiveObject(NuevaFigura);
-              cuenta++;
-              NuevaFigura.selection=true;
-              //alert("Llevas cuadrados:"+cuenta);
-          }
+
       
 
 
