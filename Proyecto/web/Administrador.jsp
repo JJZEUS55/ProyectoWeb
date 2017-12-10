@@ -22,9 +22,9 @@
 
             <nav id="nav"> 
                 <ul>
-                    <li class="current"><a href="#">Inicio</a></li>
-                    <li><s:url action="cargarGrupos" var="prueba" >Cargar Grupos</s:url></li>
-                    <li><s:url action="cargarUsuarios" var="prueba2" >Cargar Usuarios</s:url></li>
+                    <s:url action="cargarUsuarios" var="prueba2" ></s:url>
+                    <s:url action="cargarGrupos" var="prueba" ></s:url>
+                    <li class="current"><a href="Administrador.jsp">Inicio</a></li>
                     <li><s:a href="%{prueba}">Modificar grupos</s:a></li>
                     <li><s:a href="%{prueba2}">Modificar usuarios</s:a></li>
                 </ul>

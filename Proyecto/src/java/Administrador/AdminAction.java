@@ -167,7 +167,7 @@ public class AdminAction extends ActionSupport {
     public String modificarGrupo()
     {
         initModGrupo();
-        mensaje = "Grupo requerido:"+idGrupo;
+        
         return "1";
     }
     

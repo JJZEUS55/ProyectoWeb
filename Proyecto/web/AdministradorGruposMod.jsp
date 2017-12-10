@@ -22,9 +22,9 @@
 
             <nav id="nav"> 
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><s:url action="cargarGrupos" var="prueba" >Cargar Grupos</s:url></li>
-                    <li><s:url action="cargarUsuarios" var="prueba2" >Cargar Usuarios</s:url></li>
+                    <s:url action="cargarUsuarios" var="prueba2" ></s:url>
+                    <s:url action="cargarGrupos" var="prueba" ></s:url>
+                    <li><a href="Administrador">Inicio</a></li>
                     <li class="current"><s:a href="%{prueba}">Modificar grupos</s:a></li>
                     <li><s:a href="%{prueba2}">Modificar usuarios</s:a></li>
                 </ul>
@@ -46,7 +46,9 @@
                 <s:select label="Profesores Disponbles" name="profesorM" list="ProfesoresSinGrupo.{idUsuario+': '+nombre+' '+apPaterno+' '+apMaterno}" value="%{idUsuario}" />
                 <s:submit value="Cambiar profesor" />
             </s:form>
-            <s:property value="mensaje" />
+            <div class="container">
+                <h3><s:property value="mensaje" /></h3>
+            </div>
             <hr>
             <br><br>
             <div class="row">

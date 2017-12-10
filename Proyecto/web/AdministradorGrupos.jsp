@@ -16,33 +16,43 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <div id="header">
+        <div id="header">
             <h1>Bienvenido Admin ${sessionScope.username}</h1>
             <h1><a href="Cerrar.action">Logout</a></h1>
 
             <nav id="nav"> 
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><s:url action="cargarGrupos" var="prueba" >Cargar Grupos</s:url></li>
-                    <li><s:url action="cargarUsuarios" var="prueba2" >Cargar Usuarios</s:url></li>
+                    <s:url action="cargarUsuarios" var="prueba2" ></s:url>
+                    <s:url action="cargarGrupos" var="prueba" ></s:url>
+                    <li><a href="Administrador">Inicio</a></li>
                     <li class="current"><s:a href="%{prueba}">Modificar grupos</s:a></li>
                     <li><s:a href="%{prueba2}">Modificar usuarios</s:a></li>
                 </ul>
             </nav>
         </div>
-        <h1>Grupos</h1>
+
         <div class="container">
             <h2>Nuevo Grupo</h2>
             <s:form action="/All/agregarGrupo" theme="simple">
                 <div class="form-group">
-                    <s:textfield name="NombreGrupo" placeholder="Nombre del grupo" cssClass="form-control"/>
-                    <s:submit value="Agregar" cssClass="btn"/>
+                    <div class="form-row">
+                        <div class="col">
+                            <s:textfield name="NombreGrupo" placeholder="Nombre del grupo" cssClass="form-control"/>
+                    
+                        </div>
+                        <div class="col">
+                            <s:submit value="Agregar" cssClass="btn"/>
+                        </div>
+                    </div>
+                    
                 </div>
             </s:form>
 
         </div>
         <br>
-        <h3><s:property value="mensaje"/></h3>
+        <div class="container">
+            <h3><s:property value="mensaje" /></h3>
+        </div>
         <br>
         <s:iterator value="Usuarios">
                 <s:property value="usuario"></s:property>

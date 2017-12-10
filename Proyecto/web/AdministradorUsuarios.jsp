@@ -10,8 +10,9 @@
 <html>
     <sx:head/>
     <head>
-        <link href="<s:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
         <link href="<s:url value="/css/main.css"/>" rel="stylesheet">
+        <link href="<s:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
         <title>Usuarios</title>
 
@@ -23,15 +24,16 @@
 
             <nav id="nav"> 
                 <ul>
+                    <s:url action="cargarUsuarios" var="prueba2" ></s:url>
+                    <s:url action="cargarGrupos" var="prueba" ></s:url>
+                    
                     <li><a href="#">Inicio</a></li>
-                    <li><s:url action="cargarGrupos" var="prueba" >Cargar Grupos</s:url></li>
-                    <li><s:url action="cargarUsuarios" var="prueba2" >Cargar Usuarios</s:url></li>
                     <li><s:a href="%{prueba}">Modificar grupos</s:a></li>
                     <li class="current"><s:a href="%{prueba2}">Modificar usuarios</s:a></li>
                     </ul>
                 </nav>
             </div>
-            <h1>Usuarios</h1>
+            
             
             <div class="container">
                 <h2>Nuevo usuario</h2>
@@ -73,7 +75,7 @@
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <s:submit value="Agregar" cssClass="btn btn-primary"/>
+                        <s:submit value="Agregar" cssClass="btn btn-danger"/>
                     </div>
                 </div>
             </s:form>
@@ -82,7 +84,10 @@
         <br>
         
         <br>
-        <h3><s:property value="mensaje" /></h3>
+        <div class="container">
+            <h3><s:property value="mensaje" /></h3>
+        </div>
+        
         <br>
         <br />
         <div class="container">
@@ -140,7 +145,7 @@
                         <td rowspan="2">
                             <s:property value="%{Grupo.Nombre}" />
                         </td>
-                        <td> <s:a href="%{temporalA}" cssClass="btn btn-danger">Eliminar</s:a></td>
+                        <td> <s:a href="%{temporalA}" cssClass="btn btn-primary">Eliminar</s:a></td>
                         </tr>               
                         <tr>
                         <s:form theme="simple" action="/All/modificarUsuario">
@@ -165,7 +170,7 @@
                             </td>
                             <td>
                                 <s:hidden name="grupoMod" value="%{Grupo.Nombre}" />
-                                <s:submit value="modificar" cssClass="btn btn-warning"/>
+                                <s:submit value="Modificar" cssClass="btn btn-default"/>
                             </td>
                         </s:form>
                     </tr>
