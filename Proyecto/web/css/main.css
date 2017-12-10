@@ -3157,7 +3157,7 @@ input[type="button"].small,
 .cajaInicio {
     margin: 2em auto 0;
     width: 30%;
-    background: rgba(0, 0, 0, 0.70);
+    background: rgba(0, 0, 0, 0.20);
     padding: 2.3em 2em;
 }
 
