@@ -305,6 +305,15 @@ public class BaseDatos {
         return modificacion;
     }
     
+    public Grupo getGrupo(String userName) //Retorna el tipo de usuario(1:Estudiante, 2:alumno, 3:Administrador)
+    {
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t1 = hibernateSession.beginTransaction();
+        u = (Usuarios) hibernateSession.createQuery("from Usuarios where usuario='" + userName + "'").uniqueResult();
+        g = (Grupo) hibernateSession.createQuery("from Grupo where idGrupo='" + u.getGrupo().getIdGrupo()+"'").uniqueResult();
+        return g;
+    }
+    
     
 
 }

@@ -3282,3 +3282,9 @@ input[type="button"].small,
 		font-size: 22px;
 	}
 }
+
+#txtCalificacion{
+    width: 50px;
+    height: 10px;
+    text-align: center;
+}

@@ -5,48 +5,48 @@
 <struts>    <!-- Configuration for the default package. -->
     
     <package name="Actions" namespace="/All" extends="struts-default">
-	<action name="Iniciar" class="login.Login" method="Login">
+        <action name="Iniciar" class="login.Login" method="Login">
             <result name="1">/Alumno.jsp</result>
             <result name="2">/Teacher.jsp</result>
             <result name="3">/Administrador.jsp</result>
             <result name="4">/Login.jsp</result>
-    	</action>
+        </action>
         <action name="Cerrar" class="login.Login" method="Logout">
             <result name="1">/Login.jsp</result>
-    	</action>
+        </action>
         <action name="cargarGrupos" class="Administrador.AdminAction" method="cargarGrupos">
             <result name="1">/AdministradorGrupos.jsp</result>
-    	</action>
+        </action>
         <action name="modificarGrupo" class="Administrador.AdminAction" method="modificarGrupo">
             <result name="1">/AdministradorGruposMod.jsp</result>
-    	</action>
+        </action>
         <action name="eliminarGrupo" class="Administrador.AdminAction" method="eliminarGrupo">
             <result name="1">/AdministradorGrupos.jsp</result>
-    	</action>
+        </action>
         <action name="agregarGrupo" class="Administrador.AdminAction" method="agregarGrupo">
             <result name="1">/AdministradorGrupos.jsp</result>
-    	</action>
+        </action>
         <action name="CambiarUsuariodeGrupo" class="Administrador.AdminAction" method="CambiarUsuariodeGrupo">
             <result name="1">/AdministradorGruposMod.jsp</result>
-    	</action>
+        </action>
         <action name="CambiarProfesorGrupo" class="Administrador.AdminAction" method="CambiarProfesorGrupo">
             <result name="1">/AdministradorGruposMod.jsp</result>
-    	</action>
+        </action>
         <action name="Busqueda" class="Administrador.AdminAction" method="Busqueda">
             <result name="1">/AdministradorUsuarios.jsp</result>
-    	</action>
+        </action>
         <action name="cargarUsuarios" class="Administrador.AdminAction" method="cargarUsuarios">
             <result name="1">/AdministradorUsuarios.jsp</result>
-    	</action> 
+        </action> 
         <action name="agregarUsuarios" class="Administrador.AdminAddUser" method="agregarUsuarios">
             <result name="1">/AdministradorUsuarios.jsp</result>
-    	</action>     
+        </action>     
         <action name="eliminarUsuario" class="Administrador.AdminDeleteUser" method="eliminarUsuario">
             <result name="1">/AdministradorUsuarios.jsp</result>
-    	</action>
+        </action>
         <action name="modificarUsuario" class="Administrador.AdminModUser" method="modificarUsuario">
             <result name="1">/AdministradorUsuarios.jsp</result>
-    	</action>
+        </action>
         
         <!--ACCIONES ALUMNO-->  
         <action name="cargarCalificaciones" class="Alumno.action.AlumnoAction" method="cargarCalificaciones">
@@ -54,7 +54,21 @@
         </action>   
         <action name="obtenerAlumno" class="Alumno.action.Modificar" method="obtenerAlumno">
             <result name="success">/AlumnoModificar.jsp</result>            
-        </action>   
+        </action>
+        
+        <!--ACCIONES MAESTRO-->
+        <action name="cargarGrupo" class="Maestro.MaestroAction" method="cargarGrupo">
+            <result name="1">/TeacherGrupo.jsp</result>            
+        </action>      
+        <action name="getAlumnos" class="Maestro.MaestroAction" method="cargarAlumnos">
+            <result name="1">/TeacherAlumnos.jsp</result>            
+        </action>      
+        <action name="calificaAlumno" class="Maestro.MaestroAction" method="calificarAlumno">
+            <result name="1">/TeacherCalificar.jsp</result>            
+        </action>      
+        <action name="cambiarCalificacion" class="Maestro.MaestroAction" method="modificarCalificacion">
+            <result name="1">/TeacherCalificar.jsp</result>            
+        </action>      
          
     </package>
 </struts>
