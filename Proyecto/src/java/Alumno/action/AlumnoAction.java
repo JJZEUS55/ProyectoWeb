@@ -40,6 +40,11 @@ public class AlumnoAction extends ActionSupport {
         return SUCCESS;
     }
     
+    public String InicioAlumno()
+    {
+        return "1";
+    }
+    
     public String modificarAlumno(){
         
         return SUCCESS;

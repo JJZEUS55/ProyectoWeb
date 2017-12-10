@@ -154,6 +154,10 @@ public class MaestroAction extends ActionSupport {
        calificarAlumno();
        return "1";
    }
+   public String InicioProfesor()
+   {
+       return "1";
+   }
    
    public String ejercicio(){
        

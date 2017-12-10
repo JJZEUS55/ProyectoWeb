@@ -14,6 +14,12 @@
         <action name="InicioAdmin" class="Administrador.AdminAction" method="InicioAdmin">
             <result name="1">/Administrador.jsp</result>
         </action>
+        <action name="InicioAlumno" class="Alumno.action.AlumnoAction" method="InicioAlumno">
+            <result name="1">/Alumno.jsp</result>
+        </action>
+        <action name="InicioProfesor" class="Maestro.MaestroAction" method="InicioProfesor">
+            <result name="1">/Teacher.jsp</result>
+        </action>
         <action name="Cerrar" class="login.Login" method="Logout">
             <result name="1">/Login.jsp</result>
         </action>

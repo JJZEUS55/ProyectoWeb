@@ -16,9 +16,7 @@
 
             <nav id="nav"> 
                 <ul>
-                    <s:url action="Iniciar" var="pruebaInicio">
-                        <s:param name="userName" value="username"/> 
-                    </s:url>
+                    <s:url action="InicioProfesor" var="pruebaInicio"></s:url>
                     <li class="current"><s:a href="%{pruebaInicio}">Inicio</s:a></li>
                         <s:url action="cargarGrupo" var="prueba" >
                             <s:param name="userName" value="username"/>
