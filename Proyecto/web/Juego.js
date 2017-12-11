@@ -84,7 +84,8 @@ function inicio(canvas) {
     FacDe[0]=FacIz[0]*FacSu[0];
     FacDe[1]=FacIz[1]*FacSu[0]+FacIz[0]*FacSu[1];
     FacDe[2]=FacIz[1]*FacSu[1];
-    imprimir(ExpDe[0]+","+ExpDe[1]+","+ExpDe[2]+",");
+    imprimir(ExpDe[0]+","+ExpDe[1]+","+ExpDe[2]+",\n");
+    imprimir(FacIz[0]+","+FacIz[1]+","+ExpDe[2]+",");
     
     //uni=;
     //alert(uni.value);
