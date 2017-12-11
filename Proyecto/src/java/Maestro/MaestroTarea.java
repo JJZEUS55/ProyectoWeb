@@ -271,6 +271,7 @@ public class MaestroTarea extends ActionSupport {
     
     
     public String ponerEjercicio(){
+        System.out.println("id" + idAlumno + "int1 " + int1solveder1 + " int2 " + int1solveder2);
         
         BaseDatosMaestro bd = new BaseDatosMaestro();
         bd.ponerTarea(idAlumno, calificacion, int1solveiz1, int1solveiz2, int1solveiz3, int1solveder1, int1solveder2, int1solveder3, int2solveiz1, int2solveiz2, int2solveiz3, int2solveder1, int1solveder2, int2solveder3, int3solveiz1, int3solveiz2, int3solveiz3, int3solveder1, int3solveder2, int3solveder3, int4solveiz1, int4solveiz2, int4solveiz3, int4solveder1, int4solveder2, int4solveder3);

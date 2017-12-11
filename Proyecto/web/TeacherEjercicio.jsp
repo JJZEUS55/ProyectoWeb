@@ -49,8 +49,8 @@
                 <h3>int2solveiz1</h3><s:textfield name="int2solveiz1" cssClass="form-control"/><br/>
                 <h3>int2solveiz2</h3><s:textfield name="int2solveiz2" cssClass="form-control"/><br/>
                 <h3>int2solveiz3</h3><s:textfield name="int2solveiz3" cssClass="form-control"/><br/>
-                <h3>int2solveder1</h3><s:textfield name="int21solveder1" cssClass="form-control"/><br/>
-                <h3>int2solveder2</h3><s:textfield name="int21solveder2" cssClass="form-control"/><br/>
+                <h3>int2solveder1</h3><s:textfield name="int2solveder1" cssClass="form-control"/><br/>
+                <h3>int2solveder2</h3><s:textfield name="int2solveder2" cssClass="form-control"/><br/>
                 <h3>int2solveder3</h3><s:textfield name="int2solveder3" cssClass="form-control"/><br/>
 
 
