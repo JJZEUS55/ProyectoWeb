@@ -64,6 +64,9 @@
         <action name="obtenerAlumno" class="Alumno.action.Modificar" method="obtenerAlumno">
             <result name="success">/AlumnoModificar.jsp</result>            
         </action>
+        <action name="obtenerTarea" class="Alumno.action.AlumnoAction" method="obtenerTarea">
+            <result name="1">/AlumnoEjercicio.jsp</result>            
+        </action>
         
         <!--ACCIONES MAESTRO-->
         <action name="cargarGrupo" class="Maestro.MaestroAction" method="cargarGrupo">
