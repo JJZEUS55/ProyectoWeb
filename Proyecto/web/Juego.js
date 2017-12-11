@@ -59,16 +59,24 @@ function inicio(canvas) {
         SubsDe[i-1]=0;//document.getElementById("SubsDe"+i).value;
         SubsAb[i-1]=document.getElementById("SubsAb"+i).value;
 
-        ExpIz[i-1]=document.getElementById("SolveDe"+i).value;
-        ExpDe[i-1]=document.getElementById("SolveDe"+i).value;
-        ExpSu[i-1]=document.getElementById("SolveDe"+i).value;
+        ExpIz[i-1]=0;//document.getElementById("SolveDe"+i).value;
+        ExpDe[i-1]=0;//document.getElementById("SolveDe"+i).value;
+        ExpSu[i-1]=0;//document.getElementById("SolveDe"+i).value;
 
         FacIz[i-1]=document.getElementById("SolveDe"+i).value;
         FacDe[i-1]=document.getElementById("SolveDe"+i).value;
         FacSu[i-1]=document.getElementById("SolveDe"+i).value;
     }
-    SubsDe[1]=document.getElementById("SolveDe"+1).value;
+    SubsDe[1]=document.getElementById("SubsDe"+1).value;
     SubsIz[1]=1;
+    ExpIz[0]=document.getElementById("SolveIz"+0).value;
+    ExpIz[1]=document.getElementById("SolveIz"+1).value;
+    ExpSu[0]=document.getElementById("SolveDe"+0).value;
+    ExpSu[1]=document.getElementById("SolveDe"+1).value;
+    ExpDe[0]=ExpIz[0]*ExpSu[0];
+    ExpDe[1]=ExpIz[1]*ExpSu[0]+ExpIz[0]*ExpSu[1];
+    ExpDe[3]=ExpIz[1]*ExpSu[1];
+    
     //uni=;
     //alert(uni.value);
     imprimir(""+SolveIz[0]+""+SolveIz[1]+""+SolveIz[2]+"");
@@ -601,7 +609,7 @@ function inicio(canvas) {
                       imprimir("Lado Derecho:"+res3[0]+","+res3[1]+","+res3[2]);
                                                
                       if(CompArray(res3,ExpDe) && CompArray(res2,ExpSu) && CompArray(res1,ExpIz)){
-                            imprimir("hol");
+                            imprimir("hol");    
                             imprimir2("ExpandCorrecto","res3");
                     }
                     else

@@ -37,30 +37,48 @@
                 <h3>Id Alumno</h3><s:textfield name="idAlumno" cssClass="form-control"/><br/>
                 <h3>Calificacion</h3><s:textfield name="calificacion" cssClass="form-control"/><br/>
 
-                <h1>INTERFAZ 1</h1><br/>
-                <h3>int1solveiz1</h3><s:textfield name="int1solveiz1" cssClass="form-control"/><br/>
-                <h3>int1solveiz2</h3><s:textfield name="int1solveiz2" cssClass="form-control"/><br/>
-                <h3>int1solveiz3</h3><s:textfield name="int1solveiz3" cssClass="form-control"/><br/>
-                <h3>int1solveder1</h3><s:textfield name="int1solveder1" cssClass="form-control"/><br/>
-                <h3>int1solveder2</h3><s:textfield name="int1solveder2" cssClass="form-control"/><br/>
-                <h3>int1solveder3</h3><s:textfield name="int1solveder3" cssClass="form-control"/><br/>
+                <h1>Solve</h1>
+                <s:textfield name="int1solveiz3" cssClass="form-control"/>X^2 +                 
+                <s:textfield name="int1solveiz2" cssClass="form-control"/>X +   
+                <s:textfield name="int1solveiz1" cssClass="form-control"/> =
+                <s:textfield name="int1solveder1" cssClass="form-control"/>X^2 +
+                <s:textfield name="int1solveder2" cssClass="form-control"/>X + 
+                <s:textfield name="int1solveder3" cssClass="form-control"/><br/>
 
-                <h1>INTERFAZ 2</h1><br/>
-                <h3>int2solveiz1</h3><s:textfield name="int2solveiz1" cssClass="form-control"/><br/>
-                <h3>int2solveiz2</h3><s:textfield name="int2solveiz2" cssClass="form-control"/><br/>
-                <h3>int2solveiz3</h3><s:textfield name="int2solveiz3" cssClass="form-control"/><br/>
-                <h3>int2solveder1</h3><s:textfield name="int2solveder1" cssClass="form-control"/><br/>
-                <h3>int2solveder2</h3><s:textfield name="int2solveder2" cssClass="form-control"/><br/>
-                <h3>int2solveder3</h3><s:textfield name="int2solveder3" cssClass="form-control"/><br/>
-
-
-                <h1>INTERFAZ 3</h1><br/>
-                <h3>int3solveiz1</h3><s:textfield name="int3solveiz1" cssClass="form-control"/><br/>
-                <h3>int3solveiz2</h3><s:textfield name="int3solveiz2" cssClass="form-control"/><br/>
-                <h3>int3solveiz3</h3><s:textfield name="int3solveiz3" cssClass="form-control"/><br/>
-                <h3>int3solveder1</h3><s:textfield name="int3solveder1" cssClass="form-control"/><br/>
-                <h3>int3solveder2</h3><s:textfield name="int3solveder2" cssClass="form-control"/><br/>
-                <h3>int3solveder3</h3><s:textfield name="int3solveder3" cssClass="form-control"/><br/>
+                <h1>Substituir</h1><br/>
+                X=
+                <s:textfield name="int2solveiz1" cssClass="form-control"/><br/>
+                Expresion              
+                
+                <s:textfield name="int2solveiz2" cssClass="form-control"/>
+                X^2 +
+                <s:textfield name="int2solveiz3" cssClass="form-control"/>
+                X +
+                <s:textfield name="int2solveder1" cssClass="form-control"/><br/>
+                
+                
+                
+                <h1>Expand</h1>
+                
+                (
+                <s:textfield name="int2solveder2" cssClass="form-control"/>
+                X +
+                <s:textfield name="int2solveder3" cssClass="form-control"/>
+                )                
+                (
+                <s:textfield name="int3solveiz1" cssClass="form-control"/>
+                x +
+                <s:textfield name="int3solveiz2" cssClass="form-control"/><br/>
+                )
+                <br>
+                
+                <h1>Factor</h1>
+                
+                <s:textfield name="int3solveiz3" cssClass="form-control"/><br/>
+                <s:textfield name="int3solveder1" cssClass="form-control"/><br/>
+                
+                <s:textfield name="int3solveder2" cssClass="form-control"/><br/>                
+                <s:textfield name="int3solveder3" cssClass="form-control"/><br/>
 
 
                 <h1>INTERFAZ 4</h1><br/>
