@@ -18,16 +18,16 @@
                 <ul>
                     <s:url action="InicioAlumno" var="prueba3"></s:url>
                     <li class="current"><s:a href="%{prueba3}">Inicio</s:a></li>
-                        <s:url action="cargarGrupo" var="prueba" >
-                            <s:param name="usuario" value="usuario"/>
+                        <s:url action="obtenerTarea" var="prueba" >
+                            <s:param name="usuario" value="username"/>
                         </s:url>
 
-                    <s:url action="ejercicio" var="prueba2" >
-                        <s:param name="usuario" value="usuario"/>
+                    <s:url action="obtenerTarea" var="prueba2" >
+                        <s:param name="usuario" value="username"/>
                         <s:param name="idAlumno" value="idUsuario"/>
                     </s:url>
-                    <li><s:a href="%{prueba}">Ejercicios</s:a></li>
-                    <li><s:a href="%{prueba2}">Calificaciones</s:a></li>
+                    <li><s:a href="%{prueba}">Calificaciones</s:a></li>
+                    <li><s:a href="%{prueba2}">Ejercicio</s:a></li>
                     </ul>
                 </nav>                
             </div>

@@ -10,6 +10,7 @@ import BD.BaseDatosMaestro;
 import com.opensymphony.xwork2.ActionSupport;
 import entity.Calificaciones;
 import entity.Grupo;
+import entity.Tareas;
 import entity.Usuarios;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class MaestroAction extends ActionSupport {
     
     private Grupo grupo;
     private Usuarios alumno;
+    private Tareas tarea;
     private List alumnos;
     private Calificaciones calificacion;
     String userName;
@@ -104,6 +106,14 @@ public class MaestroAction extends ActionSupport {
     public void setNuevaCalificacion(String nuevaCalificacion) {
         this.nuevaCalificacion = nuevaCalificacion;
     }
+
+    public Tareas getTarea() {
+        return tarea;
+    }
+
+    public void setTarea(Tareas tarea) {
+        this.tarea = tarea;
+    }
     
     
     
@@ -165,6 +175,10 @@ public class MaestroAction extends ActionSupport {
        
        return "1";
    }
+  
+   
+   
+   
 
 
 }

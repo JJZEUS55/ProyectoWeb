@@ -83,7 +83,10 @@
         </action>      
         <action name="ejercicio" class="Maestro.MaestroAction" method="ejercicio">
             <result name="1">/TeacherEjercicio.jsp</result>            
-        </action>      
+        </action>
+        <action name="addEjercicio" class="Maestro.MaestroTarea" method="ponerEjercicio">
+            <result name="1">/TeacherEjercicio.jsp</result>            
+        </action>         
          
     </package>
 </struts>
