@@ -31,5 +31,8 @@
                     </ul>
                 </nav>                
             </div>
+            <div class="text-center">
+                <img src="<s:url value="/Imagenes/student.png"/>" class="rounded" alt="...">
+            </div>
     </body>
 </html>

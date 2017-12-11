@@ -32,6 +32,9 @@
                 </ul>
             </nav>
         </div>
+        <div class="text-center">
+            <img src="<s:url value="/Imagenes/admin.png"/>" class="rounded" alt="...">
+        </div>
 
 
         <hr>

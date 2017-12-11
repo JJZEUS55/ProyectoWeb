@@ -30,8 +30,10 @@
                     </ul>
                 </nav>                
             </div>
-            <h3><s:property value="username"/></h3>
-        <hr>
+            <div class="text-center">
+                <img src="<s:url value="/Imagenes/teacher.jpg"/>" class="rounded" alt="...">
+            </div>
+            <hr>
     </body>
 </html>
 
