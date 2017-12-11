@@ -25,7 +25,7 @@
         
         This shit es de la base y la determina el profe
        
-        los value de lo seleccionado son el dato 1
+        los value de lo seleccionado on el dato 1
         <s:hidden id="SolveIz1" value="1"></s:hidden> unidades
         <s:hidden id="SolveIz2" value="2"></s:hidden> x
         <s:hidden id="SolveIz3" value="3"></s:hidden> x^2
