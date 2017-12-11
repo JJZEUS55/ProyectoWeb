@@ -32,6 +32,44 @@
                 </nav>                
             </div>
 
+            <div>
+                <h2>Obteniedo los datos</h2>
+
+                <!--INTERFAZ 1-->
+            <s:hidden id="int1solveiz1" value="%{tarea.int1solveiz1}"></s:hidden>
+            <s:hidden id="int1solveiz2" value="%{tarea.int1solveiz2}"></s:hidden>
+            <s:hidden id="int1solveiz3" value="%{tarea.int1solveiz3}"></s:hidden>
+            <s:hidden id="int1solveder1" value="%{tarea.int1solveder1}"></s:hidden>
+            <s:hidden id="int1solveder2" value="%{tarea.int1solveder2}"></s:hidden>
+            <s:hidden id="int1solveder3" value="%{tarea.int1solveder3}"></s:hidden>
+
+                <!--INTERFAZ 2-->
+            <s:hidden id="int2solveiz1" value="%{tarea.int2solveiz1}"></s:hidden>
+            <s:hidden id="int2solveiz2" value="%{tarea.int2solveiz2}"></s:hidden>
+            <s:hidden id="int2solveiz3" value="%{tarea.int2solveiz3}"></s:hidden>
+            <s:hidden id="int2solveder1" value="%{tarea.int2solveder1}"></s:hidden>
+            <s:hidden id="int2solveder2" value="%{tarea.int2solveder2}"></s:hidden>
+            <s:hidden id="int2solveder3" value="%{tarea.int2solveder3}"></s:hidden>
+
+                <!--INTERFAZ 3-->
+            <s:hidden id="int3solveiz1" value="%{tarea.int3solveiz1}"></s:hidden>
+            <s:hidden id="int3solveiz2" value="%{tarea.int3solveiz2}"></s:hidden>
+            <s:hidden id="int3solveiz3" value="%{tarea.int3solveiz3}"></s:hidden>
+            <s:hidden id="int3solveder1" value="%{tarea.int3solveder1}"></s:hidden>
+            <s:hidden id="int3solveder2" value="%{tarea.int3solveder2}"></s:hidden>
+            <s:hidden id="int3solveder3" value="%{tarea.int3solveder3}"></s:hidden>
+
+                <!--INTERFAZ 4-->
+            <s:hidden id="int4solveiz1" value="%{tarea.int4solveiz1}"></s:hidden>
+            <s:hidden id="int4solveiz2" value="%{tarea.int4solveiz2}"></s:hidden>
+            <s:hidden id="int4solveiz3" value="%{tarea.int4solveiz3}"></s:hidden>
+            <s:hidden id="int4solveder1" value="%{tarea.int4solveder1}"></s:hidden>
+            <s:hidden id="int4solveder2" value="%{tarea.int4solveder2}"></s:hidden>
+            <s:hidden id="int4solveder3" value="%{tarea.int4solveder3}"></s:hidden>
+
+
+            </div>
+
 
             <div>
                 idTareas<s:property value="tarea.idTareas"/><br/>
