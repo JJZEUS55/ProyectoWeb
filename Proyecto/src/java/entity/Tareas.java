@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 18, 2017 3:49:41 PM by Hibernate Tools 4.3.1
+// Generated 10/12/2017 06:14:59 PM by Hibernate Tools 4.3.1
 
 
 
@@ -11,7 +11,31 @@ public class Tareas  implements java.io.Serializable {
 
      private Integer idTareas;
      private Usuarios usuarios;
-     private String archivo;
+     private Integer calificacion;
+     private Integer int1solveiz1;
+     private Integer int1solveiz2;
+     private Integer int1solveiz3;
+     private Integer int1solveder1;
+     private Integer int1solveder2;
+     private Integer int1solveder3;
+     private Integer int2solveiz1;
+     private Integer int2solveiz2;
+     private Integer int2solveiz3;
+     private Integer int2solveder1;
+     private Integer int2solveder2;
+     private Integer int2solveder3;
+     private Integer int3solveiz1;
+     private Integer int3solveiz2;
+     private Integer int3solveiz3;
+     private Integer int3solveder1;
+     private Integer int3solveder2;
+     private Integer int3solveder3;
+     private Integer int4solveiz1;
+     private Integer int4solveiz2;
+     private Integer int4solveiz3;
+     private Integer int4solveder1;
+     private Integer int4solveder2;
+     private Integer int4solveder3;
 
     public Tareas() {
     }
@@ -20,9 +44,33 @@ public class Tareas  implements java.io.Serializable {
     public Tareas(Usuarios usuarios) {
         this.usuarios = usuarios;
     }
-    public Tareas(Usuarios usuarios, String archivo) {
+    public Tareas(Usuarios usuarios, Integer calificacion, Integer int1solveiz1, Integer int1solveiz2, Integer int1solveiz3, Integer int1solveder1, Integer int1solveder2, Integer int1solveder3, Integer int2solveiz1, Integer int2solveiz2, Integer int2solveiz3, Integer int2solveder1, Integer int2solveder2, Integer int2solveder3, Integer int3solveiz1, Integer int3solveiz2, Integer int3solveiz3, Integer int3solveder1, Integer int3solveder2, Integer int3solveder3, Integer int4solveiz1, Integer int4solveiz2, Integer int4solveiz3, Integer int4solveder1, Integer int4solveder2, Integer int4solveder3) {
        this.usuarios = usuarios;
-       this.archivo = archivo;
+       this.calificacion = calificacion;
+       this.int1solveiz1 = int1solveiz1;
+       this.int1solveiz2 = int1solveiz2;
+       this.int1solveiz3 = int1solveiz3;
+       this.int1solveder1 = int1solveder1;
+       this.int1solveder2 = int1solveder2;
+       this.int1solveder3 = int1solveder3;
+       this.int2solveiz1 = int2solveiz1;
+       this.int2solveiz2 = int2solveiz2;
+       this.int2solveiz3 = int2solveiz3;
+       this.int2solveder1 = int2solveder1;
+       this.int2solveder2 = int2solveder2;
+       this.int2solveder3 = int2solveder3;
+       this.int3solveiz1 = int3solveiz1;
+       this.int3solveiz2 = int3solveiz2;
+       this.int3solveiz3 = int3solveiz3;
+       this.int3solveder1 = int3solveder1;
+       this.int3solveder2 = int3solveder2;
+       this.int3solveder3 = int3solveder3;
+       this.int4solveiz1 = int4solveiz1;
+       this.int4solveiz2 = int4solveiz2;
+       this.int4solveiz3 = int4solveiz3;
+       this.int4solveder1 = int4solveder1;
+       this.int4solveder2 = int4solveder2;
+       this.int4solveder3 = int4solveder3;
     }
    
     public Integer getIdTareas() {
@@ -39,12 +87,180 @@ public class Tareas  implements java.io.Serializable {
     public void setUsuarios(Usuarios usuarios) {
         this.usuarios = usuarios;
     }
-    public String getArchivo() {
-        return this.archivo;
+    public Integer getCalificacion() {
+        return this.calificacion;
     }
     
-    public void setArchivo(String archivo) {
-        this.archivo = archivo;
+    public void setCalificacion(Integer calificacion) {
+        this.calificacion = calificacion;
+    }
+    public Integer getInt1solveiz1() {
+        return this.int1solveiz1;
+    }
+    
+    public void setInt1solveiz1(Integer int1solveiz1) {
+        this.int1solveiz1 = int1solveiz1;
+    }
+    public Integer getInt1solveiz2() {
+        return this.int1solveiz2;
+    }
+    
+    public void setInt1solveiz2(Integer int1solveiz2) {
+        this.int1solveiz2 = int1solveiz2;
+    }
+    public Integer getInt1solveiz3() {
+        return this.int1solveiz3;
+    }
+    
+    public void setInt1solveiz3(Integer int1solveiz3) {
+        this.int1solveiz3 = int1solveiz3;
+    }
+    public Integer getInt1solveder1() {
+        return this.int1solveder1;
+    }
+    
+    public void setInt1solveder1(Integer int1solveder1) {
+        this.int1solveder1 = int1solveder1;
+    }
+    public Integer getInt1solveder2() {
+        return this.int1solveder2;
+    }
+    
+    public void setInt1solveder2(Integer int1solveder2) {
+        this.int1solveder2 = int1solveder2;
+    }
+    public Integer getInt1solveder3() {
+        return this.int1solveder3;
+    }
+    
+    public void setInt1solveder3(Integer int1solveder3) {
+        this.int1solveder3 = int1solveder3;
+    }
+    public Integer getInt2solveiz1() {
+        return this.int2solveiz1;
+    }
+    
+    public void setInt2solveiz1(Integer int2solveiz1) {
+        this.int2solveiz1 = int2solveiz1;
+    }
+    public Integer getInt2solveiz2() {
+        return this.int2solveiz2;
+    }
+    
+    public void setInt2solveiz2(Integer int2solveiz2) {
+        this.int2solveiz2 = int2solveiz2;
+    }
+    public Integer getInt2solveiz3() {
+        return this.int2solveiz3;
+    }
+    
+    public void setInt2solveiz3(Integer int2solveiz3) {
+        this.int2solveiz3 = int2solveiz3;
+    }
+    public Integer getInt2solveder1() {
+        return this.int2solveder1;
+    }
+    
+    public void setInt2solveder1(Integer int2solveder1) {
+        this.int2solveder1 = int2solveder1;
+    }
+    public Integer getInt2solveder2() {
+        return this.int2solveder2;
+    }
+    
+    public void setInt2solveder2(Integer int2solveder2) {
+        this.int2solveder2 = int2solveder2;
+    }
+    public Integer getInt2solveder3() {
+        return this.int2solveder3;
+    }
+    
+    public void setInt2solveder3(Integer int2solveder3) {
+        this.int2solveder3 = int2solveder3;
+    }
+    public Integer getInt3solveiz1() {
+        return this.int3solveiz1;
+    }
+    
+    public void setInt3solveiz1(Integer int3solveiz1) {
+        this.int3solveiz1 = int3solveiz1;
+    }
+    public Integer getInt3solveiz2() {
+        return this.int3solveiz2;
+    }
+    
+    public void setInt3solveiz2(Integer int3solveiz2) {
+        this.int3solveiz2 = int3solveiz2;
+    }
+    public Integer getInt3solveiz3() {
+        return this.int3solveiz3;
+    }
+    
+    public void setInt3solveiz3(Integer int3solveiz3) {
+        this.int3solveiz3 = int3solveiz3;
+    }
+    public Integer getInt3solveder1() {
+        return this.int3solveder1;
+    }
+    
+    public void setInt3solveder1(Integer int3solveder1) {
+        this.int3solveder1 = int3solveder1;
+    }
+    public Integer getInt3solveder2() {
+        return this.int3solveder2;
+    }
+    
+    public void setInt3solveder2(Integer int3solveder2) {
+        this.int3solveder2 = int3solveder2;
+    }
+    public Integer getInt3solveder3() {
+        return this.int3solveder3;
+    }
+    
+    public void setInt3solveder3(Integer int3solveder3) {
+        this.int3solveder3 = int3solveder3;
+    }
+    public Integer getInt4solveiz1() {
+        return this.int4solveiz1;
+    }
+    
+    public void setInt4solveiz1(Integer int4solveiz1) {
+        this.int4solveiz1 = int4solveiz1;
+    }
+    public Integer getInt4solveiz2() {
+        return this.int4solveiz2;
+    }
+    
+    public void setInt4solveiz2(Integer int4solveiz2) {
+        this.int4solveiz2 = int4solveiz2;
+    }
+    public Integer getInt4solveiz3() {
+        return this.int4solveiz3;
+    }
+    
+    public void setInt4solveiz3(Integer int4solveiz3) {
+        this.int4solveiz3 = int4solveiz3;
+    }
+    public Integer getInt4solveder1() {
+        return this.int4solveder1;
+    }
+    
+    public void setInt4solveder1(Integer int4solveder1) {
+        this.int4solveder1 = int4solveder1;
+    }
+    public Integer getInt4solveder2() {
+        return this.int4solveder2;
+    }
+    
+    public void setInt4solveder2(Integer int4solveder2) {
+        this.int4solveder2 = int4solveder2;
+    }
+    public Integer getInt4solveder3() {
+        return this.int4solveder3;
+    }
+    
+    public void setInt4solveder3(Integer int4solveder3) {
+        this.int4solveder3 = int4solveder3;
     }
 
 

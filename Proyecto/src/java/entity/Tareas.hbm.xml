@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 18, 2017 3:49:42 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 10/12/2017 06:15:01 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entity.Tareas" table="tareas" catalog="proyecto" optimistic-lock="version">
         <id name="idTareas" type="java.lang.Integer">
@@ -11,8 +11,80 @@
         <many-to-one name="usuarios" class="entity.Usuarios" fetch="select">
             <column name="idUsuario" not-null="true" />
         </many-to-one>
-        <property name="archivo" type="string">
-            <column name="archivo" length="10000" />
+        <property name="calificacion" type="java.lang.Integer">
+            <column name="calificacion" />
+        </property>
+        <property name="int1solveiz1" type="java.lang.Integer">
+            <column name="int1solveiz1" />
+        </property>
+        <property name="int1solveiz2" type="java.lang.Integer">
+            <column name="int1solveiz2" />
+        </property>
+        <property name="int1solveiz3" type="java.lang.Integer">
+            <column name="int1solveiz3" />
+        </property>
+        <property name="int1solveder1" type="java.lang.Integer">
+            <column name="int1solveder1" />
+        </property>
+        <property name="int1solveder2" type="java.lang.Integer">
+            <column name="int1solveder2" />
+        </property>
+        <property name="int1solveder3" type="java.lang.Integer">
+            <column name="int1solveder3" />
+        </property>
+        <property name="int2solveiz1" type="java.lang.Integer">
+            <column name="int2solveiz1" />
+        </property>
+        <property name="int2solveiz2" type="java.lang.Integer">
+            <column name="int2solveiz2" />
+        </property>
+        <property name="int2solveiz3" type="java.lang.Integer">
+            <column name="int2solveiz3" />
+        </property>
+        <property name="int2solveder1" type="java.lang.Integer">
+            <column name="int2solveder1" />
+        </property>
+        <property name="int2solveder2" type="java.lang.Integer">
+            <column name="int2solveder2" />
+        </property>
+        <property name="int2solveder3" type="java.lang.Integer">
+            <column name="int2solveder3" />
+        </property>
+        <property name="int3solveiz1" type="java.lang.Integer">
+            <column name="int3solveiz1" />
+        </property>
+        <property name="int3solveiz2" type="java.lang.Integer">
+            <column name="int3solveiz2" />
+        </property>
+        <property name="int3solveiz3" type="java.lang.Integer">
+            <column name="int3solveiz3" />
+        </property>
+        <property name="int3solveder1" type="java.lang.Integer">
+            <column name="int3solveder1" />
+        </property>
+        <property name="int3solveder2" type="java.lang.Integer">
+            <column name="int3solveder2" />
+        </property>
+        <property name="int3solveder3" type="java.lang.Integer">
+            <column name="int3solveder3" />
+        </property>
+        <property name="int4solveiz1" type="java.lang.Integer">
+            <column name="int4solveiz1" />
+        </property>
+        <property name="int4solveiz2" type="java.lang.Integer">
+            <column name="int4solveiz2" />
+        </property>
+        <property name="int4solveiz3" type="java.lang.Integer">
+            <column name="int4solveiz3" />
+        </property>
+        <property name="int4solveder1" type="java.lang.Integer">
+            <column name="int4solveder1" />
+        </property>
+        <property name="int4solveder2" type="java.lang.Integer">
+            <column name="int4solveder2" />
+        </property>
+        <property name="int4solveder3" type="java.lang.Integer">
+            <column name="int4solveder3" />
         </property>
     </class>
 </hibernate-mapping>

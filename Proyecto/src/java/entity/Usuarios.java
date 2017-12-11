@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 18, 2017 3:49:41 PM by Hibernate Tools 4.3.1
+// Generated 10/12/2017 06:14:59 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Usuarios  implements java.io.Serializable {
 
 
-     private int idUsuario;
+     private Integer idUsuario;
      private Grupo grupo;
      private String usuario;
      private String contrasena;
@@ -26,8 +26,7 @@ public class Usuarios  implements java.io.Serializable {
     }
 
 	
-    public Usuarios(int idUsuario, Grupo grupo) {
-        this.idUsuario = idUsuario;
+    public Usuarios(Grupo grupo) {
         this.grupo = grupo;
     }
     public Usuarios(Grupo grupo, String usuario, String contrasena, Integer tipoUsuario, String nombre, String apPaterno, String apMaterno, Set tareases, Set calificacioneses) {
@@ -42,11 +41,11 @@ public class Usuarios  implements java.io.Serializable {
        this.calificacioneses = calificacioneses;
     }
    
-    public int getIdUsuario() {
+    public Integer getIdUsuario() {
         return this.idUsuario;
     }
     
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
     public Grupo getGrupo() {

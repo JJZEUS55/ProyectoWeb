@@ -46,10 +46,9 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/proyecto?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">1234</property>
-    <property name="connection.pool_size">20</property>
-    <mapping resource="entity/Grupo.hbm.xml"/>
     <mapping resource="entity/Calificaciones.hbm.xml"/>
     <mapping resource="entity/Tareas.hbm.xml"/>
     <mapping resource="entity/Usuarios.hbm.xml"/>
+    <mapping resource="entity/Grupo.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
