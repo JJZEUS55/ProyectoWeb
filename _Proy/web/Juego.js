@@ -11,8 +11,6 @@ function inicio(canvas) {
     //Variables Globales
      function serializa()
     {
-        
-
         imprimir(canvas.toSVG());
     }
     var unidades=[];
@@ -23,7 +21,25 @@ function inicio(canvas) {
     var X2sN=[];
     InterfazActiva=0;
     
+    
+    
     var SolveIz=[3];
+    var SolveDe=[3];
+   
+    var SubsIz=[3];
+    var SubsDe=[3];
+    var SubsAb=[3];
+    
+    var ExpIz=[3];
+    var ExpDe=[3];
+    var ExpSu=[3];
+    
+    var FacIz=[3];
+    var FacDe=[3];
+    var FacSu=[3];
+    
+    
+    //Recuperamos valores del jsp
     SolveIz[0]=document.getElementById("SolveIz1").value;
     SolveIz[1]=document.getElementById("SolveIz2").value;
     SolveIz[2]=document.getElementById("SolveIz3").value;
@@ -508,33 +524,60 @@ function inicio(canvas) {
           
     function Validacion()
           {
-        serializa();       
+       //serializa();       
         switch (InterfazActiva)
               {
                   case 1:
                       
-                      va=["1","0","0"];
-                      //va[0]=1;va[1]=2;va[3]=3;
-                      res=CuentaIntercepciones(interfaces[0].LadoIzquierdo);
-                      imprimir("\nLado Izquierdo:"+res[0]+","+res[1]+","+res[2]);
-                      if(CompArray(res,SolveIz))
+                      
+                      res1=CuentaIntercepciones(interfaces[0].LadoIzquierdo);
+                      imprimir("\nLado Izquierdo:"+res1[0]+","+res1[1]+","+res1[2]);                      
+                      res2=CuentaIntercepciones(interfaces[0].LadoDerecho);
+                      imprimir("Lado Derecho:"+res2[0]+","+res2[1]+","+res2[2]);
+                      if(CompArray(res1,SolveIz))                          
+                      if(CompArray(res2,SolveDe))
                           Imprimir ("itworks");
-                      res=CuentaIntercepciones(interfaces[0].LadoDerecho);
-                      imprimir("Lado Izquierdo:"+res[0]+","+res[1]+","+res[2]);
-                      if(CompArray(res,va))
-                          Imprimir ("Alv");
+                      else
+                          alert("Tienes un error");
                       break;
                   case 2:
-                      res=CuentaIntercepciones(interfaces[1].LadosuperiorDer);
-                      imprimir("\nLado Derecho:"+res[0]+","+res[1]+","+res[2]);
-                      res=CuentaIntercepciones(interfaces[1].LadosuperiorIZ);
-                      imprimir("Lado Izquierdo:"+res[0]+","+res[1]+","+res[2]);
-                      res=CuentaIntercepciones(interfaces[1].LadoDerecho);
-                      imprimir("Lado Inferior:"+res[0]+","+res[1]+","+res[2]);
+                      res1=CuentaIntercepciones(interfaces[1].LadosuperiorDer);
+                      imprimir("\nLado Derecho:"+res1[0]+","+res1[1]+","+res1[2]);
+                      res2=CuentaIntercepciones(interfaces[1].LadosuperiorIZ);
+                      imprimir("Lado Izquierdo:"+res2[0]+","+res2[1]+","+res2[2]);
+                      res3=CuentaIntercepciones(interfaces[1].LadoDerecho);
+                      imprimir("Lado Inferior:"+res3[0]+","+res3[1]+","+res3[2]);
+                      
+                      if(CompArray(res1,SubsDe))                          
+                      if(CompArray(res2,SubsIz))                         
+                      if(CompArray(res2,SubsAb))
+                            imprimir("Holo")
+                      
+                      
                       break;
                   case 3:
+                      res1=CuentaIntercepciones(interfaces[3].LadoIzquierdo);
+                      imprimir("\nLado Izquierdo:"+res1[0]+","+res1[1]+","+res1[2]);
+                      res2=CuentaIntercepciones(interfaces[3].LadoSup);
+                      imprimir("Lado Sup:"+res2[0]+","+res2[1]+","+res2[2]);
+                      re3=CuentaIntercepciones(interfaces[3].LadoDerecho);
+                      imprimir("Lado Derecho:"+res3[0]+","+res3[1]+","+res3[2]);
+                      if(CompArray(res1,ExpIz))                          
+                      if(CompArray(res2,ExpSu))                         
+                      if(CompArray(res3,ExpDe))
+                            imprimir("hol");
                       break;
                   case 4:
+                      res1=CuentaIntercepciones(interfaces[3].LadoIzquierdo);
+                      imprimir("\nLado Izquierdo:"+res1[0]+","+res1[1]+","+res1[2]);
+                      res2=CuentaIntercepciones(interfaces[3].LadoSup);
+                      imprimir("Lado Sup:"+res2[0]+","+res2[1]+","+res2[2]);
+                      re3=CuentaIntercepciones(interfaces[3].LadoDerecho);
+                      imprimir("Lado Derecho:"+res3[0]+","+res3[1]+","+res3[2]);
+                      if(CompArray(res1,FacIz))                          
+                      if(CompArray(res2,FacSu))                         
+                      if(CompArray(res3,FacDe))
+                            imprimir("hol");
                       break;
                       
                       
