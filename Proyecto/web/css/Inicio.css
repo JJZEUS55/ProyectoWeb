@@ -2333,32 +2333,21 @@ input[type="button"].small,
 
 #header {
     text-align: center;
-    padding: 2em 0 0 0;
+    padding: 3em 0 0 0;
     background-color: #fff;
-    background: url(../Imagenes/azul.jpg)no-repeat center top; 
-    background-size: cover;
+    background-image: url("images/bg02.png"), url("images/bg02.png"), url("images/bg01.png");
+    background-position: top left,					top left,					top left;
+    background-size: 100% 6em,					100% 6em,					auto;
+    background-repeat: no-repeat,					no-repeat,					repeat;
 }
 
 #header h1 {
     padding: 0 0 2.75em 0;
     margin: 0;
-    color: white;
-}
-
-#header h2 {
-    padding: 0 0 2em 0;
-    margin: 0;
-    color: white;
 }
 
 #header h1 a {
     font-size: 1.5em;
-    letter-spacing: -0.025em;
-    border: 0;
-}
-
-#header h2 a {
-    font-size: 1em;
     letter-spacing: -0.025em;
     border: 0;
 }
@@ -3282,5 +3271,9 @@ input[type="button"].small,
     
 }
 
-
+body{
+    background: url(../Imagenes/azul.jpg)no-repeat center top; 
+    background-size: cover;
+	
+}
 
