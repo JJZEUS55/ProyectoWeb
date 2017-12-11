@@ -55,6 +55,7 @@ function inicio(canvas) {
         SolveDe[i-1]=document.getElementById("SolveDe"+i).value;
         
         SubsIz[i-1]=0;//document.getElementById("SolveDe"+i).value;
+        /*
         SubsDe[i-1]=document.getElementById("SubsDe"+i).value;
         SubsAb[i-1]=document.getElementById("SubsAb"+i).value;
 
@@ -64,7 +65,7 @@ function inicio(canvas) {
 
         FacIz[i-1]=document.getElementById("SolveDe"+i).value;
         FacDe[i-1]=document.getElementById("SolveDe"+i).value;
-        FacSu[i-1]=document.getElementById("SolveDe"+i).value;
+        FacSu[i-1]=document.getElementById("SolveDe"+i).value;*/
     }
     SubsIz[1]=1;
     //uni=;
