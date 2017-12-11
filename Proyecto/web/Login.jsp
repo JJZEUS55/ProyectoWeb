@@ -9,37 +9,39 @@
 <html>
     <head>
         <link href="<s:url value="/css/fontA/css/font-awesome.min.css"/>" rel="stylesheet">        
-        
+
         <link href="<s:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
-        
-        <link href="<s:url value="/css/main.css"/>" rel="stylesheet">       
+
+        <link href="<s:url value="/css/Inicio.css"/>" rel="stylesheet">       
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
         <title>Inicio sesion</title>
     </head>
     <body>
-        
-        <div class="cajaInicio">
-            <h2>Inicio de Sesion</h1>
+        <div class="todoInicio">
 
-                <s:form action="/All/Iniciar" cssClass="well form-search">
-                    <div class="txt1">
-                        <span class="fa fa-user" aria-hidden="true">                      
-                            <s:textfield id="txtUsuario"  name="username" placeholder="Usuario"/>  
-                        </span>
+            <div class="cajaInicio">
+                <h2>Inicio de Sesion</h2>
+
+                <s:form action="/All/Iniciar" >
+                    <div class="">
+                        <!--                    <span class="fa fa-user" aria-hidden="true"></span>  -->
+                        <s:textfield type="text" cssClass="txtUsuario" id="txtUsuario"  name="username" placeholder="Usuario"/>
+
                     </div>
-                    <div class="txt2">
-                        <i class="fa fa-key">
-                            <s:password id="txtPass" name="password" placeholder="Contraseña"/>
-                        </i>
+                    <div class="">
+                        <!--                    <span class="fa fa-key"></span>-->
+                        <s:password id="txtPass" name="password" placeholder="Contraseña"/>
                     </div>
                     <s:submit id="btnEntrar" value="Iniciar"/>
                 </s:form>
                 <div class="alert alert-info">
                     <s:property value="mensaje"/>
                 </div>
+            </div>
+
+
         </div>
-        
-        
+
     </body>
 </html>

@@ -1,10 +1,106 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Nov 23, 2017, 10:56:25 PM
-    Author     : ZOLUN
-*/
+/*Inicio de sesion*/
 
+
+.cajaInicio {
+    margin: 2em auto 0;
+    width: 30%;
+    background: rgba(0, 0, 0, 0.20);
+    padding: 2.3em 2em;
+}
+
+.cajaInicio h2 {
+    color: white;
+    font-weight: 100;
+    font-size: 25px;
+    margin-bottom: 1em;
+    letter-spacing: 2px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cajaInicio #txtUsuario,
+.cajaInicio #txtPass{
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 30px;    
+    background: rgba(0, 0, 0, 0.54);
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+
+.cajaInicio .txt1:nth-child(1) {
+	margin-bottom: 1.3em;
+}
+
+.cajaInicio #btnEntrar{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    border: none;
+    color: #fff;
+    background: #3dace1;
+    padding: 0.7em 3em;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+.cajaInicio #btnEntrar:hover{
+    background: red;
+    color: #000;
+    
+}
+
+.txt1{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	padding: 12px 12px 12px 4px;
+	background: rgba(132, 132, 132, 0.27);
+}
+
+.txt1 span {
+	flex-basis: 10%;
+	-webkit-flex-basis: 10%;
+	display: inline-block;
+	font-size: 17px;
+	color: #fff;
+	line-height: 40px;
+}
+
+.txt1 #txtUsuario,
+.txt1 #txtPass{
+	flex-basis: 90%;
+	-webkit-flex-basis: 90%;
+}
+
+
+
+::-webkit-input-placeholder {
+	color: #fff;
+}
+
+:-moz-placeholder {
+	/* Firefox 18- */
+	color: #fff;
+}
+
+::-moz-placeholder {
+	/* Firefox 19+ */
+	color: #fff;
+}
+
+:-ms-input-placeholder {
+	color: #fff;
+}
