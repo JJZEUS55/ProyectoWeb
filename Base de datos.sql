@@ -127,4 +127,13 @@ alter table tareas add column int4solveder1 int;
 alter table tareas add column int4solveder2 int;
 alter table tareas add column int4solveder3 int;
 
+-- Insert de tareas 
+insert into tareas values(3, 1, 0, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6);
+insert into tareas values(4, 1, 0, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6);
+insert into tareas values(5, 1, 7, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6);
+
+
+update tareas
+set calificacion=0
+where idTareas=1;
 

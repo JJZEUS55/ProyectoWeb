@@ -59,7 +59,7 @@
         
         <!--ACCIONES ALUMNO-->  
         <action name="cargarCalificaciones" class="Alumno.action.AlumnoAction" method="cargarCalificaciones">
-            <result name="success">/AlumnoCalificaciones.jsp</result>            
+            <result name="1">/AlumnoCalificaciones.jsp</result>            
         </action>   
         <action name="obtenerAlumno" class="Alumno.action.Modificar" method="obtenerAlumno">
             <result name="success">/AlumnoModificar.jsp</result>            

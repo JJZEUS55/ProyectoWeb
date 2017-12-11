@@ -62,12 +62,14 @@ public class BaseDatosMaestro {
         return calificacion;
     }
 
-    public void cambiarCalificacion(int idCalificacion, String calificacion) {
+    public void cambiarCalificacion(String idTarea, String calificacion) {
 
         int auxCalificacion = Integer.parseInt(calificacion);
+        int auxIdTarea = Integer.parseInt(idTarea);
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
         Transaction t1 = hibernateSession.beginTransaction();
-        Calificaciones nuevaCalificacion = (Calificaciones) hibernateSession.load(Calificaciones.class, 2);
+        Tareas nuevaCalificacion = (Tareas) hibernateSession.load(Tareas.class, auxIdTarea);
+        //Calificaciones nuevaCalificacion = (Calificaciones) hibernateSession.load(Calificaciones.class, 2);
         nuevaCalificacion.setCalificacion(auxCalificacion);
         hibernateSession.update(nuevaCalificacion);
         t1.commit();
@@ -118,6 +120,17 @@ public class BaseDatosMaestro {
         t1.commit();
         
 
+    }
+
+    public List getListaEjercicioAlumno(int idAlumno) {
+        
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t1 = hibernateSession.beginTransaction();
+        Query consulta = hibernateSession.createQuery("from Tareas where idUsuario=" + idAlumno + " AND calificacion="+0);
+
+        return consulta.list();
+        
+        
     }
 
 }

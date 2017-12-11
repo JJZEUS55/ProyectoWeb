@@ -327,6 +327,16 @@ public class AlumnoTarea extends ActionSupport {
     public void setIdTarea(int idTarea) {
         this.idTarea = idTarea;
     }
+
+    public List getListaTareas() {
+        return listaTareas;
+    }
+
+    public void setListaTareas(List listaTareas) {
+        this.listaTareas = listaTareas;
+    }
+    
+    
     
     public String obtenerTareas(){
         System.out.println("Cargando Tareas");
@@ -344,9 +354,11 @@ public class AlumnoTarea extends ActionSupport {
 
     public String obtenerTarea() {
         System.out.println("Cargando Tarea");
+        System.out.println("El usuario es " + usuario
+        + "id alumno es " + idAlumno);
         BaseDatosAlumno bd = new BaseDatosAlumno();
         idAlumno = bd.getId(usuario);
-        tarea = bd.getTarea(idAlumno);
+        tarea = bd.getTarea(idTarea);
         
 
         return "1";

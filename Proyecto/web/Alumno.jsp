@@ -16,16 +16,18 @@
 
             <nav id="nav"> 
                 <ul>
-                    <s:url action="InicioAlumno" var="prueba3"></s:url>
-                    <li class="current"><s:a href="%{prueba3}">Inicio</s:a></li>
-                        <s:url action="obtenerTarea" var="prueba" >
-                            <s:param name="usuario" value="username"/>
-                        </s:url>
+                    <s:url action="InicioAlumno" var="prueba3">
+                        <s:param name="usuario" value="username"/>
+                    </s:url>                    
+                    <s:url action="cargarCalificaciones" var="prueba" >
+                        <s:param name="usuario" value="username"/>
+                    </s:url>
 
                     <s:url action="obtenerTareas" var="prueba2" >
                         <s:param name="usuario" value="username"/>
                         <s:param name="idAlumno" value="idUsuario"/>
                     </s:url>
+                    <li class="current"><s:a href="%{prueba3}">Inicio</s:a></li>
                     <li><s:a href="%{prueba}">Calificaciones</s:a></li>
                     <li><s:a href="%{prueba2}">Ejercicio</s:a></li>
                     </ul>
@@ -33,6 +35,6 @@
             </div>
             <div class="text-center">
                 <img src="<s:url value="/Imagenes/student.png"/>" class="rounded" alt="...">
-            </div>
+        </div>
     </body>
 </html>

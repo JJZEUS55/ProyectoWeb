@@ -3282,5 +3282,10 @@ input[type="button"].small,
     
 }
 
+.ejercicioTXT input[type="text"]{
+    
+    padding: 5px;
+    
+}
 
 

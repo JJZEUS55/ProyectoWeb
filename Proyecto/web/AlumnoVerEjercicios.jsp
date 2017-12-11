@@ -23,19 +23,21 @@
             <h2><a href="Cerrar.action">Cerrar Sesion</a></h2>
 
             <nav id="nav"> 
-                <ul>
-                    <s:url action="InicioAlumno" var="prueba3"></s:url>
+                 <ul>
+                    <s:url action="InicioAlumno" var="prueba3">
+                        <s:param name="usuario" value="usuario"/>                        
+                    </s:url>
                     <li><s:a href="%{prueba3}">Inicio</s:a></li>
-                        <s:url action="obtenerTarea" var="prueba" >
-                            <s:param name="usuario" value="username"/>
+                        <s:url action="cargarCalificaciones" var="prueba" >
+                            <s:param name="usuario" value="usuario"/>
                         </s:url>
 
-                    <s:url action="obtenerTarea" var="prueba2" >
-                        <s:param name="usuario" value="username"/>
+                    <s:url action="obtenerTareas" var="prueba2" >
+                        <s:param name="usuario" value="usuario"/>
                         <s:param name="idAlumno" value="idUsuario"/>
                     </s:url>
                     <li><s:a href="%{prueba}">Calificaciones</s:a></li>
-                    <li class="current"><s:a href="%{prueba2}">Ejercicio</s:a></li>
+                    <li  class="current"><s:a href="%{prueba2}">Ejercicio</s:a></li>
                     </ul>
                 </nav>                
             </div>
@@ -56,12 +58,14 @@
                     <s:url action="obtenerTarea" var="temporalA" >
                         <s:param name="idAlumno" value="%{idUsuario}" />
                         <s:param name="userName" value="userName"/>
+                        <s:param name="idTarea" value="%{idTareas}"/>
+                        <s:param name="usuario" value="%{usuarios.usuario}"/>
                     </s:url>
                     <tr>
                         <td><s:property value="idTareas"/></td>
                         <td><s:property value="usuarios.nombre"/></td>
-                        <td><s:property value="int1solveiz1"/></td>
-                        <td><s:property value="int1solveiz2"/></td>
+                        <td><s:property value="usuarios.apPaterno"/></td>
+                        <td><s:property value="usuarios.apMaterno"/></td>
                         <td>
                             <s:a href="%{temporalA}" cssClass="btn btn-danger">Ver ejercicio</s:a>
                             </td>

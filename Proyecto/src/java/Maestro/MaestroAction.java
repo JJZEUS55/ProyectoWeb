@@ -19,7 +19,7 @@ import java.util.List;
  * @author usuario
  */
 public class MaestroAction extends ActionSupport {
-    
+
     private Grupo grupo;
     private Usuarios alumno;
     private Tareas tarea;
@@ -29,9 +29,11 @@ public class MaestroAction extends ActionSupport {
     int idGrupo;
     int idAlumno;
     int idCalificacion;
+    String idTarea;
     String nuevaCalificacion;
     private String mensaje;
-    
+    private List listaEjercicios;
+
     public MaestroAction() {
     }
 
@@ -58,8 +60,8 @@ public class MaestroAction extends ActionSupport {
     public void setAlumnos(List alumnos) {
         this.alumnos = alumnos;
     }
-    
-        public String getUserName() {
+
+    public String getUserName() {
         return userName;
     }
 
@@ -114,71 +116,77 @@ public class MaestroAction extends ActionSupport {
     public void setTarea(Tareas tarea) {
         this.tarea = tarea;
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public List getListaEjercicios() {
+        return listaEjercicios;
+    }
+
+    public void setListaEjercicios(List listaEjercicios) {
+        this.listaEjercicios = listaEjercicios;
+    }
+
+    public String getIdTarea() {
+        return idTarea;
+    }
+
+    public void setIdTarea(String idTarea) {
+        this.idTarea = idTarea;
+    }
+
 //    EMPIEZAN LOS METODOS FUERA DE GET AND SET
-    
-   public String cargarGrupo(){
-       
-       System.out.println("Cargando Grupos");
+    public String cargarGrupo() {
+
+        System.out.println("Cargando Grupos");
         BaseDatosMaestro BD = new BaseDatosMaestro();
         grupo = BD.getGrupo(userName);
         return "1";
-   }
-   
-   public String cargarAlumnos(){
-       System.out.println("Cargando Alumnos");
+    }
+
+    public String cargarAlumnos() {
+        System.out.println("Cargando Alumnos");
         BaseDatosMaestro BD = new BaseDatosMaestro();
         alumnos = BD.getAlumnos(idGrupo);
         return "1";
-   }
-   
-   public String cargarAlumno(){
-       System.out.println("Cargando Alumno");
-        BaseDatosMaestro BD = new BaseDatosMaestro();
-        alumno = BD.getAlumno(idAlumno);
-       return "1";
-   }
-   
-   public String calificarAlumno(){
+    }
+
+    public String cargarAlumno() {
         System.out.println("Cargando Alumno");
         BaseDatosMaestro BD = new BaseDatosMaestro();
         alumno = BD.getAlumno(idAlumno);
-        calificacion = BD.getAlumnoCalificacion(idAlumno);       
-       
-       return "1";
-   }
-   
-   public String modificarCalificacion(){
-       System.out.println("Cambiando calificacion");
-       //nuevaCalificacion = "7";
-       System.out.println("calificacion = " + nuevaCalificacion);
-       BaseDatosMaestro bd = new BaseDatosMaestro();       
-       bd.cambiarCalificacion(idCalificacion,nuevaCalificacion);
-       calificarAlumno();
-       return "1";
-   }
-   public String InicioProfesor()
-   {
-       return "1";
-   }
-   
-   public String ejercicio(){
-       
-       
-       
-       return "1";
-   }
-  
-   
-   
-   
+        return "1";
+    }
 
+    public String calificarAlumno() {
+        System.out.println("Cargando Alumno");
+        BaseDatosMaestro BD = new BaseDatosMaestro();
+        alumno = BD.getAlumno(idAlumno);
+        listaEjercicios = BD.getListaEjercicioAlumno(idAlumno);
+        calificacion = BD.getAlumnoCalificacion(idAlumno);
+        System.out.println("Calificaciones " + listaEjercicios.toString());
+        System.out.println("idALumno " + idAlumno);
+
+        return "1";
+    }
+
+    public String modificarCalificacion() {
+        System.out.println("Cambiando calificacion");
+        System.out.println("idTarea " + idTarea);
+        System.out.println("calificacion " + nuevaCalificacion);
+        System.out.println("calificacion = " + nuevaCalificacion);
+        BaseDatosMaestro bd = new BaseDatosMaestro();
+        bd.cambiarCalificacion(idTarea, nuevaCalificacion);
+        
+        calificarAlumno();
+        return "1";
+    }
+
+    public String InicioProfesor() {
+        return "1";
+    }
+
+    public String ejercicio() {
+
+        return "1";
+    }
 
 }

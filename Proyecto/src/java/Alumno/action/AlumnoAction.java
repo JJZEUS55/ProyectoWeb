@@ -17,6 +17,7 @@ public class AlumnoAction extends ActionSupport {
     int idAlumno;
     List listaCalificaciones;
     List interfacesIzDer;
+    List listaNoCalificados;
     Tareas tarea;
     String usuario;
 
@@ -70,13 +71,28 @@ public class AlumnoAction extends ActionSupport {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
+
+    public List getListaNoCalificados() {
+        return listaNoCalificados;
+    }
+
+    public void setListaNoCalificados(List listaNoCalificados) {
+        this.listaNoCalificados = listaNoCalificados;
+    }
+    
     
     
 
     public String cargarCalificaciones() {
-        BaseDatos bd = new BaseDatos();
-        listaCalificaciones = bd.getCalificacion(idAlumno);
-        return SUCCESS;
+        BaseDatosAlumno bd = new BaseDatosAlumno();
+         idAlumno = bd.getId(usuario);
+        listaCalificaciones = bd.getCalificaciones(idAlumno);
+        listaNoCalificados = bd.getNoCalificados(idAlumno);
+       
+        System.out.println("id alumno " + idAlumno);
+        System.out.println("id alumno " + usuario);
+        System.out.println("Calificaciones " + listaCalificaciones.toString());
+        return "1";
     }
 
     public String InicioAlumno() {
