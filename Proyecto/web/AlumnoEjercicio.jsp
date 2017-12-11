@@ -9,13 +9,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Bienvenido</title>
         <style>
-        canvas {
-            border:1px solid black;
-        }
+            canvas {
+                border:1px solid black;
+            }
         </style>
-       <script type="text/javascript" src="${pageContext.request.contextPath}/fabric.js"></script>
-       <script type="text/javascript" src="${pageContext.request.contextPath}/Juego.js"></script>
-       
+        <script type="text/javascript" src="${pageContext.request.contextPath}/fabric.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/Juego.js"></script>
+
     </head>
     <body>
         <div id="header">
@@ -50,16 +50,18 @@
                 <canvas id="c" width="600" height="400" >
 
                 </canvas>
-                <s:textarea id="log" value=""></s:textarea>
+            <s:textarea id="log" value=""></s:textarea>
 
-                <s:form>
-                <s:textfield id="res1" disabled="true">Resultados</s:textfield>
-                <s:textfield id="res2" disabled="true"></s:textfield>
-                <s:textfield id="res3" disabled="true"></s:textfield>
-                <s:textfield id="res4" disabled="true"></s:textfield>
-                <s:submit></s:submit>
-                </s:form>
-                <!--INTERFAZ 1-->
+            <s:form action="/All/obtenerResultado" theme="simple">
+                <h2>Resultado 1</h2><s:textfield id="res1" name="res1" readonly="true"></s:textfield>
+                <h2>Resultado 2</h2><s:textfield id="res2" name="res2" readonly="true"></s:textfield>
+                <h2>Resultado 3</h2><s:textfield id="res3" name="res3" readonly="true"></s:textfield>
+                <h2>Resultado 4</h2><s:textfield id="res4" name="res4" readonly="true"></s:textfield>
+                <s:hidden name="usuario" value="%{tarea.usuarios.usuario}"></s:hidden>
+                <s:hidden name="idTarea" value="%{tarea.idTareas}"></s:hidden>
+                <s:submit value="Enviar Resultados"/>
+            </s:form>
+            <!--INTERFAZ 1-->
             <s:hidden id="SolveIz1" value="%{tarea.int1solveiz1}"></s:hidden>
             <s:hidden id="SolveIz2" value="%{tarea.int1solveiz2}"></s:hidden>
             <s:hidden id="SolveIz3" value="%{tarea.int1solveiz3}"></s:hidden>
@@ -90,6 +92,10 @@
             <s:hidden id="int4solveder1" value="%{tarea.int4solveder1}"></s:hidden>
             <s:hidden id="int4solveder2" value="%{tarea.int4solveder2}"></s:hidden>
             <s:hidden id="int4solveder3" value="%{tarea.int4solveder3}"></s:hidden>
+            
+            
+            <!--RECURSOSALUMNO-->
+            
 
 
             </div>
@@ -106,9 +112,9 @@
         </div>
 
 
-            <script>
+        <script>
             var canvas = this.__canvas = new fabric.Canvas('c');
-          fabric.Object.prototype.transparentCorners = false;
+            fabric.Object.prototype.transparentCorners = false;
             inicio(canvas);
 
         </script>

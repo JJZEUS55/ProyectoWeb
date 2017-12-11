@@ -14,8 +14,9 @@ import entity.Tareas;
  * @author usuario
  */
 public class AlumnoTarea extends ActionSupport {
-    
+
     int idAlumno;
+    int idTarea;
     String usuario;
     Tareas tarea;
 
@@ -51,9 +52,13 @@ public class AlumnoTarea extends ActionSupport {
     int int4solveder1;
     int int4solveder2;
     int int4solveder3;
-    
-    
-    
+
+    //RESULTADOS
+    String res1;
+    String res2;
+    String res3;
+    String res4;
+
     public AlumnoTarea() {
     }
 
@@ -280,19 +285,70 @@ public class AlumnoTarea extends ActionSupport {
     public void setInt4solveder3(int int4solveder3) {
         this.int4solveder3 = int4solveder3;
     }
-    
-    
-    
-      
-     public String obtenerTarea(){
-         System.out.println("Cargando Tarea");
-         BaseDatosAlumno bd = new BaseDatosAlumno();
-         idAlumno = bd.getId(usuario);
-         tarea = bd.getTarea(idAlumno);
-         
-        return "1";
+
+    public String getRes1() {
+        return res1;
+    }
+
+    public void setRes1(String res1) {
+        this.res1 = res1;
+    }
+
+    public String getRes2() {
+        return res2;
+    }
+
+    public void setRes2(String res2) {
+        this.res2 = res2;
+    }
+
+    public String getRes3() {
+        return res3;
+    }
+
+    public void setRes3(String res3) {
+        this.res3 = res3;
+    }
+
+    public String getRes4() {
+        return res4;
+    }
+
+    public void setRes4(String res4) {
+        this.res4 = res4;
+    }
+
+    public int getIdTarea() {
+        return idTarea;
+    }
+
+    public void setIdTarea(int idTarea) {
+        this.idTarea = idTarea;
     }
     
     
-    
+
+    public String obtenerTarea() {
+        System.out.println("Cargando Tarea");
+        BaseDatosAlumno bd = new BaseDatosAlumno();
+        idAlumno = bd.getId(usuario);
+        tarea = bd.getTarea(idAlumno);
+
+        return "1";
+    }
+
+    public String obtenerResultados() {
+        System.out.println("Obteniendo Resultados del ejercicio");
+//        BaseDatosAlumno bd = new BaseDatosAlumno();
+//        idAlumno = bd.getId(usuario);
+        System.out.println("res1: " + res1
+                + "res2: " + res2
+                + "res3: " + res3
+                + "res4: " + res4
+                + "idTarea "+ idTarea
+                + "idAlumno " + usuario);
+
+        return "1";
+    }
+
 }
