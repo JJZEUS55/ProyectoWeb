@@ -1,10 +1,13 @@
-<%@taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="/struts-tags" prefix="s"%>
+
 <!DOCTYPE html>
-<html>
+<html>  
     <head>
+        <link href="<s:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
+        <link href="<s:url value="/css/main.css"/>" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Bienvenido</title>
     </head>
     <body>
         <div id="header">
@@ -14,7 +17,7 @@
             <nav id="nav"> 
                 <ul>
                     <s:url action="InicioAlumno" var="prueba3"></s:url>
-                    <li class="current"><s:a href="%{prueba3}">Inicio</s:a></li>
+                    <li><s:a href="%{prueba3}">Inicio</s:a></li>
                         <s:url action="obtenerTarea" var="prueba" >
                             <s:param name="usuario" value="username"/>
                         </s:url>
@@ -24,17 +27,20 @@
                         <s:param name="idAlumno" value="idUsuario"/>
                     </s:url>
                     <li><s:a href="%{prueba}">Calificaciones</s:a></li>
-                    <li><s:a href="%{prueba2}">Ejercicio</s:a></li>
+                    <li  class="current"><s:a href="%{prueba2}">Ejercicio</s:a></li>
                     </ul>
                 </nav>                
             </div>
             <table>
                 <tr>
                     <td>
-                        Maestro
+                        Nombre
                     </td>
                     <td>
-                        Ejercicio
+                        Apellido Paterno
+                    </td>
+                    <td>
+                        Apellido Materno
                     </td>
                     <td>
                         Calificacion

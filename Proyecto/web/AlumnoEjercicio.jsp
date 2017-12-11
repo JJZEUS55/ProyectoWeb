@@ -13,8 +13,9 @@
             border:1px solid black;
         }
         </style>
-        <script src="fabric.js"></script>
-        <script src="Juego.js"></script>
+       <script type="text/javascript" src="${pageContext.request.contextPath}/fabric.js"></script>
+       <script type="text/javascript" src="${pageContext.request.contextPath}/Juego.js"></script>
+       
     </head>
     <body>
         <div id="header">
