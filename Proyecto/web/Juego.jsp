@@ -27,11 +27,14 @@
        
         los value de lo seleccionado on el dato 1
         <s:hidden id="SolveIz1" value="1"></s:hidden> unidades
-        <s:hidden id="SolveIz2" value="2"></s:hidden> x
-        <s:hidden id="SolveIz3" value="3"></s:hidden> x^2
-        <s:hidden id="SolveDer1" value="1"></s:hidden>misma mierda
-        <s:hidden id="SolveDer2" value="2"></s:hidden>
-        <s:hidden id="SolveDer3" value="3"></s:hidden>
+        <s:hidden id="SolveIz2" value="0"></s:hidden> x
+        <s:hidden id="SolveIz3" value="0"></s:hidden> x^2
+        <s:hidden id="SolveDe1" value="0"></s:hidden>misma mierda
+        <s:hidden id="SolveDe2" value="0"></s:hidden>
+        <s:hidden id="SolveDe3" value="0"></s:hidden>
+        
+        <s:textfield id="res1" disabled="true"></s:textfield>
+        
         Aqui terminan las que se necesitan para solve 
         Faltan aun por las otras interfaces
      
