@@ -30,7 +30,7 @@ public class MaestroTarea extends ActionSupport {
     String int2solveiz2;
     String int2solveiz3;
     String int2solveder1;
-    String int21solveder2;
+    String int2solveder2;
     String int2solveder3;
 
 //    TERCER INTERFAZ
@@ -156,12 +156,12 @@ public class MaestroTarea extends ActionSupport {
         this.int2solveder1 = int2solveder1;
     }
 
-    public String getInt21solveder2() {
-        return int21solveder2;
+    public String getInt2solveder2() {
+        return int2solveder2;
     }
 
-    public void setInt21solveder2(String int21solveder2) {
-        this.int21solveder2 = int21solveder2;
+    public void setInt2solveder2(String int2solveder2) {
+        this.int2solveder2 = int2solveder2;
     }
 
     public String getInt2solveder3() {
@@ -272,7 +272,10 @@ public class MaestroTarea extends ActionSupport {
     
     public String ponerEjercicio(){
         System.out.println("id" + idAlumno + "int1 " + int1solveder1 + " int2 " + int1solveder2);
-        
+        if(int1solveiz1 == null || int1solveiz2 == null || int1solveiz3 == null || int1solveder1 == null || int1solveder2 == null || int1solveder3 == null ||
+           int2solveiz1 == null || int2solveiz2 == null || int2solveiz3 == null || int2solveder1 == null || int2solveder2 == null || int2solveder3 == null ||
+           int3solveiz1 == null || int3solveiz2 == null || int3solveiz3 == null || int3solveder1 == null || int3solveder2 == null || int3solveder3 == null ){return "1";}
+            
         BaseDatosMaestro bd = new BaseDatosMaestro();
         bd.ponerTarea(idAlumno, calificacion, int1solveiz1, int1solveiz2, int1solveiz3, int1solveder1, int1solveder2, int1solveder3, int2solveiz1, int2solveiz2, int2solveiz3, int2solveder1, int1solveder2, int2solveder3, int3solveiz1, int3solveiz2, int3solveiz3, int3solveder1, int3solveder2, int3solveder3, int4solveiz1, int4solveiz2, int4solveiz3, int4solveder1, int4solveder2, int4solveder3);
         return "1";
