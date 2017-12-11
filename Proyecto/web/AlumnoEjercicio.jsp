@@ -52,11 +52,13 @@
                 </canvas>
                 <s:textarea id="log" value=""></s:textarea>
 
-                <s:textfield id="res1" disabled="true"></s:textfield>
+                <s:form>
+                <s:textfield id="res1" disabled="true">Resultados</s:textfield>
                 <s:textfield id="res2" disabled="true"></s:textfield>
                 <s:textfield id="res3" disabled="true"></s:textfield>
                 <s:textfield id="res4" disabled="true"></s:textfield>
-                
+                <s:submit></s:submit>
+                </s:form>
                 <!--INTERFAZ 1-->
             <s:hidden id="SolveIz1" value="%{tarea.int1solveiz1}"></s:hidden>
             <s:hidden id="SolveIz2" value="%{tarea.int1solveiz2}"></s:hidden>
@@ -66,12 +68,12 @@
             <s:hidden id="SolveDe3" value="%{tarea.int1solveder3}"></s:hidden>
 
                 <!--INTERFAZ 2-->
-            <s:hidden id="int2solveiz1" value="%{tarea.int2solveiz1}"></s:hidden>
-            <s:hidden id="int2solveiz2" value="%{tarea.int2solveiz2}"></s:hidden>
-            <s:hidden id="int2solveiz3" value="%{tarea.int2solveiz3}"></s:hidden>
-            <s:hidden id="int2solveder1" value="%{tarea.int2solveder1}"></s:hidden>
-            <s:hidden id="int2solveder2" value="%{tarea.int2solveder2}"></s:hidden>
-            <s:hidden id="int2solveder3" value="%{tarea.int2solveder3}"></s:hidden>
+            <s:hidden id="SubsDe1" value="%{tarea.int2solveiz1}"></s:hidden>
+            <s:hidden id="SubsDe2" value="%{tarea.int2solveiz2}"></s:hidden>
+            <s:hidden id="SubsDe3" value="%{tarea.int2solveiz3}"></s:hidden>
+            <s:hidden id="SubsAb1" value="%{tarea.int2solveder1}"></s:hidden>
+            <s:hidden id="SubsAb2" value="%{tarea.int2solveder2}"></s:hidden>
+            <s:hidden id="SubsAb3" value="%{tarea.int2solveder3}"></s:hidden>
 
                 <!--INTERFAZ 3-->
             <s:hidden id="int3solveiz1" value="%{tarea.int3solveiz1}"></s:hidden>

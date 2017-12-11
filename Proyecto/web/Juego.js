@@ -55,8 +55,8 @@ function inicio(canvas) {
         SolveDe[i-1]=document.getElementById("SolveDe"+i).value;
         
         SubsIz[i-1]=0;//document.getElementById("SolveDe"+i).value;
-        /*
-        SubsDe[i-1]=document.getElementById("SubsDe"+i).value;
+        
+        SubsDe[i-1]=0;//document.getElementById("SubsDe"+i).value;
         SubsAb[i-1]=document.getElementById("SubsAb"+i).value;
 
         ExpIz[i-1]=document.getElementById("SolveDe"+i).value;
@@ -65,8 +65,9 @@ function inicio(canvas) {
 
         FacIz[i-1]=document.getElementById("SolveDe"+i).value;
         FacDe[i-1]=document.getElementById("SolveDe"+i).value;
-        FacSu[i-1]=document.getElementById("SolveDe"+i).value;*/
+        FacSu[i-1]=document.getElementById("SolveDe"+i).value;
     }
+    SubsDe[1]=document.getElementById("SolveDe"+1).value;
     SubsIz[1]=1;
     //uni=;
     //alert(uni.value);
@@ -494,7 +495,7 @@ function inicio(canvas) {
                  XsN.splice(i,1);
                  ob.remove();
               }
-              else if(X2s.includes(ob))
+              else if(X2sN.includes(ob))
               {
                  i=X2sN.indexOf(ob);
                  X2sN.splice(i,1);
@@ -560,13 +561,13 @@ function inicio(canvas) {
               {
                   case 1:
                       
-                      
+                      imprimir2("ExpandCorrecto","res3");
                       res1=CuentaIntercepciones(interfaces[0].LadoIzquierdo);
                       imprimir("\nLado Izquierdo:"+res1[0]+","+res1[1]+","+res1[2]);                      
                       res2=CuentaIntercepciones(interfaces[0].LadoDerecho);
                       imprimir("Lado Derecho:"+res2[0]+","+res2[1]+","+res2[2]);
-                      if(CompArray(res1,SolveIz))                          
-                      if(CompArray(res2,SolveDe)){
+                      //if()                          
+                      if(CompArray(res1,SolveIz) && CompArray(res2,SolveDe)){
                           imprimir ("itworks");
                           imprimir2("SolveCorrecto","res1");
                         }
@@ -598,9 +599,8 @@ function inicio(canvas) {
                       imprimir("Lado Sup:"+res2[0]+","+res2[1]+","+res2[2]);
                       re3=CuentaIntercepciones(interfaces[3].LadoDerecho);
                       imprimir("Lado Derecho:"+res3[0]+","+res3[1]+","+res3[2]);
-                      if(CompArray(res1,ExpIz))                          
-                      if(CompArray(res2,ExpSu))                         
-                      if(CompArray(res3,ExpDe)){
+                                               
+                      if(CompArray(res3,ExpDe) && CompArray(res2,ExpSu) && CompArray(res1,ExpIz)){
                             imprimir("hol");
                             imprimir2("ExpandCorrecto","res3");
                     }
@@ -615,14 +615,13 @@ function inicio(canvas) {
                       imprimir("Lado Sup:"+res2[0]+","+res2[1]+","+res2[2]);
                       re3=CuentaIntercepciones(interfaces[3].LadoDerecho);
                       imprimir("Lado Derecho:"+res3[0]+","+res3[1]+","+res3[2]);
-                      if(CompArray(res1,FacIz))                         
-                      if(CompArray(res2,FacSu))                         
-                      if(CompArray(res3,FacDe)){
+                                              
+                      if(CompArray(res3,FacDe) && CompArray(res2,FacSu) && CompArray(res1,FacIz)){
                             imprimir("hol");
                             imprimir2("FactorCorrecto","res4");
-                    }
+                        }
                     else
-                          //alert("Tienes un error");
+                       
                           imprimir2("FactorIncorrecto","res4");
                       break;
                       
