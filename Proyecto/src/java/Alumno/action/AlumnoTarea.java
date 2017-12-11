@@ -8,6 +8,7 @@ package Alumno.action;
 import BD.BaseDatosAlumno;
 import com.opensymphony.xwork2.ActionSupport;
 import entity.Tareas;
+import java.util.List;
 
 /**
  *
@@ -19,6 +20,7 @@ public class AlumnoTarea extends ActionSupport {
     int idTarea;
     String usuario;
     Tareas tarea;
+    List listaTareas;
 
     int calificacion;
 //    PRIMER INTERFAZ
@@ -326,6 +328,18 @@ public class AlumnoTarea extends ActionSupport {
         this.idTarea = idTarea;
     }
     
+    public String obtenerTareas(){
+        System.out.println("Cargando Tareas");
+        System.out.println("El alumno es " + usuario);
+        BaseDatosAlumno bd = new BaseDatosAlumno();
+        idAlumno=bd.getId(usuario);
+        System.out.println("su id es " + idAlumno);
+        listaTareas = bd.getTareas(idAlumno);
+        System.out.println("tareas " + listaTareas.toString());
+        
+        return "1";
+    }
+    
     
 
     public String obtenerTarea() {
@@ -333,6 +347,7 @@ public class AlumnoTarea extends ActionSupport {
         BaseDatosAlumno bd = new BaseDatosAlumno();
         idAlumno = bd.getId(usuario);
         tarea = bd.getTarea(idAlumno);
+        
 
         return "1";
     }

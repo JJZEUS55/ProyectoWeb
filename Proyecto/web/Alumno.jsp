@@ -22,7 +22,7 @@
                             <s:param name="usuario" value="username"/>
                         </s:url>
 
-                    <s:url action="obtenerTarea" var="prueba2" >
+                    <s:url action="obtenerTareas" var="prueba2" >
                         <s:param name="usuario" value="username"/>
                         <s:param name="idAlumno" value="idUsuario"/>
                     </s:url>

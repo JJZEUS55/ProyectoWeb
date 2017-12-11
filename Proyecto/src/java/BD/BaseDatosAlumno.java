@@ -39,6 +39,16 @@ public class BaseDatosAlumno {
         return tarea;
     }
     
+    
+    public List getTareas(int idAlumno){
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t1 = hibernateSession.beginTransaction();        
+        Query consulta = hibernateSession.createQuery("from Tareas where idUsuario="+idAlumno);
+        
+        return consulta.list();        
+    }
+    
+    
     public Tareas getTareabyId(int idTarea) {
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
         Transaction t1 = hibernateSession.beginTransaction();        
