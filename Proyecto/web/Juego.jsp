@@ -33,10 +33,19 @@
         <s:hidden id="SolveDe2" value="0"></s:hidden>
         <s:hidden id="SolveDe3" value="0"></s:hidden>
         
-        <s:textfield id="res1" disabled="true"></s:textfield>
         
-        Aqui terminan las que se necesitan para solve 
-        Faltan aun por las otras interfaces
+        
+        
+        
+        Este es lo que guarda el alumno
+        <br>
+        
+        <s:textfield id="res1" disabled="true"></s:textfield>
+        <s:textfield id="res2" disabled="true"></s:textfield>
+        <s:textfield id="res3" disabled="true"></s:textfield>
+        <s:textfield id="res4" disabled="true"></s:textfield>
+        
+      
      
         <button onclick="inicio.serializa()"></button>
         

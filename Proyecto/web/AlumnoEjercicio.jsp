@@ -8,6 +8,13 @@
         <link href="<s:url value="/css/main.css"/>" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Bienvenido</title>
+        <style>
+        canvas {
+            border:1px solid black;
+        }
+        </style>
+        <script src="fabric.js"></script>
+        <script src="Juego.js"></script>
     </head>
     <body>
         <div id="header">
@@ -35,13 +42,27 @@
             <div>
                 <h2>Obteniedo los datos</h2>
 
+                <input type="text" value="0" id="Cont">
+                <input type="text" value="0" id="Cont2">
+                <input type="text" value="0" id="Cont3">
+
+                <canvas id="c" width="600" height="400" >
+
+                </canvas>
+                <s:textarea id="log" value=""></s:textarea>
+
+                <s:textfield id="res1" disabled="true"></s:textfield>
+                <s:textfield id="res2" disabled="true"></s:textfield>
+                <s:textfield id="res3" disabled="true"></s:textfield>
+                <s:textfield id="res4" disabled="true"></s:textfield>
+                
                 <!--INTERFAZ 1-->
-            <s:hidden id="int1solveiz1" value="%{tarea.int1solveiz1}"></s:hidden>
-            <s:hidden id="int1solveiz2" value="%{tarea.int1solveiz2}"></s:hidden>
-            <s:hidden id="int1solveiz3" value="%{tarea.int1solveiz3}"></s:hidden>
-            <s:hidden id="int1solveder1" value="%{tarea.int1solveder1}"></s:hidden>
-            <s:hidden id="int1solveder2" value="%{tarea.int1solveder2}"></s:hidden>
-            <s:hidden id="int1solveder3" value="%{tarea.int1solveder3}"></s:hidden>
+            <s:hidden id="SolveIz1" value="%{tarea.int1solveiz1}"></s:hidden>
+            <s:hidden id="SolveIz2" value="%{tarea.int1solveiz2}"></s:hidden>
+            <s:hidden id="SolveIz3" value="%{tarea.int1solveiz3}"></s:hidden>
+            <s:hidden id="SolveDe1" value="%{tarea.int1solveder1}"></s:hidden>
+            <s:hidden id="SolveDe2" value="%{tarea.int1solveder2}"></s:hidden>
+            <s:hidden id="SolveDe3" value="%{tarea.int1solveder3}"></s:hidden>
 
                 <!--INTERFAZ 2-->
             <s:hidden id="int2solveiz1" value="%{tarea.int2solveiz1}"></s:hidden>
@@ -82,7 +103,12 @@
         </div>
 
 
+            <script>
+            var canvas = this.__canvas = new fabric.Canvas('c');
+          fabric.Object.prototype.transparentCorners = false;
+            inicio(canvas);
 
+        </script>
 
     </body>
 </html>

@@ -54,9 +54,9 @@ function inicio(canvas) {
     {
         SolveDe[i-1]=document.getElementById("SolveDe"+i).value;
         
-        SubsIz[i-1]=document.getElementById("SolveDe"+i).value;
-        SubsDe[i-1]=document.getElementById("SolveDe"+i).value;
-        SubsAb[i-1]=document.getElementById("SolveDe"+i).value;
+        SubsIz[i-1]=0;//document.getElementById("SolveDe"+i).value;
+        SubsDe[i-1]=document.getElementById("SubsDe"+i).value;
+        SubsAb[i-1]=document.getElementById("SubsAb"+i).value;
 
         ExpIz[i-1]=document.getElementById("SolveDe"+i).value;
         ExpDe[i-1]=document.getElementById("SolveDe"+i).value;
@@ -66,7 +66,7 @@ function inicio(canvas) {
         FacDe[i-1]=document.getElementById("SolveDe"+i).value;
         FacSu[i-1]=document.getElementById("SolveDe"+i).value;
     }
-   
+    SubsIz[1]=1;
     //uni=;
     //alert(uni.value);
     imprimir(""+SolveIz[0]+""+SolveIz[1]+""+SolveIz[2]+"");
@@ -564,8 +564,8 @@ function inicio(canvas) {
                       imprimir("\nLado Izquierdo:"+res1[0]+","+res1[1]+","+res1[2]);                      
                       res2=CuentaIntercepciones(interfaces[0].LadoDerecho);
                       imprimir("Lado Derecho:"+res2[0]+","+res2[1]+","+res2[2]);
-                      if(CompArray(res1,SolveIz)){                          
-                      if(CompArray(res2,SolveDe))
+                      if(CompArray(res1,SolveIz))                          
+                      if(CompArray(res2,SolveDe)){
                           imprimir ("itworks");
                           imprimir2("SolveCorrecto","res1");
                         }
@@ -581,11 +581,13 @@ function inicio(canvas) {
                       res3=CuentaIntercepciones(interfaces[1].LadoDerecho);
                       imprimir("Lado Inferior:"+res3[0]+","+res3[1]+","+res3[2]);
                       
-                      if(CompArray(res1,SubsDe)){                          
-                      if(CompArray(res2,SubsIz))                         
-                      if(CompArray(res2,SubsAb))
-                            imprimir("Holo");}
-                      
+                      if(CompArray(res1,SubsDe) && CompArray(res2,SubsIz) && CompArray(res3,SubsAb) ){                   
+                            imprimir("Holo");
+                            imprimir2("SubstCorrecto","res2");
+ 
+                        }                           
+                      else
+                          imprimir2("SubstIncorrecto","res2");
                       
                       break;
                   case 3:
@@ -595,10 +597,15 @@ function inicio(canvas) {
                       imprimir("Lado Sup:"+res2[0]+","+res2[1]+","+res2[2]);
                       re3=CuentaIntercepciones(interfaces[3].LadoDerecho);
                       imprimir("Lado Derecho:"+res3[0]+","+res3[1]+","+res3[2]);
-                      if(CompArray(res1,ExpIz)){                          
+                      if(CompArray(res1,ExpIz))                          
                       if(CompArray(res2,ExpSu))                         
-                      if(CompArray(res3,ExpDe))
-                            imprimir("hol");}
+                      if(CompArray(res3,ExpDe)){
+                            imprimir("hol");
+                            imprimir2("ExpandCorrecto","res3");
+                    }
+                    else
+                          //alert("Tienes un error");
+                          imprimir2("ExpandIncorrecto","res3");
                       break;
                   case 4:
                       res1=CuentaIntercepciones(interfaces[3].LadoIzquierdo);
@@ -607,10 +614,15 @@ function inicio(canvas) {
                       imprimir("Lado Sup:"+res2[0]+","+res2[1]+","+res2[2]);
                       re3=CuentaIntercepciones(interfaces[3].LadoDerecho);
                       imprimir("Lado Derecho:"+res3[0]+","+res3[1]+","+res3[2]);
-                      if(CompArray(res1,FacIz)){                          
+                      if(CompArray(res1,FacIz))                         
                       if(CompArray(res2,FacSu))                         
-                      if(CompArray(res3,FacDe))
-                            imprimir("hol");}
+                      if(CompArray(res3,FacDe)){
+                            imprimir("hol");
+                            imprimir2("FactorCorrecto","res4");
+                    }
+                    else
+                          //alert("Tienes un error");
+                          imprimir2("FactorIncorrecto","res4");
                       break;
                       
                       
