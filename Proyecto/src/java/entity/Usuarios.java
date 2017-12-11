@@ -1,5 +1,5 @@
 package entity;
-// Generated 10/12/2017 06:14:59 PM by Hibernate Tools 4.3.1
+// Generated 10/12/2017 11:50:48 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -20,6 +20,7 @@ public class Usuarios  implements java.io.Serializable {
      private String apPaterno;
      private String apMaterno;
      private Set tareases = new HashSet(0);
+     private Set resultadoses = new HashSet(0);
      private Set calificacioneses = new HashSet(0);
 
     public Usuarios() {
@@ -29,7 +30,7 @@ public class Usuarios  implements java.io.Serializable {
     public Usuarios(Grupo grupo) {
         this.grupo = grupo;
     }
-    public Usuarios(Grupo grupo, String usuario, String contrasena, Integer tipoUsuario, String nombre, String apPaterno, String apMaterno, Set tareases, Set calificacioneses) {
+    public Usuarios(Grupo grupo, String usuario, String contrasena, Integer tipoUsuario, String nombre, String apPaterno, String apMaterno, Set tareases, Set resultadoses, Set calificacioneses) {
        this.grupo = grupo;
        this.usuario = usuario;
        this.contrasena = contrasena;
@@ -38,6 +39,7 @@ public class Usuarios  implements java.io.Serializable {
        this.apPaterno = apPaterno;
        this.apMaterno = apMaterno;
        this.tareases = tareases;
+       this.resultadoses = resultadoses;
        this.calificacioneses = calificacioneses;
     }
    
@@ -103,6 +105,13 @@ public class Usuarios  implements java.io.Serializable {
     
     public void setTareases(Set tareases) {
         this.tareases = tareases;
+    }
+    public Set getResultadoses() {
+        return this.resultadoses;
+    }
+    
+    public void setResultadoses(Set resultadoses) {
+        this.resultadoses = resultadoses;
     }
     public Set getCalificacioneses() {
         return this.calificacioneses;

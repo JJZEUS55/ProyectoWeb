@@ -37,6 +37,21 @@ create table tareas(
    on delete cascade on update cascade 
 );
 
+-- Nueva tabla agregada por que cocinero apenas se le incho decir
+create table resultados(
+	idResultado int not null primary key auto_increment,
+    idTarea int not null,
+    idUsuario int not null,
+    resultado1 varchar(30),
+    resultado2 varchar(30),
+    resultado3 varchar(30),
+    resultado4 varchar(30),
+    foreign key (idTarea) references tareas(idTareas)
+    on delete cascade on update cascade,
+    foreign key (idUsuario) references usuarios(idUsuario)
+    on delete cascade on update cascade
+);
+
 
 
 INSERT INTO `grupo` (`idGrupo`,`nombre`) VALUES (1,'grupo');

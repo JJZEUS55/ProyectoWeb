@@ -339,14 +339,15 @@ public class AlumnoTarea extends ActionSupport {
 
     public String obtenerResultados() {
         System.out.println("Obteniendo Resultados del ejercicio");
-//        BaseDatosAlumno bd = new BaseDatosAlumno();
-//        idAlumno = bd.getId(usuario);
+        BaseDatosAlumno bd = new BaseDatosAlumno();
+        idAlumno = bd.getId(usuario);
         System.out.println("res1: " + res1
                 + "res2: " + res2
                 + "res3: " + res3
                 + "res4: " + res4
                 + "idTarea "+ idTarea
-                + "idAlumno " + usuario);
+                + "idAlumno " + idAlumno);
+        bd.setResultados(idTarea, idAlumno, res1, res2, res3, res4);
 
         return "1";
     }

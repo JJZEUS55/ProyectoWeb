@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 10/12/2017 06:15:01 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 10/12/2017 11:50:49 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entity.Usuarios" table="usuarios" catalog="proyecto" optimistic-lock="version">
         <id name="idUsuario" type="java.lang.Integer">
@@ -34,6 +34,12 @@
                 <column name="idUsuario" not-null="true" />
             </key>
             <one-to-many class="entity.Tareas" />
+        </set>
+        <set name="resultadoses" table="resultados" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="entity.Resultados" />
         </set>
         <set name="calificacioneses" table="calificaciones" inverse="true" lazy="true" fetch="select">
             <key>
