@@ -71,19 +71,22 @@
 
                 <!--INTERFAZ 2-->
             <s:hidden id="SubsDe1" value="%{tarea.int2solveiz1}"></s:hidden>
-            <s:hidden id="SubsDe2" value="%{tarea.int2solveiz2}"></s:hidden>
-            <s:hidden id="SubsDe3" value="%{tarea.int2solveiz3}"></s:hidden>
-            <s:hidden id="SubsAb1" value="%{tarea.int2solveder1}"></s:hidden>
-            <s:hidden id="SubsAb2" value="%{tarea.int2solveder2}"></s:hidden>
-            <s:hidden id="SubsAb3" value="%{tarea.int2solveder3}"></s:hidden>
-
-                <!--INTERFAZ 3-->
-            <s:hidden id="int3solveiz1" value="%{tarea.int3solveiz1}"></s:hidden>
-            <s:hidden id="int3solveiz2" value="%{tarea.int3solveiz2}"></s:hidden>
-            <s:hidden id="int3solveiz3" value="%{tarea.int3solveiz3}"></s:hidden>
-            <s:hidden id="int3solveder1" value="%{tarea.int3solveder1}"></s:hidden>
-            <s:hidden id="int3solveder2" value="%{tarea.int3solveder2}"></s:hidden>
-            <s:hidden id="int3solveder3" value="%{tarea.int3solveder3}"></s:hidden>
+            <s:hidden id="SubsAb1" value="%{tarea.int2solveiz2}"></s:hidden>
+            <s:hidden id="SubsAb2" value="%{tarea.int2solveiz3}"></s:hidden>
+            <s:hidden id="SubsAb3" value="%{tarea.int2solveder1}"></s:hidden>
+            
+            
+            
+            <s:hidden id="ExpI0" value="%{tarea.int2solveder2}"></s:hidden>
+            <s:hidden id="ExpI1" value="%{tarea.int2solveder3}"></s:hidden>
+            <s:hidden id="ExpS0" value="%{tarea.int3solveiz1}"></s:hidden>
+            <s:hidden id="ExpS1" value="%{tarea.int3solveiz2}"></s:hidden>
+            
+            
+            <s:hidden id="FacI0" value="%{tarea.int3solveiz3}"></s:hidden>
+            <s:hidden id="FacI1" value="%{tarea.int3solveder1}"></s:hidden>
+            <s:hidden id="FacS0" value="%{tarea.int3solveder2}"></s:hidden>
+            <s:hidden id="FacS1" value="%{tarea.int3solveder3}"></s:hidden>
 
                 <!--INTERFAZ 4-->
             <s:hidden id="int4solveiz1" value="%{tarea.int4solveiz1}"></s:hidden>

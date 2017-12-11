@@ -54,7 +54,7 @@ function inicio(canvas) {
     {
         SolveDe[i-1]=document.getElementById("SolveDe"+i).value;
         
-        SubsIz[i-1]=0;//document.getElementById("SolveDe"+i).value;
+        SubsIz[i-1]=0;
         
         SubsDe[i-1]=0;//document.getElementById("SubsDe"+i).value;
         SubsAb[i-1]=document.getElementById("SubsAb"+i).value;
@@ -63,19 +63,27 @@ function inicio(canvas) {
         ExpDe[i-1]=0;//document.getElementById("SolveDe"+i).value;
         ExpSu[i-1]=0;//document.getElementById("SolveDe"+i).value;
 
-        FacIz[i-1]=document.getElementById("SolveDe"+i).value;
-        FacDe[i-1]=document.getElementById("SolveDe"+i).value;
-        FacSu[i-1]=document.getElementById("SolveDe"+i).value;
+        FacIz[i-1]=0;//document.getElementById("SolveDe"+i).value;
+        FacDe[i-1]=0;//document.getElementById("SolveDe"+i).value;
+        FacSu[i-1]=0;//document.getElementById("SolveDe"+i).value;
     }
+    
     SubsDe[1]=document.getElementById("SubsDe"+1).value;
     SubsIz[1]=1;
-    ExpIz[0]=document.getElementById("SolveIz"+0).value;
-    ExpIz[1]=document.getElementById("SolveIz"+1).value;
-    ExpSu[0]=document.getElementById("SolveDe"+0).value;
-    ExpSu[1]=document.getElementById("SolveDe"+1).value;
+    ExpIz[0]=document.getElementById("ExpI"+0).value;
+    ExpIz[1]=document.getElementById("ExpI"+1).value;
+    ExpSu[0]=document.getElementById("ExpS"+0).value;
+    ExpSu[1]=document.getElementById("ExpS"+1).value;
     ExpDe[0]=ExpIz[0]*ExpSu[0];
     ExpDe[1]=ExpIz[1]*ExpSu[0]+ExpIz[0]*ExpSu[1];
     ExpDe[3]=ExpIz[1]*ExpSu[1];
+    FacIz[0]=document.getElementById("FacI"+0).value;
+    FacIz[1]=document.getElementById("FacI"+1).value;
+    FacSu[0]=document.getElementById("FacS"+0).value;
+    FacSu[1]=document.getElementById("FacS"+1).value;
+    FacDe[0]=ExpIz[0]*ExpSu[0];
+    FacDe[1]=ExpIz[1]*ExpSu[0]+ExpIz[0]*ExpSu[1];
+    FacDe[3]=ExpIz[1]*ExpSu[1];
     
     //uni=;
     //alert(uni.value);
