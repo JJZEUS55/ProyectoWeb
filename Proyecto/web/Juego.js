@@ -5,6 +5,13 @@ function imprimir(Str)
     co.appendChild(document.createTextNode(Str+","));
 
 }
+function imprimir2(Str,campo)
+{
+    co=document.getElementById(campo);
+    co.setAttribute("value",Str);
+    //co.appendChild(document.createTextNode(Str+","));
+
+};
 
 
 function inicio(canvas) {   
@@ -43,6 +50,23 @@ function inicio(canvas) {
     SolveIz[0]=document.getElementById("SolveIz1").value;
     SolveIz[1]=document.getElementById("SolveIz2").value;
     SolveIz[2]=document.getElementById("SolveIz3").value;
+    for (i=1;i<4;i++)
+    {
+        SolveDe[i-1]=document.getElementById("SolveDe"+i).value;
+        
+        SubsIz[i-1]=document.getElementById("SolveDe"+i).value;
+        SubsDe[i-1]=document.getElementById("SolveDe"+i).value;
+        SubsAb[i-1]=document.getElementById("SolveDe"+i).value;
+
+        ExpIz[i-1]=document.getElementById("SolveDe"+i).value;
+        ExpDe[i-1]=document.getElementById("SolveDe"+i).value;
+        ExpSu[i-1]=document.getElementById("SolveDe"+i).value;
+
+        FacIz[i-1]=document.getElementById("SolveDe"+i).value;
+        FacDe[i-1]=document.getElementById("SolveDe"+i).value;
+        FacSu[i-1]=document.getElementById("SolveDe"+i).value;
+    }
+   
     //uni=;
     //alert(uni.value);
     imprimir(""+SolveIz[0]+""+SolveIz[1]+""+SolveIz[2]+"");
@@ -220,17 +244,20 @@ function inicio(canvas) {
     {
         this.LadoIzquierdo = new Fondo(200,200,50,180,100,60,0);
         this.LadoDerecho = new Fondo(200,200,260,180,0,60,200);
+        this.Text1=new Texto(SolveIz[0]+" + "+SolveIz[1]+"X +"+SolveIz[2]+"x^2="+SolveDe[0]+" + "+SolveDe[1]+"X +"+SolveDe[2]+"x^2",150,75);
         //Visible=true;
         this.MosBorr=function (Visible)
         {
             if(!Visible){
                 this.LadoIzquierdo.Borrar();
                 this.LadoDerecho.Borrar();
+                this.Text1.Borrar();
             }
             else       
             {
                 this.LadoIzquierdo.Dibujar();
                 this.LadoDerecho.Dibujar();
+                this.Text1.Dibujar();
             }
             Visible=!Visible;
         };
@@ -242,6 +269,7 @@ function inicio(canvas) {
         this.LadosuperiorIZ = new Fondo(200,100,50,175,100,60,0);
         this.LadosuperiorDer = new Fondo(200,100,250,175,100,60,0);
         this.LadoDerecho = new Fondo(400,100,50,285,0,60,100);
+        this.Text=new Texto("X="+SubsDe[0]+"\n"+SubsAb[2]+"X^2 + "+SubsAb[1]+"X + "+SubsAb[0]+"",210,50);
         this.Text1=new Texto("Valor de x",210,175);
         this.Text2=new Texto("Expresion",210,282);
         this.MosBorr=function (Visible)
@@ -250,6 +278,7 @@ function inicio(canvas) {
                 this.LadosuperiorIZ.Borrar();
                 this.LadosuperiorDer.Borrar();
                 this.LadoDerecho.Borrar();
+                this.Text.Borrar();
                 this.Text1.Borrar();
                 this.Text2.Borrar();
             }
@@ -258,6 +287,7 @@ function inicio(canvas) {
                 this.LadosuperiorIZ.Dibujar();
                 this.LadosuperiorDer.Dibujar();
                 this.LadoDerecho.Dibujar();
+                this.Text.Dibujar();
                 this.Text1.Dibujar();
                 this.Text2.Dibujar();
             }
@@ -293,7 +323,7 @@ function inicio(canvas) {
     {
         this.LadoIzquierdo = new Fondo(25,200,240,180,100,60,0);
         this.LadoSup = new Fondo(200,25,240,180,100,60,0);
-        this.LadoDerecho = new Fondo(175,175,265,205,0,60,200);
+        this.LadoDerecho = new Fondo(175,175,265,205,200,60,200);
         //Visible=true;
         this.MosBorr=function (Visible)
         {
@@ -450,7 +480,7 @@ function inicio(canvas) {
                  X2s.splice(i,1);
                  ob.remove();
               }
-              if(unidadesN.includes(ob))
+              else if(unidadesN.includes(ob))
               {
                  i=unidadesN.indexOf(ob);
                  unidadesN.splice(i,1);
@@ -534,11 +564,14 @@ function inicio(canvas) {
                       imprimir("\nLado Izquierdo:"+res1[0]+","+res1[1]+","+res1[2]);                      
                       res2=CuentaIntercepciones(interfaces[0].LadoDerecho);
                       imprimir("Lado Derecho:"+res2[0]+","+res2[1]+","+res2[2]);
-                      if(CompArray(res1,SolveIz))                          
+                      if(CompArray(res1,SolveIz)){                          
                       if(CompArray(res2,SolveDe))
-                          Imprimir ("itworks");
+                          imprimir ("itworks");
+                          imprimir2("SolveCorrecto","res1");
+                        }
                       else
-                          alert("Tienes un error");
+                          //alert("Tienes un error");
+                          imprimir2("SolveIncorrecto","res1");
                       break;
                   case 2:
                       res1=CuentaIntercepciones(interfaces[1].LadosuperiorDer);
@@ -548,10 +581,10 @@ function inicio(canvas) {
                       res3=CuentaIntercepciones(interfaces[1].LadoDerecho);
                       imprimir("Lado Inferior:"+res3[0]+","+res3[1]+","+res3[2]);
                       
-                      if(CompArray(res1,SubsDe))                          
+                      if(CompArray(res1,SubsDe)){                          
                       if(CompArray(res2,SubsIz))                         
                       if(CompArray(res2,SubsAb))
-                            imprimir("Holo")
+                            imprimir("Holo");}
                       
                       
                       break;
@@ -562,10 +595,10 @@ function inicio(canvas) {
                       imprimir("Lado Sup:"+res2[0]+","+res2[1]+","+res2[2]);
                       re3=CuentaIntercepciones(interfaces[3].LadoDerecho);
                       imprimir("Lado Derecho:"+res3[0]+","+res3[1]+","+res3[2]);
-                      if(CompArray(res1,ExpIz))                          
+                      if(CompArray(res1,ExpIz)){                          
                       if(CompArray(res2,ExpSu))                         
                       if(CompArray(res3,ExpDe))
-                            imprimir("hol");
+                            imprimir("hol");}
                       break;
                   case 4:
                       res1=CuentaIntercepciones(interfaces[3].LadoIzquierdo);
@@ -574,10 +607,10 @@ function inicio(canvas) {
                       imprimir("Lado Sup:"+res2[0]+","+res2[1]+","+res2[2]);
                       re3=CuentaIntercepciones(interfaces[3].LadoDerecho);
                       imprimir("Lado Derecho:"+res3[0]+","+res3[1]+","+res3[2]);
-                      if(CompArray(res1,FacIz))                          
+                      if(CompArray(res1,FacIz)){                          
                       if(CompArray(res2,FacSu))                         
                       if(CompArray(res3,FacDe))
-                            imprimir("hol");
+                            imprimir("hol");}
                       break;
                       
                       
